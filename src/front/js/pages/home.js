@@ -1,4 +1,10 @@
 import React from "react";
+import cabinImageUrl from "../../img/cabin.png";
+import cakeImageUrl from "../../img/cake.png";
+import circusImageUrl from "../../img/circus.png";
+import gameImageUrl from "../../img/game.png";
+import safeImageUrl from "../../img/safe.png";
+import submarineImageUrl from "../../img/submarine.png";
 
 export const Home = () => {
 	return (
@@ -85,7 +91,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+								<img className="img-fluid" src={cabinImageUrl} alt="..." />
 							</div>
 						</div>
 						{/* <!-- Portfolio Item 2--> */}
@@ -96,7 +102,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+								<img className="img-fluid" src={cakeImageUrl} alt="..." />
 							</div>
 						</div>
 						{/* <!-- Portfolio Item 3--> */}
@@ -107,7 +113,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+								<img className="img-fluid" src={circusImageUrl} alt="..." />
 							</div>
 						</div>
 						{/* <!-- Portfolio Item 4--> */}
@@ -118,7 +124,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/game.png" alt="..." />
+								<img className="img-fluid" src={gameImageUrl} alt="..." />
 							</div>
 						</div>
 						{/* <!-- Portfolio Item 5--> */}
@@ -129,7 +135,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/safe.png" alt="..." />
+								<img className="img-fluid" src={safeImageUrl} alt="..." />
 							</div>
 						</div>
 						{/* <!-- Portfolio Item 6--> */}
@@ -140,7 +146,7 @@ export const Home = () => {
 										<i className="fas fa-plus fa-3x" />
 									</div>
 								</div>
-								<img className="img-fluid" src="assets/img/portfolio/submarine.png" alt="..." />
+								<img className="img-fluid" src={submarineImageUrl} alt="..." />
 							</div>
 						</div>
 					</div>
@@ -327,6 +333,8 @@ export const Home = () => {
 					<i className="fa fa-chevron-up" />
 				</a>
 			</div>
+
+			{/* ########################################################################################################################################################## */}
 			{/* <!-- Portfolio Modals--> */}
 			{/* <!-- Portfolio Modal 1--> */}
 			<div
@@ -362,11 +370,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/cabin.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={cabinImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
@@ -419,11 +423,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/cake.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={cakeImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
@@ -476,11 +476,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/circus.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={circusImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
@@ -533,11 +529,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/game.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={gameImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
@@ -590,11 +582,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/safe.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={safeImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
@@ -647,11 +635,7 @@ export const Home = () => {
 											<div className="divider-custom-line" />
 										</div>
 										{/* <!-- Portfolio Modal - Image--> */}
-										<img
-											className="img-fluid rounded mb-5"
-											src="assets/img/portfolio/submarine.png"
-											alt="..."
-										/>
+										<img className="img-fluid rounded mb-5" src={submarineImageUrl} alt="..." />
 										{/* <!-- Portfolio Modal - Text--> */}
 										<p className="mb-5">
 											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
