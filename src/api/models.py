@@ -70,18 +70,22 @@ class Supplier(db.Model):
 
 class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
-    supplierId = db.Column(db.Integer, db.ForeignKey('supplier.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
     
-
     def __repr__(self):
         return '<Favorite %r>' % self.id
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+        }
 
 class Messages(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(1000), nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
-    supplierId = db.Column(db.Integer, db.ForeignKey('supplier.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
 
     def __repr__(self):
         return '<Messages %r>' % self.id
