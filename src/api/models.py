@@ -4,12 +4,17 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(50), nullable=False)
-    lastName = db.Column(db.String(50), nullable=False)
-    phoneNumber = db.Column(db.String(8), nullable=False)
-    profilePic = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(50), nullable=False)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    phone_number = db.Column(db.String(8), nullable=False)
+    profile_pic = db.Column(db.String(50), nullable=True)
+    email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)
+    is_active = db.Column(db.Boolean(), nullable=True)
+    user_supplier = db.relationship('Supplier', backref='user', lazy=True)
+    user_favorites = db.relationship('Favorites', backref='user', lazy=True)
+    user_messages = db.relationship('Messages', backref='user', lazy=True)
+
 
     def __repr__(self):
         return '<User %r>' % self.id
@@ -17,29 +22,30 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "firstName": self.firstName,
-            "lastName": self.lastName,
-            "phoneNumber": self.phoneNumber,
-            "profilePic": self.profilePic,
+            "first_name": self.firstName,
+            "last_name": self.lastName,
+            "phone_number": self.phoneNumber,
+            "profile_pic": self.profilePic,
             "email": self.email,
         }
 
 class Supplier(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    phoneNumber = db.Column(db.String(8), nullable=False)
-    profilePic = db.Column(db.String(50), nullable=False)
+    phone_number = db.Column(db.String(8), nullable=False)
+    profile_pic = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String(50), nullable=False)
-    schedule = db.Column(db.String(50), nullable=False)
-    rate = db.Column(db.String(50), nullable=False)
-    comentaries = db.Column(db.String(50), nullable=False)
+    schedule = db.Column(db.String(50), nullable=True)
+    rate = db.Column(db.String(50), nullable=True)
+    comentaries = db.Column(db.String(50), nullable=True)
     description = db.Column(db.String(50), nullable=False)
-    worksDone = db.Column(db.String(50), nullable=False)
-    memberSince = db.Column(db.String(50), nullable=False)
-    imageURL = db.Column(db.String(50), nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = relationship(User)
+    #jobsDone = db.Column(db.String(50), nullable=False)
+    member_since = db.Column(db.String(50), nullable=False)
+    image_url = db.Column(db.String(50), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    supplier_favorites = db.relationship('Favorites', backref='supplier', lazy=True)
+    supplier_messages = db.relationship('Messages', backref='supplier', lazy=True)
 
     def __repr__(self):
         return '<Supplier %s>' % self.name
@@ -48,17 +54,17 @@ class Supplier(db.Model):
         return {
             "id": self.id,
             "name": self.firstName,
-            "phoneNumber": self.phoneNumber,
-            "profilePic": self.profilePic,
+            "phone_number": self.phoneNumber,
+            "profile_pic": self.profilePic,
             "email": self.email,
             "address": self.address,
             "schedule": self.schedule,
             "rate": self.rate,
             "comentaries": self.comentaries,
             "description": self.description,
-            "worksDone": self.worksDone,
-            "memberSince": self.memberSince,
-            "imageURL": self.imageURL,
+            #"jobsDone": self.jobsDone,
+            "member_since": self.memberSince,
+            "image_url": self.imageURL,
         }
     
 
@@ -66,8 +72,7 @@ class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey('user.id'))
     supplierId = db.Column(db.Integer, db.ForeignKey('supplier.id'))
-    user = relationship(User)
-    supplier = relationship(Supplier)
+    
 
     def __repr__(self):
         return '<Favorite %r>' % self.id
