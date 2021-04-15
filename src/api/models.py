@@ -1,28 +1,34 @@
-import os
-import sys
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, ForeignKey, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy import create_engine
-from eralchemy import render_er
 
 db = SQLAlchemy()
 
 class User(db.Model):
-    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     firstName = db.Column(db.String(50), nullable=False)
     lastName = db.Column(db.String(50), nullable=False)
     phoneNumber = db.Column(db.String(8), nullable=False)
+    profilePic = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(50), nullable=False)
 
+    def __repr__(self):
+        return '<User %r>' % self.id
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "firstName": self.firstName,
+            "lastName": self.lastName,
+            "phoneNumber": self.phoneNumber,
+            "profilePic": self.profilePic,
+            "email": self.email,
+        }
+
 class Supplier(db.Model):
-    __tablename__ = 'supplier'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     phoneNumber = db.Column(db.String(8), nullable=False)
+    profilePic = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String(50), nullable=False)
     schedule = db.Column(db.String(50), nullable=False)
@@ -32,28 +38,51 @@ class Supplier(db.Model):
     worksDone = db.Column(db.String(50), nullable=False)
     memberSince = db.Column(db.String(50), nullable=False)
     imageURL = db.Column(db.String(50), nullable=False)
-    userId = Column(Integer,  ForeignKey('user.id'))
+    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = relationship(User)
+
+    def __repr__(self):
+        return '<Supplier %s>' % self.name
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.firstName,
+            "phoneNumber": self.phoneNumber,
+            "profilePic": self.profilePic,
+            "email": self.email,
+            "address": self.address,
+            "schedule": self.schedule,
+            "rate": self.rate,
+            "comentaries": self.comentaries,
+            "description": self.description,
+            "worksDone": self.worksDone,
+            "memberSince": self.memberSince,
+            "imageURL": self.imageURL,
+        }
+    
 
 class Favorites(db.Model):
-    __tablename__ = 'favorites'
     id = db.Column(db.Integer, primary_key=True)
-    userId = Column(Integer,  ForeignKey('user.id'))
-    supplierId = Column(Integer,  ForeignKey('supplier.id'))
+    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplierId = db.Column(db.Integer, db.ForeignKey('supplier.id'))
     user = relationship(User)
     supplier = relationship(Supplier)
+
+    def __repr__(self):
+        return '<Favorite %r>' % self.id
 
 class Messages(db.Model):
-    __tablename__ = 'messages'
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(1000), nullable=False)
-    userId = Column(Integer,  ForeignKey('user.id'))
-    supplierId = Column(Integer,  ForeignKey('supplier.id'))
-    user = relationship(User)
-    supplier = relationship(Supplier)
+    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplierId = db.Column(db.Integer, db.ForeignKey('supplier.id'))
 
-    def to_dict(self):
-        return {}
+    def __repr__(self):
+        return '<Messages %r>' % self.id
 
-## Draw from SQLAlchemy base
-render_er(Base, 'diagram.png')
+    def serialize(self):
+        return {
+            "id": self.id,
+            "message": self.message,
+        }
