@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/login.scss";
 
 export const Login = () => {
 	return (

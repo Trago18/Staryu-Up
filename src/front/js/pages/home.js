@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/home.scss";
 import polygonoImageUrl from "../../img/polygono.png";
 
 /* <!--import cakeImageUrl from "../../img/cake.png";
@@ -11,7 +12,7 @@ import polygonoImageUrl from "../../img/polygono.png";-->*/
 export const Home = () => {
 	return (
 		<body id="page-top">
-			{/* <!--Buscador-->*/}
+			{/* <!--Navbar-->
 			<nav className="navbar navbar-inverse">
 				<div className="container height d-flex align-items-center flex-column">
 					<form className="navbar-form navbar-left" action="/action_page.php">
@@ -34,7 +35,6 @@ export const Home = () => {
 					</form>
 				</div>
 			</nav>
-			{/* <!-- Navigation--> */}
 			<nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
 				<div className="container">
 					<a className="navbar-brand js-scroll-trigger px-lg-1" href="#page-top">
@@ -81,7 +81,8 @@ export const Home = () => {
 						</ul>
 					</div>
 				</div>
-			</nav>
+			</nav> */}
+
 			{/* <!-- Masthead--> */}
 			<header className="masthead bg-white text-center">
 				<div className="container p-5 height d-flex align-items-center flex-column">
@@ -169,46 +170,6 @@ export const Home = () => {
 				</div>
 			</section>
 
-			{/* <!-- Footer--> */}
-			<footer className="footer text-center pt-5">
-				<div className="container">
-					<div className="row">
-						{/* <!-- Footer Location--> */}
-						<div className="col-lg-4 mb-5 mb-lg-0">
-							<h4 className="text-uppercase mb-4">Localización</h4>
-							<p className="lead mb-0">
-								2215 John Daniel Drive
-								<br />
-								Clark, MO 65243
-							</p>
-						</div>
-						{/* <!-- Footer Social Icons--> */}
-						<div className="col-lg-4 mb-5 mb-lg-0">
-							<h4 className="text-uppercase mb-4">Siguenos</h4>
-							<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-								<i className="fab fa-fw fa-facebook-f" />
-							</a>
-							<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-								<i className="fab fa-fw fa-twitter" />
-							</a>
-							<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-								<i className="fab fa-fw fa-linkedin-in" />
-							</a>
-							<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-								<i className="fab fa-fw fa-dribbble" />
-							</a>
-						</div>
-						{/* <!-- Footer About Text--> */}
-						<div className="col-lg-4">
-							<h4 className="text-uppercase mb-4">Sobre Freelancer</h4>
-							<p className="lead mb-0">
-								Freelance is a free to use, MIT licensed Bootstrap theme created by
-								<a href="http://startbootstrap.com">Start Bootstrap</a>.
-							</p>
-						</div>
-					</div>
-				</div>
-			</footer>
 			{/* <!-- Copyright Section--> *
 			<div className="copyright py-4 text-center text-white">
 				<div className="container">
