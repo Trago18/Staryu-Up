@@ -16,3 +16,19 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route("/user/<int:id>", methods=["GET"])
+def get_user(id):
+
+    user = User.query.filter_by(id=id).all()
+    user = list(map(lambda x: x.serialize(), user))
+
+    return jsonify(user), 200
+
+@api.route("/supplier/<int:id>", methods=["GET"])
+def get_supplier(id):
+
+    supplier = Supplier.query.filter_by(id=id).all()
+    supplier = list(map(lambda x: x.serialize(), supplier))
+
+    return jsonify(supplier), 200
