@@ -22,7 +22,10 @@ def search():
 
     search = request.json.get("search", None)
 
-    return jsonify(search), 200
+    supplier = Supplier.query.filter_by(name=search).all()
+    all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))
+
+    return jsonify(all_suppliers), 200
     
 @api.route("/user/<int:id>", methods=["GET"])
 def get_user(id):

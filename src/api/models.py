@@ -66,6 +66,15 @@ class Supplier(db.Model):
             "image_url": self.image_url,
         }
 
+    def serializeSearch(self):
+        return {
+            "name": self.name,
+            "profile_pic": self.profile_pic,
+            "address": self.address,
+            "rate": self.rate,
+            "description": self.description
+        }
+
 class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
