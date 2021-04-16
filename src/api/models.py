@@ -13,8 +13,6 @@ class User(db.Model):
     is_active = db.Column(db.Boolean(), nullable=True)
     user_supplier = db.relationship('Supplier', backref='user', lazy=True)
     user_favorites = db.relationship('Favorites', backref='user', lazy=True)
-    user_messages = db.relationship('Messages', backref='user', lazy=True)
-
 
     def __repr__(self):
         return '<User %r>' % self.id
@@ -46,7 +44,6 @@ class Supplier(db.Model):
     image_url = db.Column(db.String(50), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     supplier_favorites = db.relationship('Favorites', backref='supplier', lazy=True)
-    supplier_messages = db.relationship('Messages', backref='supplier', lazy=True)
 
     def __repr__(self):
         return '<Supplier %s>' % self.name
@@ -68,7 +65,6 @@ class Supplier(db.Model):
             "member_since": self.member_since,
             "image_url": self.image_url,
         }
-    
 
 class Favorites(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -81,19 +77,4 @@ class Favorites(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-        }
-
-class Messages(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    message = db.Column(db.String(1000), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
-
-    def __repr__(self):
-        return '<Messages %r>' % self.id
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "message": self.message,
         }
