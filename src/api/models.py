@@ -22,10 +22,10 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "first_name": self.firstName,
-            "last_name": self.lastName,
-            "phone_number": self.phoneNumber,
-            "profile_pic": self.profilePic,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "phone_number": self.phone_number,
+            "profile_pic": self.profile_pic,
             "email": self.email,
         }
 
@@ -34,6 +34,7 @@ class Supplier(db.Model):
     name = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.String(8), nullable=False)
     profile_pic = db.Column(db.String(50), nullable=False)
+    category = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String(50), nullable=False)
     schedule = db.Column(db.String(50), nullable=True)
@@ -53,9 +54,10 @@ class Supplier(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "name": self.firstName,
-            "phone_number": self.phoneNumber,
-            "profile_pic": self.profilePic,
+            "name": self.name,
+            "phone_number": self.phone_number,
+            "profile_pic": self.profile_pic,
+            "category": self.category,
             "email": self.email,
             "address": self.address,
             "schedule": self.schedule,
@@ -63,8 +65,8 @@ class Supplier(db.Model):
             "comentaries": self.comentaries,
             "description": self.description,
             #"jobsDone": self.jobsDone,
-            "member_since": self.memberSince,
-            "image_url": self.imageURL,
+            "member_since": self.member_since,
+            "image_url": self.image_url,
         }
     
 
