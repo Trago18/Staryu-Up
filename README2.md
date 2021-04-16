@@ -1,6 +1,10 @@
 # Database
+psql
+\l
+:q
 drop database example;
-mysql -u root -e "CREATE DATABASE example";
+create database example;
+\q
 
 # Backend
 pipenv run init;

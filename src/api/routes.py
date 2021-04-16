@@ -16,3 +16,10 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/', methods=['POST'])
+def search():
+
+    search = request.json.get("search", None)
+
+    return jsonify(search), 200
