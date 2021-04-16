@@ -17,14 +17,13 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-<<<<<<< HEAD
 @api.route('/', methods=['POST'])
 def search():
 
     search = request.json.get("search", None)
 
     return jsonify(search), 200
-=======
+    
 @api.route("/user/<int:id>", methods=["GET"])
 def get_user(id):
 
@@ -40,4 +39,3 @@ def get_supplier(id):
     supplier = list(map(lambda x: x.serialize(), supplier))
 
     return jsonify(supplier), 200
->>>>>>> aeacdaf8b10da0765ac4a02bd427242241c11b7c
