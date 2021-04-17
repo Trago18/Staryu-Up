@@ -1,31 +1,15 @@
 .cabecera{
-     height: 200px;
+     height: 150px;
 }
-
-.card{
-    width: 600px;
-    background-color: rgb(196, 196, 196);
-    
-}
-
-.card-login{
-    width: 515px;
-  height: 300px;
-}
-
-.info{
-    width: 600px;
-}
-
 .register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #27425e, #11afdb);
     margin-top: 3%;
     padding: 3%;
 }
 .register-left{
     text-align: center;
     color: #fff;
-    margin-top: 4%;
+    margin-top: 13%;
 }
 .register-left input{
     border: none;
@@ -59,11 +43,7 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
-.register-left p{
-    font-weight: lighter;
-    padding: 12%;
-    margin-top: -9%;
-}
+
 .register .register-form{
     padding: 10%;
     margin-top: 10%;
@@ -74,38 +54,12 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: #10b880;
     color: #fff;
     font-weight: 600;
     width: 50%;
-    cursor: pointer;
 }
-.register .nav-tabs{
-    margin-top: 3%;
-    border: none;
-    background: #0062cc;
-    border-radius: 1.5rem;
-    width: 28%;
-    float: right;
-}
-.register .nav-tabs .nav-link{
-    padding: 2%;
-    height: 34px;
-    font-weight: 600;
-    color: #fff;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-.register .nav-tabs .nav-link:hover{
-    border: none;
-}
-.register .nav-tabs .nav-link.active{
-    width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
+
 .register-heading{
     text-align: center;
     margin-top: 8%;
