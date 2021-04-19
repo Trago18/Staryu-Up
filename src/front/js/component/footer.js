@@ -3,44 +3,47 @@ import "../../styles/footer.scss";
 
 export const Footer = () => {
 	return (
-		<footer className="footer mt-auto py-3 text-center">
-			<div className="container">
-				<div className="row">
-					{/* <!-- Footer Location--> */}
-					<div className="col-lg-4 mb-5 mb-lg-0">
-						<h4 className="text-uppercase mb-4">Localización</h4>
-						<p className="lead mb-0">
-							2215 John Daniel Drive
-							<br />
-							Clark, MO 65243
-						</p>
-					</div>
-					{/* <!-- Footer Social Icons--> */}
-					<div className="col-lg-4 mb-5 mb-lg-0">
-						<h4 className="text-uppercase mb-4">Siguenos</h4>
-						<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-							<i className="fab fa-fw fa-facebook-f" />
-						</a>
-						<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-							<i className="fab fa-fw fa-twitter" />
-						</a>
-						<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-							<i className="fab fa-fw fa-linkedin-in" />
-						</a>
-						<a className="btn btn-outline-light rounded-circle btn-social mx-1" href="#!">
-							<i className="fab fa-fw fa-dribbble" />
-						</a>
-					</div>
-					{/* <!-- Footer About Text--> */}
-					<div className="col-lg-4">
-						<h4 className="text-uppercase mb-4">Sobre Freelancer</h4>
-						<p className="lead mb-0">
-							Freelance is a free to use, MIT licensed Bootstrap theme created by
-							<a href="http://startbootstrap.com">Start Bootstrap</a>.
-						</p>
-					</div>
-				</div>
+		<footer className="footer text-center text-white">
+			<div className="container p-2 mt-4">
+				{/*<!-- Social -->*/}
+				<section className="mb-4">
+					<ul className="social-network social-circle">
+						<li>
+							<a href="#" className="icoFacebook" title="Facebook">
+								<i className="fab fa-facebook-f" />
+							</a>
+						</li>
+						<li>
+							<a href="#" className="icoLinkedin" title="Linkedin">
+								<i className="fab fa-linkedin-in" />
+							</a>
+						</li>
+						<li>
+							<a href="#" className="icoTwiter" title="Twitter">
+								<i className="fab fa-twitter" />
+							</a>
+						</li>
+						<li>
+							<a href="#" className="icoGoogle" title="Google">
+								<i className="fab fa-google" />
+							</a>
+						</li>
+						<li>
+							<a href="#" className="icoInstagram" title="Instagram">
+								<i className="fab fa-instagram" />
+							</a>
+						</li>
+						<li>
+							<a href="#" className="icoGithub" title="Github">
+								<i className="fab fa-github" />
+							</a>
+						</li>
+					</ul>
+				</section>
 			</div>
+
+			{/*<!-- Copyright -->*/}
+			<div className="copy text-center p-3">© 2020 Copyright: Trago, Majo, Banban, Manudo </div>
 		</footer>
 	);
 };

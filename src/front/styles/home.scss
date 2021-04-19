@@ -1,3 +1,8 @@
+.encabezado{
+    background-color: rgb(196, 196, 196);
+
+}
+
 .masthead-heading{
     color: rgb(44, 62, 80);
     height: 250px;
@@ -7,22 +12,37 @@
     background-color: rgb(44, 62, 80);
 }
 
-.page-section-about{
+.page-section-expertos{
     background-color: rgb(196, 196, 196);
-    height: 400px;
+    height: 300px;
     text-align: center;
     color: white;
 }
 
-.page-section-us{
-    color: white;
-    background-color: rgb(76, 94, 120);
-    height:400px;
-    text-align: center;
+.card-body-face:hover {
+  background-color: rgb(63, 117, 235);
+  
 }
 
-.masthead-us{
-    color: white;
-    background-color: rgb(76, 94, 120);
-    height:400px;
+.card-body-face:hover i {
+  background-color: rgb(247, 247, 248);
+  
+}
+
+.card-body-face {
+  background-color: rgb(255, 255, 255);
+}
+
+.social-rectangulo {
+  display: inline-block;
+  width: 45%;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-rectangulo i{
+   margin: 0;
+  line-height: 30px;
+  text-align: center;
 }
