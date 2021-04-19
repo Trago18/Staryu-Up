@@ -17,14 +17,9 @@ export const Home = () => {
 					{/* <!-- Icon Divider--> */}
 					<div className="row">
 						<div className="col-sm-2">
-							<div className="card">
-								<div className="card-body" />
-								<a
-									className="btn btn-link btn-floating btn-lg  btn-floating m-1"
-									href="#!"
-									role="button">
-									<i className="fab fa-facebook-f" />
-								</a>
+							<div className="card-body-face ">
+								<div className="card-body social-rectangulo" />
+								<i className="fab fa-facebook-f" />
 							</div>
 						</div>
 					</div>
