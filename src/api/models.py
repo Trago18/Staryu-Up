@@ -26,6 +26,9 @@ class User(db.Model):
             "profile_pic": self.profile_pic,
             "email": self.email,
         }
+    
+    def check_password(self, password):
+        return safe_str_cmp(password, self.password)
 
 class Supplier(db.Model):
     id = db.Column(db.Integer, primary_key=True)

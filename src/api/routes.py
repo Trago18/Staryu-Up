@@ -147,3 +147,27 @@ def create_supplier():
     }
 
     return jsonify(response_body), 200
+
+@api.route("/login", methods=["POST"])
+def login():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    error_messages=[]
+    
+    if email is None:
+        error_messages.append({"msg": "Email is required"})
+    if password is None:
+        error_messages.append({"msg": "Password is required"})
+    if len(error_messages) > 0:
+        return jsonify(error_messages), 400
+
+    email = User.query.filter_by(email=email).one_or_none()
+
+    if not email:
+        return jsonify({"msg": "Username doesn't exist"}), 400
+    if not email.check_password(password):
+        return jsonify({"msg": "Invalid password"}), 401
+    
+    expiration = timedelta(days=1)
+    access_token = create_access_token(identity=email, expires_delta=expiration)
+    return jsonify('The login has been successful.', {'token':access_token}), 200
