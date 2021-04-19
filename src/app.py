@@ -24,6 +24,7 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+api.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
 MIGRATE = Migrate(app, db)
 db.init_app(app)
 

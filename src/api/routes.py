@@ -5,7 +5,6 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Supplier, Favorites
 from api.utils import generate_sitemap, APIException
 from datetime import timedelta
-from flask_jwt_extended import create_access_token
 import re
 
 api = Blueprint('api', __name__)
@@ -168,9 +167,11 @@ def login():
 
     if not email:
         return jsonify({"msg": "Email doesn't exist"}), 400
-    if not email.check_password(password):
-        return jsonify({"msg": "Invalid password"}), 401
+    #if not email.check_password(password):
+     #   return jsonify({"msg": "Invalid password"}), 401
     
-    expiration = timedelta(days=1)
-    access_token = create_access_token(identity=email, expires_delta=expiration)
-    return jsonify('The login has been successful.', {'token':access_token}), 200
+    #expiration = timedelta(days=1)
+    #access_token = create_access_token(identity=email, expires_delta=expiration)
+    #return jsonify('The login has been successful.', {'token':access_token}), 200
+
+    return jsonify('The login has been successful.'), 200
