@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: bc7bd50688dc
+Revision ID: ff65ce6cc1e6
 Revises: 
-Create Date: 2021-04-16 21:10:01.946891
+Create Date: 2021-04-19 16:42:24.159555
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bc7bd50688dc'
+revision = 'ff65ce6cc1e6'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -22,31 +22,31 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('first_name', sa.String(length=50), nullable=False),
     sa.Column('last_name', sa.String(length=50), nullable=False),
-    sa.Column('phone_number', sa.String(length=8), nullable=False),
-    sa.Column('profile_pic', sa.String(length=50), nullable=True),
+    sa.Column('phone_number', sa.String(length=20), nullable=False),
+    sa.Column('profile_pic', sa.String(length=100), nullable=True),
     sa.Column('email', sa.String(length=50), nullable=False),
     sa.Column('password', sa.String(length=50), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=True),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('supplier',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=False),
-    sa.Column('phone_number', sa.String(length=8), nullable=False),
-    sa.Column('profile_pic', sa.String(length=50), nullable=False),
+    sa.Column('phone_number', sa.String(length=20), nullable=False),
+    sa.Column('profile_pic', sa.String(length=100), nullable=False),
     sa.Column('category', sa.String(length=50), nullable=False),
     sa.Column('email', sa.String(length=50), nullable=False),
-    sa.Column('address', sa.String(length=50), nullable=False),
+    sa.Column('address', sa.String(length=100), nullable=False),
     sa.Column('schedule', sa.String(length=50), nullable=True),
-    sa.Column('rate', sa.String(length=50), nullable=True),
+    sa.Column('rate', sa.Float(), nullable=True),
     sa.Column('comentaries', sa.String(length=50), nullable=True),
     sa.Column('description', sa.String(length=50), nullable=False),
-    sa.Column('member_since', sa.String(length=50), nullable=False),
+    sa.Column('member_since', sa.String(length=50), nullable=True),
     sa.Column('image_url', sa.String(length=50), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email')
     )
     op.create_table('favorites',
     sa.Column('id', sa.Integer(), nullable=False),
