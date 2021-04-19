@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import safe_str_cmp
 
 db = SQLAlchemy()
 

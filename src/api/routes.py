@@ -4,6 +4,9 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Supplier, Favorites
 from api.utils import generate_sitemap, APIException
+from datetime import timedelta
+from flask_jwt_extended import create_access_token
+import re
 
 api = Blueprint('api', __name__)
 
@@ -164,7 +167,7 @@ def login():
     email = User.query.filter_by(email=email).one_or_none()
 
     if not email:
-        return jsonify({"msg": "Username doesn't exist"}), 400
+        return jsonify({"msg": "Email doesn't exist"}), 400
     if not email.check_password(password):
         return jsonify({"msg": "Invalid password"}), 401
     
