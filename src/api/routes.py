@@ -39,8 +39,7 @@ def search():
 
     search = request.json.get("search", None)
 
-    supplier = Supplier.query.filter(Supplier.email.endswith('@gmail.com')).all()
-    print(supplier)
+    supplier = Supplier.query.filter_by(name=search).all()
     all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))
 
     return jsonify(all_suppliers), 200
