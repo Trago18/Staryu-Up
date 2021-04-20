@@ -4,8 +4,8 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Supplier, Favorites, Commentaries
 from api.utils import generate_sitemap, APIException
+from datetime import timedelta
 import re
-import datetime
 
 api = Blueprint('api', __name__)
 
@@ -45,6 +45,32 @@ def search():
     all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))
 
     return jsonify(all_suppliers), 200
+  
+@api.route("/login", methods=["POST"])
+def login():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    error_messages=[]
+    
+    if email is None:
+        error_messages.append({"msg": "Email is required"})
+    if password is None:
+        error_messages.append({"msg": "Password is required"})
+    if len(error_messages) > 0:
+        return jsonify(error_messages), 400
+
+    email = User.query.filter_by(email=email).one_or_none()
+
+    if not email:
+        return jsonify({"msg": "Email doesn't exist"}), 400
+    #if not email.check_password(password):
+     #   return jsonify({"msg": "Invalid password"}), 401
+    
+    #expiration = timedelta(days=1)
+    #access_token = create_access_token(identity=email, expires_delta=expiration)
+    #return jsonify('The login has been successful.', {'token':access_token}), 200
+
+    return jsonify('The login has been successful.'), 200
     
 @api.route("/user/<int:id>", methods=["GET"])
 def get_user(id):
