@@ -2,8 +2,10 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Supplier, Favorites
+from api.models import db, User, Supplier, Favorites, Commentaries
 from api.utils import generate_sitemap, APIException
+import re
+import datetime
 
 api = Blueprint('api', __name__)
 
@@ -18,16 +20,16 @@ def handle_hello():
 
 @api.route('/data-test', methods=['GET'])
 def data_test():
-    user=User(first_name='nombre1', last_name='apellido1', phone_number = 'numero1', email = 'test1@gmail.com', password = 'Pass123*', is_active = True)
+    user=User(first_name='nombre1', last_name='apellido1', phone_number='numero1', email='test1@gmail.com', password='Pass123*', is_active=True)
     db.session.add(user)
-    user=User(first_name='nombre2', last_name='apellido2', phone_number = 'numero2', email = 'test2@gmail.com', password = 'Pass234*', is_active = True)
+    user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
@@ -121,8 +123,6 @@ def create_supplier():
         error_messages.append({"msg":"Phone number required"})
     if 'category' not in request_body:
         error_messages.append({"msg":"Category required"})
-    if 'profile_pic' not in request_body:
-        error_messages.append({"msg":"Profile pic required"})
     if 'email' not in request_body:
         error_messages.append({"msg":"Email required"})
     if 'address' not in request_body:
@@ -148,12 +148,16 @@ def create_supplier():
     supplier.category = request_body['category']
     supplier.email = request_body['email']
     supplier.address = request_body['address']
-    supplier.schedule = request_body['schedule']
-    supplier.rate = request_body['rate']
-    supplier.comentaries = request_body['comentaries']
     supplier.description = request_body['description']
-    supplier.member_since = request_body['member_since']
-    supplier.image_url = request_body['image_url']
+    supplier.user_id = request_body['user_id']
+
+    if 'schedule' not in request_body:
+        supplier.schedule = None
+    else:
+        supplier.schedule = request_body['schedule']
+    
+    supplier.rate = 5
+    supplier.member_since = datetime.datetime.now().strftime("%x")
     supplier.is_active=True
 
     db.session.add(supplier)
@@ -164,3 +168,26 @@ def create_supplier():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/supplier/<int:id>/rate', methods=['POST'])
+def rate(id):
+
+    rate = request.json.get("rate", None)
+    supplier = Supplier.query.filter_by(id=id).first()
+    supplier.rate = (supplier.rate + rate)/2
+    db.session.commit()
+
+    return jsonify(rate=supplier.rate), 200
+
+@api.route('/supplier/<int:id>/comment', methods=['POST'])
+def comment(id):
+
+    comment = request.json.get("comment", None)
+    commentaries = Commentaries(message=comment, user_id=1, supplier_id=id)
+    db.session.add(commentaries)
+    db.session.commit()
+    
+    commentaries = Commentaries.query.filter_by(supplier_id=id).all()
+    all_commentaries = list(map(lambda x: x.serialize(), commentaries))
+
+    return jsonify(all_commentaries), 200

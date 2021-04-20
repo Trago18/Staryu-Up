@@ -12,6 +12,7 @@ class User(db.Model):
     password = db.Column(db.String(50), nullable=False)
     is_active = db.Column(db.Boolean(), nullable=True)
     user_supplier = db.relationship('Supplier', backref='user', lazy=True)
+    user_commentaries = db.relationship('Commentaries', backref='user', lazy=True)
     user_favorites = db.relationship('Favorites', backref='user', lazy=True)
 
     def __repr__(self):
@@ -37,12 +38,13 @@ class Supplier(db.Model):
     address = db.Column(db.String(100), nullable=False)
     schedule = db.Column(db.String(50), nullable=True)
     rate = db.Column(db.Float, nullable=True)
-    comentaries = db.Column(db.String(50), nullable=True)
     description = db.Column(db.String(50), nullable=False)
     #jobsDone = db.Column(db.String(50), nullable=False)
     member_since = db.Column(db.String(50), nullable=True)
     image_url = db.Column(db.String(50), nullable=True)
+    is_active = db.Column(db.Boolean(), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    supplier_commentaries = db.relationship('Commentaries', backref='supplier', lazy=True)
     supplier_favorites = db.relationship('Favorites', backref='supplier', lazy=True)
 
     def __repr__(self):
@@ -59,7 +61,6 @@ class Supplier(db.Model):
             "address": self.address,
             "schedule": self.schedule,
             "rate": self.rate,
-            "comentaries": self.comentaries,
             "description": self.description,
             #"jobsDone": self.jobsDone,
             "member_since": self.member_since,
@@ -86,4 +87,18 @@ class Favorites(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+        }
+
+class Commentaries(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    message = db.Column(db.String(200), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
+    
+    def __repr__(self):
+        return '<Commentaries %r>' % self.id
+    
+    def serialize(self):
+        return {
+            "message": self.message
         }
