@@ -1,36 +1,42 @@
-.cabecera{
-     height: 150px;
+
+.cabecera-space {
+    height: 20px;
+    background: -webkit-linear-gradient(left, #295686, #11afdb);
 }
+
 .register{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    margin-top: 3%;
-    padding: 3%;
+    padding-top: 3%;
+    padding-right: 20%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+  
 }
 .register-left{
     text-align: center;
     color: #fff;
-    margin-top: 14%;
+    margin-top: 150px
 }
 .register-left input{
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
+    padding: 3%;
+    width: 140px;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
+    margin-top: 15%;
     margin-bottom: 3%;
-    cursor: pointer;
+    
 }
 .register-right{
     background: #f8f9fa;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
-.register-left img{
+.register-left i{
     margin-top: 15%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     width: 25%;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 1s infinite  alternate;
@@ -45,12 +51,12 @@
 }
 
 .register .register-form{
-    padding: 10%;
-    margin-top: 10%;
+    padding: 15%;
+    margin-top: 5%;
 }
 .btnRegister{
     float: right;
-    margin-top: 10%;
+    margin-top: 1%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -66,3 +72,9 @@
     margin-bottom: -15%;
     color: #495057;
 }
+
+.footer-space{
+    height: 20px;
+    background: -webkit-linear-gradient(left, #295686, #11afdb);
+}
+
