@@ -3,69 +3,64 @@ import "../../styles/login.scss";
 
 export const Login = () => {
 	return (
-		<body id="page-top-login">
-			<div className="cabecera bg-white">
+		<body id="page-top-register">
+			<div className="cabecera-space bg-white">
 				<div className="container" />
 			</div>
-			<div className="content">
-				<div className="container">
-					<div className="row justify-content-center mt-5">
-						<div className="col-md-6 contents">
-							<div className="row justify-content-center">
-								<div className="col-md-12">
-									<div className="form-block">
-										<div className="mb-4">
-											<h3>
-												Sign In to <strong>Colorlib</strong>
-											</h3>
-											<p className="mb-4">
-												Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur
-												adipisicing.
-											</p>
+			<div className="container-fluid register">
+				<div className="row">
+					<div className="col-md-3 register-left">
+						<i className="fas fa-key fa-3x" />
+
+						<h3>Bienvenido</h3>
+						<input type="submit" name="" value="Registrarse" />
+						<br />
+					</div>
+					<div className="col-md register-right">
+						<div className="tab-content" id="myTabContent">
+							<div
+								className="tab-pane fade show active"
+								id="home"
+								role="tabpanel"
+								aria-labelledby="home-tab">
+								<h3 className="register-heading">Inicio de seción</h3>
+								<div className="row register-form">
+									<div className="col-md-11">
+										<div className="form-group">
+											<input type="text" className="form-control" placeholder="Username *" />
 										</div>
-										<form action="#" method="post">
-											<div className="form-group first">
-												<label htmlFor="username">Username</label>
-												<input type="text" className="form-control" id="username" />
-											</div>
-											<div className="form-group last mb-4">
-												<label htmlFor="password">Password</label>
-												<input type="password" className="form-control" id="password" />
-											</div>
 
-											<div className="d-flex mb-5 align-items-center">
-												<label className="control control--checkbox mb-0">
-													<span className="caption">Remember me</span>
-													<input type="checkbox" checked="checked" />
-													<div className="control__indicator" />
-												</label>
-												<span className="ml-auto">
-													<a href="#" className="forgot-pass">
-														Forgot Password
-													</a>
-												</span>
-											</div>
-
+										<div className="form-group">
 											<input
-												type="submit"
-												value="Log In"
-												className="btn btn-pill text-white btn-block btn-primary"
+												type="password"
+												className="form-control"
+												placeholder="Contraseña *"
 											/>
-
-											<span className="d-block text-center my-4 text-muted">
-												{" "}
-												or sign in with
-											</span>
-										</form>
+										</div>
+									</div>
+									<div className="col-md-8">
+										<input type="submit" className="btnRegister" value="Login" />
+									</div>
+									<div className="row register-form">
+										<div className="col-md">
+											<div className="form-check">
+												<input
+													className="form-check-input"
+													type="checkbox"
+													value=""
+													id="flexCheckDefault"
+												/>
+												<label className="form-check-label" htmlFor="flexCheckDefault">
+													Recuerdame
+												</label>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="cabecera bg-white">
-				<div className="container p-5" />
 			</div>
 		</body>
 	);
