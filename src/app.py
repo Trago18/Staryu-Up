@@ -10,7 +10,8 @@ from api.utils import APIException, generate_sitemap
 from api.models import db
 from api.routes import api
 from api.admin import setup_admin
-#from models import Person
+
+from flask_jwt_extended import JWTManager
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -24,8 +25,8 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-api.config["JWT_SECRET_KEY"] = "super-secret"  # Change this!
 MIGRATE = Migrate(app, db)
+jwt = JWTManager(app)
 db.init_app(app)
 
 # Allow CORS requests to this API
@@ -36,6 +37,15 @@ setup_admin(app)
 
 # Add all endpoints form the API with a "api" prefix
 app.register_blueprint(api)
+
+@jwt.user_identity_loader
+def user_identity_lookup(user):
+    return user.id
+
+@jwt.user_lookup_loader
+def user_lookup_callback(_jwt_header, jwt_data):
+    identity = jwt_data["sub"]
+    return User.query.filter_by(id=identity).one_or_none()
 
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
