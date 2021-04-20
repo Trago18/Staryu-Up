@@ -3,26 +3,26 @@ import "../../styles/userRegister.scss";
 
 export const User_Register = () => {
 	return (
-		<body id="page-top-login">
-			<div className="cabecera bg-white">
-				<div className="container p-5" />
+		<body id="page-top-register">
+			<div className="cabecera-space bg-white">
+				<div className="container" />
 			</div>
-			<div className="container register">
+			<div className="container-fluid register">
 				<div className="row">
 					<div className="col-md-3 register-left">
-						<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+						<i className="far fa-user fa-3x" />
 						<h3>Bienvenido</h3>
 						<input type="submit" name="" value="Login" />
 						<br />
 					</div>
-					<div className="col-md-9 register-right">
+					<div className="col-md register-right">
 						<div className="tab-content" id="myTabContent">
 							<div
 								className="tab-pane fade show active"
 								id="home"
 								role="tabpanel"
 								aria-labelledby="home-tab">
-								<h3 className="register-heading">Datos personales</h3>
+								<h3 className="register-heading">Registro de Usuario</h3>
 								<div className="row register-form">
 									<div className="col-md-11">
 										<div className="form-group">
@@ -54,7 +54,7 @@ export const User_Register = () => {
 					</div>
 				</div>
 			</div>
-			<div className="cabecera bg-white">
+			<div className="footer-space bg-white">
 				<div className="container p-5" />
 			</div>
 		</body>
