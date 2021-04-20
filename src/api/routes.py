@@ -197,8 +197,14 @@ def create_supplier():
 
     return jsonify(response_body), 200
 
-@api.route('/supplier/<int:id>/rate', methods=['POST'])     # calificacion de proveedor
-def rate(id):
+@api.route('/supplier/<int:id>/rate', methods=['GET'])     # obtener calificacion del proveedor
+def get_rate(id):
+
+    supplier = Supplier.query.filter_by(id=id).first()
+    return jsonify(rate=supplier.rate), 200
+
+@api.route('/supplier/<int:id>/rate', methods=['POST'])     # calificar al proveedor
+def add_rate(id):
 
     rate = request.json.get("rate", None)
     supplier = Supplier.query.filter_by(id=id).first()
@@ -207,8 +213,16 @@ def rate(id):
 
     return jsonify(rate=supplier.rate), 200
 
+@api.route('/supplier/<int:id>/comment', methods=['GET'])      # obtener comentarios del proveedor
+def get_comment(id):
+
+    commentaries = Commentaries.query.filter_by(supplier_id=id).all()
+    all_commentaries = list(map(lambda x: x.serialize(), commentaries))
+
+    return jsonify(all_commentaries), 200
+
 @api.route('/supplier/<int:id>/comment', methods=['POST'])      # comentario al proveedor
-def comment(id):
+def add_comment(id):
 
     comment = request.json.get("comment", None)
     commentaries = Commentaries(message=comment, user_id=1, supplier_id=id)
@@ -219,3 +233,43 @@ def comment(id):
     all_commentaries = list(map(lambda x: x.serialize(), commentaries))
 
     return jsonify(all_commentaries), 200
+
+@api.route('/favorite', methods=['GET'])      # obtener proveedor en favoritos
+def get_favorite():
+
+    favorites = Favorites.query.filter_by(user_id=1).all()
+    all_favorites = list(map(lambda x: x.serialize(), favorites))
+
+    return jsonify(all_favorites), 200
+
+@api.route('/favorite', methods=['POST'])      # agregar proveedor a favoritos
+def add_favorite():
+
+    favorite = request.json.get("favorite", None)
+
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    if favorites == None:
+        favorites = Favorites(supplier_id=favorite, user_id=1)
+        db.session.add(favorites)
+        db.session.commit()
+    else:
+        return jsonify({'msg': 'This supplier is already in favorites.'})
+    
+    favorites = Favorites.query.filter_by(user_id=1).all()
+    all_favorites = list(map(lambda x: x.serialize(), favorites))
+
+    return jsonify(all_favorites), 200
+
+@api.route('/favorite', methods=['DELETE'])     # eliminar proveedor de favoritos
+def delete_favorite():
+
+    favorite = request.json.get("favorite", None)
+
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    db.session.delete(favorites)
+    db.session.commit()
+
+    favorites = Favorites.query.filter_by(user_id=1).all()
+    all_favorites = list(map(lambda x: x.serialize(), favorites))
+
+    return jsonify(all_favorites), 200
