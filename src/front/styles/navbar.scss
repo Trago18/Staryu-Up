@@ -1,6 +1,47 @@
 .nav{
     background: #16222A;
-    background: -webkit-linear-gradient(59deg, #16222A, #3A6073);
-    height: 95px;
+    background: -webkit-linear-gradient(59deg, rgb(16, 29, 39), rgb(39, 82, 104));
+    height: 100px;
     width: 100%;
+}
+
+.display-4 {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
+.i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.display-4:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.display-4 i {
+  color: #fcf9f9;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
 }

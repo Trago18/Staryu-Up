@@ -23,4 +23,5 @@ ENV PGDATABASE="postgres"
 # PostgreSQL server is running, and if not starts it.
 RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
 
+RUN npm install react-bootstrap bootstrap
 RUN npm i heroku -g

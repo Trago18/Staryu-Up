@@ -1,36 +1,41 @@
-.cabecera{
-     height: 150px;
-}
-.register{
+
+.registro{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    margin-top: 3%;
-    padding: 3%;
+    padding-top: 125px;
+    padding-right: 20%;
+    padding-bottom: 125px;
+    padding-left: 20%;
 }
-.register-left{
+
+.login{
     text-align: center;
     color: #fff;
-    margin-top: 14%;
+    margin-top: 150px;
+    margin-right: 20px;
+    
+   
 }
-.register-left input{
+.login input{
     border: none;
     border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
+    width: 130px;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
-    margin-bottom: 3%;
-    cursor: pointer;
+    margin-top: 25px;
 }
-.register-right{
+.formulario{
     background: #f8f9fa;
+    height: 558px;
+    padding-top: 15px;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+
+    
 }
-.register-left img{
+.login i{
     margin-top: 15%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     width: 25%;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 1s infinite  alternate;
@@ -44,25 +49,36 @@
     100% { transform: translateY(-20px); }
 }
 
-.register .register-form{
-    padding: 10%;
-    margin-top: 10%;
+.registro .registrarse-form{
+    padding: 15%;
+    margin-top: 5%;
 }
-.btnRegister{
+.btnRegistrarse {
     float: right;
-    margin-top: 10%;
     border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #10b880;
+    border-radius: 30px;
+    padding: 6px;
+    background: #df3064;
     color: #fff;
     font-weight: 600;
-    width: 50%;
+    width: 85%;
+    margin-top: 30px;
+    
 }
 
-.register-heading{
+.btnRegistrarse:hover{
+    background-color: rgb(39, 195, 206);
+}
+
+.formulario-encabezado{
     text-align: center;
-    margin-top: 8%;
-    margin-bottom: -15%;
+    margin-top: 4%;
+    margin-bottom: -18%;
     color: #495057;
 }
+
+.foter-space{
+    height: 20px;
+    background: -webkit-linear-gradient(left, #295686, #11afdb);
+}
+

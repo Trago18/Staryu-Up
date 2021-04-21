@@ -1,23 +1,22 @@
 
 .copy{
    background-color: rgb(28, 38, 49);
+   height: 1
+   50px;
 }
 
 footer {
   background: #16222A;
-  background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
-  margin-top:100px;
+   background: -webkit-linear-gradient(59deg, rgb(39, 82, 104), rgb(16, 29, 39));
+  height: 100px;
 }
 
-footer a:hover {
-  color: #FA944B;
-  text-decoration: none;
-}
+
 
 .copy {
   font-size: 12px;
   padding: 10px;
-  border-top: 1px solid #FFFFFF;
+ 
 }
 
 
