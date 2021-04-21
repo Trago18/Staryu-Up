@@ -9,7 +9,9 @@ export const Navbar = () => {
 			<header className="container-cabecera">
 				<nav className="nav navbar navbar-expand-lg navbar-light ">
 					<a className="navbar-brand text-white" href="#">
-						<h1 className="display-3">A</h1>
+						<h1 className="display-4">
+							<i className="fa fa-star-half-alt fa-3x" />
+						</h1>
 					</a>
 					<button
 						className="navbar-toggler"
@@ -40,7 +42,7 @@ export const Navbar = () => {
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>PERFÍL</bold>
+										<bold>PERFIL</bold>
 									</h6>
 								</a>
 							</li>
@@ -54,7 +56,7 @@ export const Navbar = () => {
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>INICIAR SECIÓN</bold>
+										<bold>INICIAR SESIÓN</bold>
 									</h6>
 								</a>
 							</li>

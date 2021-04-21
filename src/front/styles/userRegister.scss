@@ -1,40 +1,39 @@
 
-.cabecera-space {
-    height: 20px;
+.registro{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
+    padding-top: 125px;
+    padding-right: 20%;
+    padding-bottom: 125px;
+    padding-left: 20%;
 }
 
-.register{
-    background: -webkit-linear-gradient(left, #295686, #11afdb);
-    padding-top: 3%;
-    padding-right: 20%;
-    padding-bottom: 2%;
-    padding-left: 5%;
-  
-}
-.register-left{
+.login{
     text-align: center;
     color: #fff;
-    margin-top: 150px
+    margin-top: 150px;
+    margin-right: 20px;
+    
+   
 }
-.register-left input{
+.login input{
     border: none;
     border-radius: 1.5rem;
-    padding: 3%;
-    width: 140px;
+    width: 130px;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 15%;
-    margin-bottom: 3%;
-    
+    margin-top: 25px;
 }
-.register-right{
+.formulario{
     background: #f8f9fa;
+    height: 558px;
+    padding-top: 15px;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+
+    
 }
-.register-left i{
+.login i{
     margin-top: 15%;
     margin-bottom: 10%;
     width: 25%;
@@ -50,30 +49,35 @@
     100% { transform: translateY(-20px); }
 }
 
-.register .register-form{
+.registro .registrarse-form{
     padding: 15%;
     margin-top: 5%;
 }
-.btnRegister{
+.btnRegistrarse {
     float: right;
-    margin-top: 1%;
     border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #10b880;
+    border-radius: 30px;
+    padding: 6px;
+    background: #df3064;
     color: #fff;
     font-weight: 600;
-    width: 50%;
+    width: 85%;
+    margin-top: 30px;
+    
 }
 
-.register-heading{
+.btnRegistrarse:hover{
+    background-color: rgb(39, 195, 206);
+}
+
+.formulario-encabezado{
     text-align: center;
-    margin-top: 8%;
-    margin-bottom: -15%;
+    margin-top: 4%;
+    margin-bottom: -18%;
     color: #495057;
 }
 
-.footer-space{
+.foter-space{
     height: 20px;
     background: -webkit-linear-gradient(left, #295686, #11afdb);
 }
