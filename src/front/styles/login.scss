@@ -1,39 +1,45 @@
 
-.cabecera-space {
-    height: 20px;
-    background: -webkit-linear-gradient(left, #295686, #11afdb);
+
+.encabezado {
+     background: -webkit-linear-gradient(left, #295686, #11afdb);
+     height: 810px;
+     margin: 0px;
 }
+
 
 .register{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    padding-top: 5%;
+    padding-top: 125px;
     padding-right: 20%;
-    padding-bottom: 4%;
-    padding-left: 5%;
+    padding-bottom: 125px;
+    padding-left: 20%;
   
 }
 .register-left{
     text-align: center;
-    color: rgb(247, 243, 243);
-    margin-top: 50px
+    color: #fff;
+    margin-top: 150px;
+    margin-right: 20px;
+    
+
 }
 .register-left input{
     border: none;
     border-radius: 1.5rem;
-    padding: 3%;
-    width: 140px;
-    background: #f7f7f8;
+    width: 130px;
+    background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 15%;
-    margin-bottom: 3%;
-    
+    margin-top: 25px;
+    cursor: pointer;
 }
 .register-right{
     background: #f8f9fa;
+    height: 550px;
+    padding-top: 15px;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
-    height: 500px;
+    
 }
 .register-left i{
     margin-top: 15%;
@@ -55,16 +61,21 @@
     padding: 15%;
     margin-top: 5%;
 }
-.btnRegister{
+.btnLogin {
     float: right;
-    margin-top: 1%;
     border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #10b880;
+    border-radius: 30px;
+    padding: 6px;
+    background: #df3064;
     color: #fff;
     font-weight: 600;
-    width: 50%;
+    width: 85%;
+    margin-top: -20px;
+    
+}
+
+.btnLogin:hover{
+    background-color: rgb(39, 195, 206);
 }
 
 .register-heading{
@@ -79,6 +90,6 @@
     background: -webkit-linear-gradient(left, #295686, #11afdb);
 }
 
-.form-check{
-    height: 100px;
+.space{
+    height: 25px;
 }

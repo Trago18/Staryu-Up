@@ -5,7 +5,7 @@ export const Home = () => {
 	return (
 		<body id="page-top">
 			{/* <!-- Masthead--> */}
-			<header className="encabezado text-center">
+			<header className="inicio text-center">
 				<div className="container p-5 height d-flex align-items-center flex-column">
 					{/* <!-- Masthead Heading--> */}
 					<h1 className="masthead-heading mt-5 p-5">ENCUENTRE SU EXPERTO</h1>
@@ -82,7 +82,7 @@ export const Home = () => {
 				</div>
 			</section>
 			{/* <!-- Unete a nuestra red--> */}
-			<div className="encabezado text-center">
+			<div className="inicio-red text-center">
 				<div className="container p-5 height d-flex align-items-center flex-column">
 					<h1 className="page-section-expertos mt-5 p-5">UNETE A NUESTRA RED DE EXPERTOS</h1>
 				</div>
