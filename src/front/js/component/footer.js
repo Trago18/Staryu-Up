@@ -3,7 +3,7 @@ import "../../styles/footer.scss";
 
 export const Footer = () => {
 	return (
-		<footer className="footer text-center text-white">
+		<footer className="footer mt-auto text-center text-white">
 			<div className="container p-2 mt-4">
 				{/*<!-- Social -->*/}
 				<section className="mb-4">
@@ -43,7 +43,7 @@ export const Footer = () => {
 			</div>
 
 			{/*<!-- Copyright -->*/}
-			<div className="copy text-center p-3">© 2020 Copyright: Trago, Majo, Banban, Manudo </div>
+			<div className="copy text-center p-3">© 2021 Copyright: Trago, Majo, Banban, Manudo </div>
 		</footer>
 	);
 };

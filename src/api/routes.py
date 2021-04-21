@@ -7,6 +7,9 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, current_user, jwt_required, JWTManager
 from datetime import timedelta
 import re
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import *
 
 
 api = Blueprint('api', __name__)
@@ -19,6 +22,7 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
 
 @api.route('/data-test', methods=['GET'])   # datos de prueba
 def data_test():
@@ -38,7 +42,7 @@ def data_test():
     return jsonify("ok"), 200
 
 
-@api.route('/', methods=['POST'])   # Barra de busqueda
+@api.route('/search', methods=['POST'])   # Barra de busqueda
 def search():
 
     search = request.json.get("search", None)
@@ -48,6 +52,7 @@ def search():
 
     return jsonify(all_suppliers), 200
   
+
 @api.route("/login", methods=["POST"])  # Login
 def login():
     email = request.json.get("email", None)
@@ -72,7 +77,23 @@ def login():
     access_token = create_access_token(identity=email, expires_delta=expiration)
     return jsonify('The login has been successful.', {'token':access_token}), 200
 
-    #return jsonify('The login has been successful.'), 200
+
+@api.route('/password-recovery', methods=['POST'])   # recuperar contraseña
+def get_password():
+
+    sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
+    from_email = Email("franksolorc@hotmail.com", 'Trago')
+    to_email = To("majorooc09@gmail.com")
+    subject = "I'm the BEST"
+    content = Content("text/plain", "Ya está funcionando lo de mandar correos xD")
+    mail = Mail(from_email, to_email, subject, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+
+    return jsonify({'msg': 'The email was send.'})
+
     
 @api.route("/user/<int:id>", methods=["GET"])   # Datos del perfil del usuario
 def get_user(id):
@@ -82,6 +103,7 @@ def get_user(id):
 
     return jsonify(user), 200
 
+
 @api.route("/supplier/<int:id>", methods=["GET"])   # Datos del perfil de proveedor
 def get_supplier(id):
 
@@ -89,6 +111,7 @@ def get_supplier(id):
     supplier = list(map(lambda x: x.serialize(), supplier))
 
     return jsonify(supplier), 200
+
 
 @api.route('/user_signup', methods=['POST'])    # Creacion de nuevo usuario
 def create_user():
@@ -138,6 +161,7 @@ def create_user():
     }
 
     return jsonify(response_body), 200
+
 
 @api.route('/supplier_signup', methods=['POST'])    # Creacion de nuevo proveedor
 def create_supplier():
@@ -197,11 +221,13 @@ def create_supplier():
 
     return jsonify(response_body), 200
 
+
 @api.route('/supplier/<int:id>/rate', methods=['GET'])     # obtener calificacion del proveedor
 def get_rate(id):
 
     supplier = Supplier.query.filter_by(id=id).first()
     return jsonify(rate=supplier.rate), 200
+
 
 @api.route('/supplier/<int:id>/rate', methods=['POST'])     # calificar al proveedor
 def add_rate(id):
@@ -213,6 +239,7 @@ def add_rate(id):
 
     return jsonify(rate=supplier.rate), 200
 
+
 @api.route('/supplier/<int:id>/comment', methods=['GET'])      # obtener comentarios del proveedor
 def get_comment(id):
 
@@ -220,6 +247,7 @@ def get_comment(id):
     all_commentaries = list(map(lambda x: x.serialize(), commentaries))
 
     return jsonify(all_commentaries), 200
+
 
 @api.route('/supplier/<int:id>/comment', methods=['POST'])      # comentario al proveedor
 def add_comment(id):
@@ -234,6 +262,7 @@ def add_comment(id):
 
     return jsonify(all_commentaries), 200
 
+
 @api.route('/favorite', methods=['GET'])      # obtener proveedor en favoritos
 def get_favorite():
 
@@ -241,6 +270,7 @@ def get_favorite():
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
+
 
 @api.route('/favorite', methods=['POST'])      # agregar proveedor a favoritos
 def add_favorite():
@@ -259,6 +289,7 @@ def add_favorite():
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
+
 
 @api.route('/favorite', methods=['DELETE'])     # eliminar proveedor de favoritos
 def delete_favorite():
