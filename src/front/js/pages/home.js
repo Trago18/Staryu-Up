@@ -15,67 +15,67 @@ export const Home = () => {
 			<section className="page-section portfolio pt-5 pb-5" id="portfolio">
 				<div className="container">
 					{/* <!-- Icon Divider--> */}
-					<div className="row m-2">
+					<div className="row categ m-2">
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-wrench fa-3x mb-5" />
+								<i className="fa fa-wrench fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-paint-roller fa-3x mb-5" />
+								<i className="fa fa-paint-roller fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-balance-scale fa-3x mb-5" />
+								<i className="fa fa-balance-scale fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-desktop fa-3x mb-5" />
+								<i className="fa fa-desktop fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-mobile-alt fa-3x mb-5" />
+								<i className="fa fa-mobile-alt fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-gamepad fa-3x mb-5" />
+								<i className="fa fa-gamepad fa-3x mb-5" />
 							</div>
 						</div>
 					</div>
 					<div className="row pt-3 m-1">
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-camera-retro fa-3x mb-5" />
+								<i className="fa fa-camera-retro fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-paw fa-3x mb-5" />
+								<i className="fa fa-paw fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-plug fa-3x mb-5" />
+								<i className="fa fa-plug fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-truck fa-3x mb-5" />
+								<i className="fa fa-truck fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-music fa-3x mb-5" />
+								<i className="fa fa-music fa-3x mb-5" />
 							</div>
 						</div>
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
-								<i className="fas fa-couch fa-3x mb-5" />
+								<i className="fa fa-couch fa-3x mb-5" />
 							</div>
 						</div>
 					</div>

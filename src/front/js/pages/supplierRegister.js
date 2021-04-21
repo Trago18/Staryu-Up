@@ -23,7 +23,7 @@ export const Supplier_Register = () => {
 									aria-labelledby="home-tab">
 									<h3 className="formulario-titulo pb-4">Formulario de registro</h3>
 									<div className="row registrarse-formulario">
-										<div className="col-md-11">
+										<div className="col-md-6">
 											<div className="form-group">
 												<input type="text" className="form-control" placeholder="Nombre *" />
 											</div>
@@ -37,9 +37,35 @@ export const Supplier_Register = () => {
 												<input type="text" className="form-control" placeholder="Correo *" />
 											</div>
 											<div className="form-group">
+												<input type="text" className="form-control" placeholder="Dirección *" />
+											</div>
+										</div>
+										<div className="col-md-6">
+											<div className="form-group">
+												<label>Horario</label>
+												<form name="formulario" method="post" action="/send.php">
+													<label className="star">De</label>
+													<input
+														type="time"
+														name="hora"
+														min="18:00"
+														max="21:00"
+														step="3600"
+													/>
+													<label className="final">a</label>
+													<input
+														type="time"
+														name="hora"
+														min="18:00"
+														max="21:00"
+														step="3600"
+													/>
+												</form>
+											</div>
+											<div className="form-group">
 												<select className="form-control">
 													<option className="hidden" selected disabled>
-														Seleccione una categoría
+														Categoría
 													</option>
 													<option>Bienes raíces</option>
 													<option>Electronica</option>
@@ -51,17 +77,13 @@ export const Supplier_Register = () => {
 													<option>Fotografo</option>
 												</select>
 											</div>
-											<div className="col-md" />
-											<div className="form-check form-switch">
-												<input
-													className="form-check-input"
-													type="checkbox"
-													id="flexSwitchCheckDefault"
-												/>
-												<label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-													Recuerdame
-												</label>
+											<div className="form-group">
+												<label>Descripción</label>
+												<br />
+												<textarea name="descripcion" rows="4" cols="25" />
 											</div>
+										</div>
+										<div className="col-md-6">
 											<div
 												className="tab-pane fade show"
 												id="profile"

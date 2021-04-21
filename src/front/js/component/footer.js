@@ -43,7 +43,7 @@ export const Footer = () => {
 			</div>
 
 			{/*<!-- Copyright -->*/}
-			<div className="copy text-center p-3">© 2020 Copyright: Trago, Majo, Banban, Manudo </div>
+			<div className="copy text-center p-3">© 2021 Copyright: Trago, Majo, Banban, Manudo </div>
 		</footer>
 	);
 };
