@@ -6,8 +6,8 @@ import googleMaps from "../../img/googleMaps.jpg";
 
 export const User_Profile = () => {
 	return (
-		<Container className="bg-light">
-			<Row className="mt-5">
+		<Container className="bg-light my-5">
+			<Row className="userCard">
 				<div className="supplierCard p-4 " style={{ width: "100%", height: "200px" }}>
 					<Media>
 						<img
@@ -28,7 +28,7 @@ export const User_Profile = () => {
 				</div>
 			</Row>
 			<Row>
-				<Tabs defaultActiveKey="cuenta" id="uncontrolled-tab-example">
+				<Tabs defaultActiveKey="cuenta" id="uncontrolled-tab-example" className="tabs">
 					<Tab eventKey="cuenta" title="Mi Cuenta">
 						<div className="userAccount pl-3 pt-3">
 							<p>
