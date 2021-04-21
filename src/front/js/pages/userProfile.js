@@ -7,7 +7,6 @@ import googleMaps from "../../img/googleMaps.jpg";
 export const User_Profile = () => {
 	return (
 		<Container fluid className="bg-light">
-			<h5>...............</h5>
 			<Row>
 				<Col>
 					<Row>
