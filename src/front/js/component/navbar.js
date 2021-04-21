@@ -7,7 +7,7 @@ export const Navbar = () => {
 		<>
 			{/* <!-- Navbar--> */}
 			<header className="container-cabecera">
-				<nav className="nav navbar navbar-expand-lg navbar-light ">
+				<nav className="menu nav navbar navbar-expand-lg navbar-light ">
 					<a className="navbar-brand text-white" href="#">
 						<h1 className="display-4">
 							<i className="fa fa-star-half-alt fa-3x" />
