@@ -9,7 +9,7 @@ from datetime import timedelta
 import re
 import os
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import *
+from sendgrid.helpers.mail import Mail, From, To, Subject, Content
 
 
 api = Blueprint('api', __name__)
@@ -82,15 +82,12 @@ def login():
 def get_password():
 
     sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
-    from_email = Email("franksolorc@hotmail.com", 'Trago')
+    from_email = From("franksolorc@hotmail.com", 'Trago')
     to_email = To("majorooc09@gmail.com")
-    subject = "I'm the BEST"
+    subject = Subject("I'm the BEST")
     content = Content("text/plain", "Ya está funcionando lo de mandar correos xD")
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
-    print(response.status_code)
-    print(response.body)
-    print(response.headers)
 
     return jsonify({'msg': 'The email was send.'})
 
