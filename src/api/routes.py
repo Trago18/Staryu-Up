@@ -260,6 +260,21 @@ def add_comment(id):
     return jsonify(all_commentaries), 200
 
 
+@api.route('/supplier/<int:id>/comment', methods=['DELETE'])      # eliminar comentario
+def delete_comment(id):
+
+    comment = request.json.get("comment", None)
+
+    commentaries = Commentaries.query.filter_by(id=comment , user_id=1).first()
+    db.session.delete(commentaries)
+    db.session.commit()
+
+    commentaries = Commentaries.query.filter_by(supplier_id=id).all()
+    all_commentaries = list(map(lambda x: x.serialize(), commentaries))
+
+    return jsonify(all_commentaries), 200
+
+
 @api.route('/favorite', methods=['GET'])      # obtener proveedor en favoritos
 def get_favorite():
 
