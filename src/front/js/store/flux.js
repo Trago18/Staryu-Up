@@ -67,7 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/supplier/" + id)
 					.then(res => res.json())
 					.then(data => setStore({ supplierData: data[0] }))
-					.catch(error => console.log("Error loading message", error));
+					.catch(error => console.log("Error supplier profile", error));
 			},
 			changeColor: (index, color) => {
 				//get the store

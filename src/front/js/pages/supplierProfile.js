@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col, Figure } from "react-bootstrap";
@@ -11,7 +11,7 @@ export const Supplier_Profile = () => {
 	const params = useParams();
 
 	useEffect(() => {
-		actions.getSupplier(params.id);
+		actions.getSupplier(params.supplierid);
 	}, []);
 
 	return (
