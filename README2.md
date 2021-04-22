@@ -11,6 +11,7 @@ pipenv run init;
 pipenv run migrate;
 pipenv run upgrade;
 pipenv run start
+pipenv run reset_db
 
 # Frontend
 npm run start
