@@ -28,35 +28,35 @@ export const Navbar = () => {
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>INICIO</bold>
+										<b>INICIO</b>
 									</h6>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>CATEGORÍA</bold>
+										<b>CATEGORÍA</b>
 									</h6>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>PERFIL</bold>
+										<b>PERFIL</b>
 									</h6>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>CONTÁCTENOS</bold>
+										<b>CONTÁCTENOS</b>
 									</h6>
 								</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link text-white" href="#">
 									<h6>
-										<bold>INICIAR SESIÓN</bold>
+										<b>INICIAR SESIÓN</b>
 									</h6>
 								</a>
 							</li>
