@@ -10,8 +10,8 @@ create database example;
 pipenv run init;
 pipenv run migrate;
 pipenv run upgrade;
+pipenv run reset_db;
 pipenv run start
-pipenv run reset_db
 
 # Frontend
 npm run start
