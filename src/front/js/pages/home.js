@@ -47,7 +47,7 @@ export const Home = () => {
 							</div>
 						</div>
 					</div>
-					<div className="row pt-3 m-1">
+					<div className="row categ pt-3 m-1">
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
 								<i className="fa fa-camera-retro fa-3x mb-5" />
