@@ -14,20 +14,44 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			userData: {
+				first_name: "",
+				last_name: "",
+				phone_number: "",
+				email: "",
+				password: "",
+				profile_pic: ""
+			},
+			supplierData: {
+				name: "",
+				phone_number: "",
+				category: "",
+				email: "",
+				address: "",
+				schedule: "",
+				description: "",
+				profile_pic: "",
+				image_url: ""
+			}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-
 			getMessage: () => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/hello")
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
+			},
+			getSupplier: id => {
+				fetch(process.env.BACKEND_URL + "/supplier/" + id)
+					.then(res => res.json())
+					.then(data => setStore({ supplierData: data[0] }))
+					.catch(error => console.log("Error supplier profile", error));
 			},
 			changeColor: (index, color) => {
 				//get the store

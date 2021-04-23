@@ -1,12 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col } from "react-bootstrap";
 import imgGarden from "../../img/landscapingvert.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
 
 export const Supplier_Profile = () => {
+	const { store, actions } = useContext(Context);
+	const params = useParams();
+
+	useEffect(() => {
+		actions.getSupplier(params.supplierid);
+	}, []);
+
 	return (
 		<Container fluid className="bg-light">
+			{console.log(store.supplierData)}
 			<Row>
 				<Col xs={9}>
 					<Row>
@@ -21,9 +31,9 @@ export const Supplier_Profile = () => {
 								/>
 								<Media.Body>
 									<div>
-										<h5>Jimenez Landscaping</h5>
+										<h5>{store.supplierData.name}</h5>
 									</div>
-									<span>Poás, Alajuela</span>
+									<span>{store.supplierData.address}</span>
 								</Media.Body>
 								<Card.Link href="#">
 									<i className="far fa-star fa-2x" />
