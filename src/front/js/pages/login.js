@@ -15,7 +15,7 @@ export const Login = () => {
 					<div className="tab-content" id="myTabContent">
 						<div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<h3 className="register-heading pb-4">Inicio de sesión</h3>
-							<div className="row register-form">
+							<div className="row inicio-sesion">
 								<div className="col-md-11 col-sd-2">
 									<div className="form-group">
 										<input
@@ -26,7 +26,7 @@ export const Login = () => {
 									</div>
 									<div className="space" />
 									<div className="form-group">
-										<input type="password" className="form-control" placeholder="Constraseña *" />
+										<input type="password" className="form-control" placeholder="Contraseña *" />
 									</div>
 									<div className="space" />
 									<div className="col-md" />

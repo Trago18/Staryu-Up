@@ -1,4 +1,5 @@
 
+
 .registro-proveedor{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
     padding-top: 180px;
@@ -61,11 +62,16 @@
     width: 200px;
     margin-top: 30px;
     margin-right: -135px;
+    box-shadow: 10px 10px 6px rgba(0,0,0,.3);
     
 }
 
 .btnRegistrar:hover{
     background-color: rgb(39, 195, 206);
+}
+
+.btnRegistrar{
+    transition: background-color 0.8s linear 0.2s;
 }
 
 .formulario-titulo{
@@ -75,10 +81,7 @@
     color: #495057;
 }
 
-.foter-space{
-    height: 20px;
-    background: -webkit-linear-gradient(left, #295686, #11afdb);
-}
+
 
 .espacio{
     height: 25px;

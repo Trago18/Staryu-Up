@@ -3,8 +3,8 @@ import "../../styles/supplierRegister.scss";
 
 export const Supplier_Register = () => {
 	return (
-		<header className="page text-center">
-			<body id="page-top-register">
+		<div className="page text-center">
+			<div id="page-top-register">
 				<div className="registro-proveedor">
 					<div className="row">
 						<div className="usuario">
@@ -123,7 +123,7 @@ export const Supplier_Register = () => {
 						</div>
 					</div>
 				</div>
-			</body>
-		</header>
+			</div>
+		</div>
 	);
 };
