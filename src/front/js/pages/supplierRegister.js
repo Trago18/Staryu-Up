@@ -3,8 +3,8 @@ import "../../styles/supplierRegister.scss";
 
 export const Supplier_Register = () => {
 	return (
-		<header className="page text-center">
-			<body id="page-top-register">
+		<div className="page text-center">
+			<div id="page-top-register">
 				<div className="registro-proveedor">
 					<div className="row">
 						<div className="usuario">
@@ -21,26 +21,57 @@ export const Supplier_Register = () => {
 									id="home"
 									role="tabpanel"
 									aria-labelledby="home-tab">
-									<h3 className="formulario-titulo pb-4">Formulario de registro</h3>
+									<h3 className="formulario-titulo pb-4">Formulario de Proveedor</h3>
 									<div className="row registrarse-formulario">
 										<div className="col-md-6">
 											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Nombre *" />
+												<input
+													type="text"
+													className="form-control"
+													placeholder="Nombre comercial *"
+												/>
 											</div>
 											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Apellido *" />
+												<input
+													type="text"
+													className="form-control"
+													placeholder="Correo electrónico *"
+												/>
 											</div>
 											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Celular *" />
-											</div>
-											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Correo *" />
+												<input type="text" className="form-control" placeholder="Teléfono *" />
 											</div>
 											<div className="form-group">
 												<input type="text" className="form-control" placeholder="Dirección *" />
 											</div>
+											<div className="form-group">
+												<select className="form-control">
+													<option className="hidden" selected disabled>
+														Categoría
+													</option>
+													<option>Bienes raíces</option>
+													<option>Electronica</option>
+													<option>Vehículos</option>
+													<option>Computación</option>
+													<option>Pintura</option>
+													<option>Jardinería</option>
+													<option>Construcción</option>
+													<option>Fotografo</option>
+												</select>
+											</div>
 										</div>
 										<div className="col-md-6">
+											<div className="form-group">
+												<select className="form-control">
+													<option className="hidden" selected disabled>
+														Horario
+													</option>
+													<option>Lunes a viernes</option>
+													<option>Lunes a sábados</option>
+													<option>Sábados y domingos</option>
+													<option>Toda la semana</option>
+												</select>
+											</div>
 											<div className="form-group">
 												<label>Horario</label>
 												<form name="formulario" method="post" action="/send.php">
@@ -62,21 +93,7 @@ export const Supplier_Register = () => {
 													/>
 												</form>
 											</div>
-											<div className="form-group">
-												<select className="form-control">
-													<option className="hidden" selected disabled>
-														Categoría
-													</option>
-													<option>Bienes raíces</option>
-													<option>Electronica</option>
-													<option>Vehículos</option>
-													<option>Computación</option>
-													<option>Pintura</option>
-													<option>Jardinería</option>
-													<option>Construcción</option>
-													<option>Fotografo</option>
-												</select>
-											</div>
+
 											<div className="form-group">
 												<label>Descripción</label>
 												<br />
@@ -106,7 +123,7 @@ export const Supplier_Register = () => {
 						</div>
 					</div>
 				</div>
-			</body>
-		</header>
+			</div>
+		</div>
 	);
 };

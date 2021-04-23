@@ -1,60 +1,51 @@
+
+/* Sección encuentre su experto*/
 .inicio{
-    background-color: rgb(196, 196, 196);
-
+     background-color: rgb(196, 196, 196);
 }
-
-.inicio-red{
-    background-color: rgb(196, 196, 196);
-}
-
-.masthead-heading{
+.buscador-expertos{
     color: rgb(44, 62, 80);
-    height: 250px;
-}
-
-.portfolio{
-    background-color: rgb(44, 62, 80);
-}
-
-.page-section-expertos{
-    background-color: rgb(196, 196, 196);
     height: 300px;
+    background-color: rgb(196, 196, 196);
     text-align: center;
-    color: white;
-    
 }
 
+
+
+/* Sección seleccione su categoria*/
+.portfolio{
+    background-color: rgb(245, 245, 245);
+}
 .card-body-face:hover {
-  background-color: rgb(63, 117, 235);
-  
+  background-color: rgb(87, 133, 231);
 }
-
 .card-body-face:hover i {
   color: white;
-  
 }
-
 .card-body-face {
   background-color: rgb(255, 255, 255);
   line-height: normal;
   text-align: center;
   height: 100px;
- 
 }
-
-.social-rectangulo {
-  display: inline-block;
-  width: 45%;
-  height: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  
-  
-}
-
 .social-rectangulo i{
-   margin: 0;
+  margin: 0;
   line-height: 30px;
   text-align: center;
 }
+.categ{
+    color: rgb(55, 150, 214);
+}
 
+
+
+/* Sección unase a nuestra red de expertos*/
+.red-expertos{
+    background-color: rgb(196, 196, 196);
+}
+.seccion-expertos{
+    background-color: rgb(196, 196, 196);
+    height: 300px;
+    text-align: center;
+    color: white;
+}

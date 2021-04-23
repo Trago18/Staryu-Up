@@ -3,8 +3,8 @@ import "../../styles/userRegister.scss";
 
 export const User_Register = () => {
 	return (
-		<header className="page text-center">
-			<body id="page-top-register">
+		<div className="page text-center">
+			<div id="page-top-register">
 				<div className="registro">
 					<div className="row">
 						<div className="login">
@@ -22,7 +22,7 @@ export const User_Register = () => {
 									role="tabpanel"
 									aria-labelledby="home-tab">
 									<h3 className="formulario-encabezado pb-4">Formulario de registro</h3>
-									<div className="row registrarse-form">
+									<div className="row form-regist">
 										<div className="col-md-11">
 											<div className="form-group">
 												<input type="text" className="form-control" placeholder="Nombre *" />
@@ -40,20 +40,10 @@ export const User_Register = () => {
 												<input
 													type="password"
 													className="form-control"
-													placeholder="Constraseña *"
+													placeholder="Contraseña *"
 												/>
 											</div>
 											<div className="col-md" />
-											<div className="form-check form-switch">
-												<input
-													className="form-check-input"
-													type="checkbox"
-													id="flexSwitchCheckDefault"
-												/>
-												<label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-													Recuerdame
-												</label>
-											</div>
 											<div
 												className="tab-pane fade show"
 												id="profile"
@@ -76,7 +66,7 @@ export const User_Register = () => {
 						</div>
 					</div>
 				</div>
-			</body>
-		</header>
+			</div>
+		</div>
 	);
 };
