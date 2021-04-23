@@ -1,12 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Col, Button } from "react-bootstrap";
 import imgGarden from "../../img/landscapingvert.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
 
 export const User_Profile = () => {
+	const { store, actions } = useContext(Context);
+	const params = useParams();
+
+	useEffect(() => {
+		actions.getUser(params.userid);
+	}, []);
+
 	return (
 		<Container className="bg-light my-5">
+			{console.log(store.userData)}
 			<Row className="userCard">
 				<div className="supplierCard p-4 " style={{ width: "100%", height: "200px" }}>
 					<Media>

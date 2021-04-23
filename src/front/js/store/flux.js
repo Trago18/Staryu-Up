@@ -53,6 +53,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ supplierData: data[0] }))
 					.catch(error => console.log("Error supplier profile", error));
 			},
+			getUser: id => {
+				fetch(process.env.BACKEND_URL + "/user/" + id)
+					.then(res => res.json())
+					.then(data => setStore({ userData: data[0] }))
+					.catch(error => console.log("Error user profile", error));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
