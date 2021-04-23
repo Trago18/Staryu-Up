@@ -7,8 +7,8 @@ import googleMaps from "../../img/googleMaps.jpg";
 export const User_Profile = () => {
 	return (
 		<Container className="bg-light my-5">
-			<Row className="userCard">
-				<div className="supplierCard p-4 " style={{ width: "100%", height: "200px" }}>
+			<Row>
+				<div className="userCard p-4 " style={{ width: "100%", height: "200px" }}>
 					<Media>
 						<img
 							width={120}
