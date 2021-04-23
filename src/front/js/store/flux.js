@@ -15,13 +15,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			userRegister: {
-				first_name: "",
-				last_name: "",
-				phone_number: "",
-				email: "",
-				password: ""
-			},
 			userData: {
 				first_name: "",
 				last_name: "",
@@ -29,15 +22,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				email: "",
 				password: "",
 				profile_pic: ""
-			},
-			supplierRegister: {
-				name: "",
-				phone_number: "",
-				category: "",
-				email: "",
-				address: "",
-				schedule: "",
-				description: ""
 			},
 			supplierData: {
 				name: "",
