@@ -1,12 +1,5 @@
 
 
-.encabezado {
-     background: -webkit-linear-gradient(left, #295686, #11afdb);
-     height: 100px;
-    
-}
-
-
 .register{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
     padding-top: 170px;
@@ -59,7 +52,7 @@
 
 
 
-.register .register-form{
+.register .inicio-sesion{
     padding: 15%;
     margin-top: 5%;
 }
@@ -72,14 +65,16 @@
     color: #fff;
     font-weight: 600;
     width: 150px;
-    margin-top: -70px;
-    margin-right: 105px;
-  
-    
+    margin-top: 25px;
+    margin-right: 180px;
+    box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 }
 
 .btnLogin:hover{
     background-color: rgb(39, 195, 206);
+}
+.btnLogin{
+    transition: background-color 0.8s linear 0.2s;
 }
 
 .register-heading{
@@ -89,10 +84,7 @@
     color: #495057;
 }
 
-.footer-space{
-    height: 20px;
-    background: -webkit-linear-gradient(left, #295686, #11afdb);
-}
+
 
 .space{
     height: 25px;
@@ -118,6 +110,10 @@
 	overflow: hidden;
 	box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 	transition: all .35s;
+}
+.social_login{
+    margin-top: 20px;
+    margin-left: 100px;
 }
 
 .social_login a.google{
@@ -179,17 +175,7 @@
 
 
 
-/*
-  float: right;
-    border: none;
-    border-radius: 30px;
-    padding: 6px;
-    background: #df3064;
-    color: #fff;
-    font-weight: 600;
-    width: 100px;
-    margin-top: -40px;
-    margin-right: 125px;*/
+
 
 
 

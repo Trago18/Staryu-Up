@@ -6,7 +6,7 @@ export const Navbar = () => {
 	return (
 		<>
 			{/* <!-- Navbar--> */}
-			<header className="container-cabecera">
+			<div className="container-cabecera">
 				<nav className="menu nav navbar navbar-expand-lg navbar-light ">
 					<a className="navbar-brand text-white" href="#">
 						<h1 className="display-4">
@@ -73,7 +73,7 @@ export const Navbar = () => {
 						</form>
 					</div>
 				</nav>
-			</header>
+			</div>
 		</>
 	);
 };

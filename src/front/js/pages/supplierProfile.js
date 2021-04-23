@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
-import { Media, Card, Container, Row, Col, Figure } from "react-bootstrap";
+import { Media, Card, Container, Row, Col } from "react-bootstrap";
 import imgGarden from "../../img/landscapingvert.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
 

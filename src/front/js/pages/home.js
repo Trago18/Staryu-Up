@@ -3,18 +3,17 @@ import "../../styles/home.scss";
 
 export const Home = () => {
 	return (
-		<body id="page-top">
-			{/* <!-- Masthead--> */}
-			<header className="inicio text-center">
+		<div id="page-top">
+			{/* <!-- Area de expertos y buscador--> */}
+			<div className="inicio text-center">
 				<div className="container p-5 height d-flex align-items-center flex-column">
-					{/* <!-- Masthead Heading--> */}
-					<h1 className="masthead-heading mt-5 p-5">ENCUENTRE SU EXPERTO</h1>
+					<h1 className="buscador-expertos mt-5 p-5">ENCUENTRE SU EXPERTO</h1>
 				</div>
-			</header>
-			{/* <!-- Portfolio Section--> */}
+			</div>
+			{/* <!-- Seccón de categorías--> */}
 			<section className="page-section portfolio pt-5 pb-5" id="portfolio">
 				<div className="container">
-					{/* <!-- Icon Divider--> */}
+					{/* <!-- Iconos--> */}
 					<div className="row categ m-2">
 						<div className="col-sm-2">
 							<div className="card-body-face p-4">
@@ -82,11 +81,11 @@ export const Home = () => {
 				</div>
 			</section>
 			{/* <!-- Unete a nuestra red--> */}
-			<div className="inicio-red text-center">
+			<div className="red-expertos text-center">
 				<div className="container p-5 height d-flex align-items-center flex-column">
-					<h1 className="page-section-expertos mt-5 p-5">UNETE A NUESTRA RED DE EXPERTOS</h1>
+					<h1 className="seccion-expertos mt-5 p-5">UNETE A NUESTRA RED DE EXPERTOS</h1>
 				</div>
 			</div>
-		</body>
+		</div>
 	);
 };

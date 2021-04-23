@@ -49,7 +49,7 @@
     100% { transform: translateY(-20px); }
 }
 
-.registro .registrarse-form{
+.registro .form-regist{
     padding: 15%;
     margin-top: 5%;
 }
@@ -61,13 +61,18 @@
     background: #df3064;
     color: #fff;
     font-weight: 600;
-    width: 85%;
+    width: 200px;
     margin-top: 30px;
-    
+    margin-right: 150px;
+    box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 }
 
 .btnRegistrarse:hover{
     background-color: rgb(39, 195, 206);
+}
+
+.btnRegistrarse{
+    transition: background-color 0.8s linear 0.2s;
 }
 
 .formulario-encabezado{
@@ -77,8 +82,4 @@
     color: #495057;
 }
 
-.foter-space{
-    height: 20px;
-    background: -webkit-linear-gradient(left, #295686, #11afdb);
-}
 
