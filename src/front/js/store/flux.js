@@ -21,7 +21,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				phone_number: "",
 				email: "",
 				password: "",
-				profile_pic: ""
+				profile_pic:
+					"https://www.kindpng.com/picc/m/442-4426528_round-picture-profile-blond-hd-png-download.png"
 			},
 			supplierData: {
 				name: "",
