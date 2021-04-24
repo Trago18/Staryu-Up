@@ -59,6 +59,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ userData: data[0] }))
 					.catch(error => console.log("Error user profile", error));
 			},
+			postSearch: search => {
+				const requestOptions = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ search: search })
+				};
+				fetch(process.env.BACKEND_URL + "/search", requestOptions)
+					.then(response => response.json())
+					.then(data => console.log(data));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

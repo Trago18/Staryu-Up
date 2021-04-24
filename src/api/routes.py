@@ -46,7 +46,7 @@ def data_test():
 def search():
 
     search = request.json.get("search", None)
-
+    
     supplier = Supplier.query.filter_by(name=search).all()
     all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))
 
