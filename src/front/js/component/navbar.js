@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
+
+	const [data, setData] = useState({
+		search: ""
+	});
+
+	const handleInputChange = e => {
+		// console.log(event.target.name)
+		// console.log(event.target.value)
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const frontSearch = e => {
+		e.preventDefault();
+		//console.log(data.search);
+		actions.postSearch(data.search);
+	};
+
 	return (
 		<>
 			{/* <!-- Navbar--> */}
@@ -62,12 +84,14 @@ export const Navbar = () => {
 							</li>
 						</ul>
 						{/* <!--Buscador--> */}
-						<form className="form-inline">
+						<form className="form-inline" onSubmit={frontSearch}>
 							<div className="input-group">
 								<input
 									type="text"
 									className="form-control rounded-pill border-dark"
 									placeholder="Buscador"
+									name="search"
+									onChange={handleInputChange}
 								/>
 							</div>
 						</form>
