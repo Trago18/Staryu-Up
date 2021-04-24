@@ -3,19 +3,116 @@
 .inicio{
      background-color: rgb(196, 196, 196);
 }
-.buscador-expertos{
-    color: rgb(44, 62, 80);
-    height: 300px;
-    background-color: rgb(196, 196, 196);
+.section-serch{
+    color: rgb(250, 251, 252);
+    height: 350px;
+    background-image: url("../img/Profesionales2.jpg");
+    background-size: cover;
+    
+   
     text-align: center;
 }
+
+.inicio::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    height: 350px;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.inicio h1, h6, .search {
+    z-index: 1;
+}
+
+.search {
+    width: 500px;
+    margin-bottom: auto;
+    margin-top: 20px;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px
+}
+
+.search-input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    margin-top: 5px;
+    caret-color: transparent;
+    line-height: 20px;
+}
+
+.search .search-input {
+    padding: 0 10px;
+    width: 100%;
+    font-size: 19px;
+    font-weight: 300;
+    color: black; 
+}
+
+.search-icon {
+    height: 34px;
+    width: 34px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #0bc6d3;
+    font-size: 10px;
+    bottom: 30px;
+    position: relative;
+    border-radius: 7px
+}
+
 
 
 
 /* Sección seleccione su categoria*/
 .portfolio{
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(18, 43, 66);
 }
+
+.card-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(255, 255, 255);
+    background-clip: border-box;
+    border-radius: .25rem;
+    transition: all 0.30s;
+    margin-left: -10px;
+    margin-top: 5px;
+  
+}
+
+.card-inner:hover {
+    transform: scale(1.3)
+}
+
+.mg-text span {
+    font-size: 12px;
+    color: #010607;
+  
+    
+}
+
+.mg-text {
+    line-height: 14px
+}
+
+.icono{
+     color: #0bafbb;
+}
+
+/*
 .card-body-face:hover {
   background-color: rgb(87, 133, 231);
 }
@@ -30,22 +127,22 @@
 }
 .social-rectangulo i{
   margin: 0;
-  line-height: 30px;
+  line-height: 30px;'
   text-align: center;
 }
 .categ{
     color: rgb(55, 150, 214);
-}
+}*/
 
 
 
 /* Sección unase a nuestra red de expertos*/
 .red-expertos{
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(197, 194, 194);
 }
 .seccion-expertos{
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(197, 194, 194);
     height: 300px;
     text-align: center;
-    color: white;
+    color: rgb(16, 55, 94);
 }
