@@ -5,7 +5,7 @@ import "../../styles/navbar.scss";
 export const Navbar = () => {
 	return (
 		<>
-			{/* <!-- Navbar--> */}
+			{/* <!-- Navbar-->
 			<div className="container-cabecera">
 				<nav className="menu nav navbar navbar-expand-lg navbar-light ">
 					<a className="navbar-brand text-white" href="#">
@@ -61,19 +61,36 @@ export const Navbar = () => {
 								</a>
 							</li>
 						</ul>
-						{/* <!--Buscador--> */}
-						<form className="form-inline">
-							<div className="input-group">
-								<input
-									type="text"
-									className="form-control rounded-pill border-dark"
-									placeholder="Buscador"
-								/>
-							</div>
-						</form>
 					</div>
 				</nav>
 			</div>
+            */}
+			<nav>
+				<div className="logo">
+					<h1 className="display-4">
+						<i className="fa fa-star-half-alt fa-3x" />
+					</h1>
+				</div>
+				<div className="menu">
+					<ul>
+						<li>
+							<a href="#">Inicio</a>
+						</li>
+						<li>
+							<a href="#">Perfil</a>
+						</li>
+						<li>
+							<a href="#">Contáctenos</a>
+						</li>
+						<li>
+							<a href="#">Iniciar Sesión </a>
+						</li>
+						<li>
+							<a href="#">Favoritos</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</>
 	);
 };
