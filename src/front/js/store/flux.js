@@ -21,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				phone_number: "",
 				email: "",
 				password: "",
-				profile_pic: ""
+				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
 			},
 			supplierData: {
 				name: "",
