@@ -3,30 +3,14 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Button } from "react-bootstrap";
-import { Context } from "../store/appContext";
 
 export const User_Profile = () => {
-<<<<<<< HEAD
 	const { store } = useContext(Context);
 
 	return (
 		<Container className="bg-light my-5">
 			<Row>
 				<div className="userCard p-3 " style={{ width: "100%", height: "160px" }}>
-=======
-	const { store, actions } = useContext(Context);
-	const params = useParams();
-
-	useEffect(() => {
-		actions.getUser(params.userid);
-	}, []);
-
-	return (
-		<Container className="bg-light my-5">
-			{console.log(store.userData)}
-			<Row className="userCard">
-				<div className="supplierCard p-4 " style={{ width: "100%", height: "200px" }}>
->>>>>>> b8b821881ae8c0792cda85c6ca262c677abe59b5
 					<Media>
 						<img
 							width={130}
