@@ -1,33 +1,11 @@
-import React, { useState, useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 
 export const Navbar = () => {
-	const { store, actions } = useContext(Context);
-
-	const [data, setData] = useState({
-		search: ""
-	});
-
-	const handleInputChange = e => {
-		// console.log(event.target.name)
-		// console.log(event.target.value)
-		setData({
-			...data,
-			[e.target.name]: e.target.value
-		});
-	};
-
-	const frontSearch = e => {
-		e.preventDefault();
-		//console.log(data.search);
-		actions.postSearch(data.search);
-	};
-
 	return (
 		<>
-			{/* <!-- Navbar--> */}
+			{/* <!-- Navbar-->
 			<div className="container-cabecera">
 				<nav className="menu nav navbar navbar-expand-lg navbar-light ">
 					<a className="navbar-brand text-white" href="#">
@@ -83,21 +61,36 @@ export const Navbar = () => {
 								</a>
 							</li>
 						</ul>
-						{/* <!--Buscador--> */}
-						<form className="form-inline" onSubmit={frontSearch}>
-							<div className="input-group">
-								<input
-									type="text"
-									className="form-control rounded-pill border-dark"
-									placeholder="Buscador"
-									name="search"
-									onChange={handleInputChange}
-								/>
-							</div>
-						</form>
 					</div>
 				</nav>
 			</div>
+            */}
+			<nav>
+				<div className="logo">
+					<h1 className="display-4">
+						<i className="fa fa-star-half-alt fa-3x" />
+					</h1>
+				</div>
+				<div className="menu">
+					<ul>
+						<li>
+							<a href="#">Inicio</a>
+						</li>
+						<li>
+							<a href="#">Perfil</a>
+						</li>
+						<li>
+							<a href="#">Contáctenos</a>
+						</li>
+						<li>
+							<a href="#">Iniciar Sesión </a>
+						</li>
+						<li>
+							<a href="#">Favoritos</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
 		</>
 	);
 };
