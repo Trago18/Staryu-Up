@@ -21,34 +21,17 @@ export const User_Profile = () => {
 						/>
 						<Media.Body>
 							<div>
-								<h5>Jimenez Landscaping</h5>
+								<h5>{store.userData.first_name + " " + store.userData.last_name}</h5>
+								<hr />
 							</div>
-							<span>Poás, Alajuela</span>
 						</Media.Body>
-						<Button variant="info" className="userButton m-2" href="#">
-							Ver mi perfil de Experto
-						</Button>
 					</Media>
 				</div>
 			</Row>
 			<Row>
 				<Tabs defaultActiveKey="cuenta" id="uncontrolled-tab-example" className="tabs pr-5 justify-content-end">
 					<Tab eventKey="cuenta" title="Mi Cuenta" className="userTab">
-						<div className="userInfo pl-3 pt-3">
-							<div>
-								<span>
-									Nombre y apellido: {store.userData.first_name + " " + store.userData.last_name}
-								</span>
-							</div>
-							<hr />
-							<div>
-								<span>
-									Teléfono:
-									{store.userData.phone_number}
-								</span>
-								<hr />
-							</div>
-						</div>
+						<div className="userInfo pl-3 pt-3"></div>
 						<div className="userAccount pl-3 ">
 							<div>
 								<span>Email: {store.userData.email}</span>
@@ -58,6 +41,13 @@ export const User_Profile = () => {
 								<span>
 									Contraseña:
 									{store.userData.password}
+								</span>
+								<hr />
+							</div>
+							<div>
+								<span>
+									Teléfono:
+									{store.userData.phone_number}
 								</span>
 								<hr />
 							</div>

@@ -16,20 +16,23 @@ export const Supplier_Profile = () => {
 	}, []);
 
 	return (
-		<Container fluid className="bg-light">
+		<Container className="bg-light my-5">
 			<Row>
-				<Col className="supplierCard p-4 mt-3" style={{ width: "100%", height: "200px" }}>
+				<Col className="supplierCard py-3 px-5" style={{ width: "100%", height: "180px" }}>
 					<Media>
 						<img
-							width={120}
-							height={120}
+							width={130}
+							height={130}
 							className="mr-3 rounded-circle"
-							src={imgGarden}
-							alt="Supplier avatar"
+							src={store.supplierData.profile_pic}
+							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
 							<div>
 								<h5>Jimenez Landscaping</h5>
+								<span>
+									<i className="far fa-heart fa-2x p-2" />
+								</span>
 							</div>
 							<span>Poás, Alajuela</span>
 							<hr />
@@ -40,24 +43,24 @@ export const Supplier_Profile = () => {
 								<i className="far fa-star fa" />
 								<i className="far fa-star fa" />
 							</Card.Link>
+							<span> Reviews</span>
 						</Media.Body>
 					</Media>
 				</Col>
 			</Row>
 			<Row>
-				<Tabs defaultActiveKey="informacion" id="uncontrolled-tab-example" className="tabs ml-auto">
+				<Tabs
+					defaultActiveKey="informacion"
+					id="uncontrolled-tab-example"
+					className="tabs pr-5 mb-5 justify-content-end">
 					<Tab eventKey="informacion" title="Información" className="ml-auto">
 						<Supplier_Info />
 					</Tab>
 					<Tab eventKey="reviews" title="Reviews">
-						<>
-							When in disgrace with fortune and mens eyes I all alone beweep my outcast state, And trouble
-							deaf heaven with my bootless cries, And look upon myself, and curse my fate, Wishing me like
-							to one more rich in hope, Featurd like him,{" "}
-						</>
+						<Supplier_Reviews />
 					</Tab>
-					<Tab eventKey="galeria" title="Galería" disabled>
-						<> </>
+					<Tab eventKey="galeria" title="Galería">
+						<Supplier_Gallery />
 					</Tab>
 				</Tabs>
 			</Row>
@@ -65,13 +68,13 @@ export const Supplier_Profile = () => {
 	);
 };
 
+// Supplier info tabs section here
 const Supplier_Info = () => {
-	// Supplier info tabs section
 	return (
 		<Row>
 			<Col xs={9}>
 				<Row>
-					<Col xs={7}>
+					<Col>
 						<div className="supplierInfo p-3">
 							<h6>Sobre mi</h6>
 							<p>
@@ -93,10 +96,10 @@ const Supplier_Info = () => {
 							</p>
 						</div>
 					</Col>
-					<Col xs={5} className="supplierGallery">
+					<Col className="supplierGallery">
 						<img
-							width={350}
-							height={450}
+							width={250}
+							height={350}
 							className="img-fluid w-100 py-3"
 							src={imgGarden}
 							alt="landscaping"
@@ -141,5 +144,27 @@ const Supplier_Info = () => {
 				</Row>
 			</Col>
 		</Row>
+	);
+};
+
+// Supplier reviews tabs section here
+const Supplier_Reviews = () => {
+	return (
+		<>
+			When in disgrace with fortune and mens eyes I all alone beweep my outcast state, And trouble deaf heaven
+			with my bootless cries, And look upon myself, and curse my fate, Wishing me like to one more rich in hope,
+			Featurd like him,{" "}
+		</>
+	);
+};
+
+// Supplier gallery tabs section here
+const Supplier_Gallery = () => {
+	return (
+		<>
+			When in disgrace with fortune and mens eyes I all alone beweep my outcast state, And trouble deaf heaven
+			with my bootless cries, And look upon myself, and curse my fate, Wishing me like to one more rich in hope,
+			Featurd like him,{" "}
+		</>
 	);
 };
