@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/login.scss";
 
 export const Login = () => {
@@ -101,6 +101,9 @@ export const Login = () => {
 															</a>
 														</div>
 													</div>
+												</div>
+												<div className="recup">
+													<span className="boton3">Recuperar contraseña</span>
 												</div>
 											</div>
 										</div>

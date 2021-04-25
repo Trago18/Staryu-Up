@@ -4,7 +4,7 @@ import "../../styles/footer.scss";
 export const Footer = () => {
 	return (
 		<footer className="footer mt-auto text-center text-white">
-			<div className="container pt-4">
+			<div className="container">
 				{/*<!-- Social -->*/}
 				<section className="mb-4">
 					<ul className="social-network social-circle">
