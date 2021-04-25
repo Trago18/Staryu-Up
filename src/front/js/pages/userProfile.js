@@ -24,11 +24,7 @@ export const User_Profile = () => {
 								<h5>{store.userData.first_name + " " + store.userData.last_name}</h5>
 								<hr />
 							</div>
-							<span>Poás, Alajuela</span>
 						</Media.Body>
-						<Button variant="info" className="userButton m-2" href="#">
-							Ver mi perfil de Experto
-						</Button>
 					</Media>
 				</div>
 			</Row>

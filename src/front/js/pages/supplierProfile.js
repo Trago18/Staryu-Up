@@ -16,9 +16,9 @@ export const Supplier_Profile = () => {
 	}, []);
 
 	return (
-		<Container fluid className="bg-light">
+		<Container className="bg-light my-5">
 			<Row>
-				<Col className="supplierCard p-4" style={{ width: "100%", height: "160px" }}>
+				<Col className="supplierCard py-3 px-5" style={{ width: "100%", height: "180px" }}>
 					<Media>
 						<img
 							width={130}
@@ -52,7 +52,7 @@ export const Supplier_Profile = () => {
 				<Tabs
 					defaultActiveKey="informacion"
 					id="uncontrolled-tab-example"
-					className="tabs pr-5 justify-content-end">
+					className="tabs pr-5 mb-5 justify-content-end">
 					<Tab eventKey="informacion" title="Información" className="ml-auto">
 						<Supplier_Info />
 					</Tab>
@@ -74,7 +74,7 @@ const Supplier_Info = () => {
 		<Row>
 			<Col xs={9}>
 				<Row>
-					<Col xs={7}>
+					<Col>
 						<div className="supplierInfo p-3">
 							<h6>Sobre mi</h6>
 							<p>
@@ -96,10 +96,10 @@ const Supplier_Info = () => {
 							</p>
 						</div>
 					</Col>
-					<Col xs={5} className="supplierGallery">
+					<Col className="supplierGallery">
 						<img
-							width={350}
-							height={450}
+							width={250}
+							height={350}
 							className="img-fluid w-100 py-3"
 							src={imgGarden}
 							alt="landscaping"
