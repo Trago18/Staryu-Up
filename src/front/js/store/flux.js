@@ -33,7 +33,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				description: "",
 				profile_pic: "",
 				image_url: ""
-			}
+			},
+			token: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -102,6 +103,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/supplier_signup", requestOptions)
 					.then(response => response.json())
 					.then(data => console.log(data));
+			},
+			postLogin: (email, password) => {
+				const requestOptions = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ email: email, password: password })
+				};
+				fetch(process.env.BACKEND_URL + "/login", requestOptions)
+					.then(response => response.json())
+					.then(data => {
+						console.log(data[0]);
+						setStore({ token: data[1] });
+					});
 			},
 			postRecovery: email => {
 				const requestOptions = {

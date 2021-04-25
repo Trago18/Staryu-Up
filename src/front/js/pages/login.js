@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 import "../../styles/login.scss";
 
 export const Login = () => {
+	const { store, actions } = useContext(Context);
+
+	const [data, setData] = useState({
+		email: "",
+		password: ""
+	});
+
+	const handleInputChange = e => {
+		// console.log(event.target.name)
+		// console.log(event.target.value)
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const frontLogin = e => {
+		e.preventDefault();
+		//console.log(data.email, data.password);
+		actions.postLogin(data.email, data.password);
+	};
+
 	return (
 		<div className="register">
+			{store.token != null && <Redirect to="/" />}
 			<div className="row">
 				<div className="register-left">
 					<i className="fab fa-keycdn fa-4x mr-4" />
@@ -15,18 +40,26 @@ export const Login = () => {
 					<div className="tab-content" id="myTabContent">
 						<div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<h3 className="register-heading pb-4">Inicio de sesión</h3>
-							<div className="row inicio-sesion">
+							<form className="row inicio-sesion" onSubmit={frontLogin}>
 								<div className="col-md-11 col-sd-2">
 									<div className="form-group">
 										<input
 											type="text"
 											className="form-control"
 											placeholder="Correo electrónico *"
+											name="email"
+											onChange={handleInputChange}
 										/>
 									</div>
 									<div className="space" />
 									<div className="form-group">
-										<input type="password" className="form-control" placeholder="Contraseña *" />
+										<input
+											type="password"
+											className="form-control"
+											placeholder="Contraseña *"
+											name="password"
+											onChange={handleInputChange}
+										/>
 									</div>
 									<div className="space" />
 									<div className="col-md" />
@@ -73,7 +106,7 @@ export const Login = () => {
 										</div>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
