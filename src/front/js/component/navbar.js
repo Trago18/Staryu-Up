@@ -4,93 +4,41 @@ import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	return (
-		<>
-			{/* <!-- Navbar-->
-			<div className="container-cabecera">
-				<nav className="menu nav navbar navbar-expand-lg navbar-light ">
-					<a className="navbar-brand text-white" href="#">
-						<h1 className="display-4">
-							<i className="fa fa-star-half-alt fa-3x" />
-						</h1>
-					</a>
-					<button
-						className="navbar-toggler"
-						type="button"
-						data-toggle="collapse"
-						data-target="#navbarNav"
-						aria-controls="navbarNav"
-						aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span className="navbar-toggler-icon" />
-					</button>
-					<div className="collapse navbar-collapse flex-column" id="navbarNav">
-						<ul className="navbar-nav">
-							<li className="nav-item">
-								<a className="nav-link text-white" href="#">
-									<h6>
-										<b>INICIO</b>
-									</h6>
-								</a>
+		<nav>
+			<div className="logo">
+				<h1 className="display-4">
+					<i className="fa fa-star-half-alt fa-3x" />
+				</h1>
+			</div>
+			<div className="menu">
+				<ul>
+					<li>
+						<a href="#">Inicio</a>
+					</li>
+					<li className="dropdown">
+						<a className="dropdown-toggle" data-toggle="dropdown" href="#">
+							Perfil<span className="caret"></span>
+						</a>
+						<ul className="dropdown-menu">
+							<li>
+								<a href="#">Page 1-1</a>
 							</li>
-							<li className="nav-item">
-								<a className="nav-link text-white" href="#">
-									<h6>
-										<b>CATEGORÍA</b>
-									</h6>
-								</a>
+							<li>
+								<a href="#">Page 1-2</a>
 							</li>
-							<li className="nav-item">
-								<a className="nav-link text-white" href="#">
-									<h6>
-										<b>PERFIL</b>
-									</h6>
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link text-white" href="#">
-									<h6>
-										<b>CONTÁCTENOS</b>
-									</h6>
-								</a>
-							</li>
-							<li className="nav-item">
-								<a className="nav-link text-white" href="#">
-									<h6>
-										<b>INICIAR SESIÓN</b>
-									</h6>
-								</a>
+							<li>
+								<a href="#">Page 1-3</a>
 							</li>
 						</ul>
-					</div>
-				</nav>
+					</li>
+					<li>
+						<a href="#">Contáctenos</a>
+					</li>
+					<li>
+						<a href="#">Iniciar Sesión </a>
+					</li>
+				</ul>
 			</div>
-            */}
-			<nav>
-				<div className="logo">
-					<h1 className="display-4">
-						<i className="fa fa-star-half-alt fa-3x" />
-					</h1>
-				</div>
-				<div className="menu">
-					<ul>
-						<li>
-							<a href="#">Inicio</a>
-						</li>
-						<li>
-							<a href="#">Perfil</a>
-						</li>
-						<li>
-							<a href="#">Contáctenos</a>
-						</li>
-						<li>
-							<a href="#">Iniciar Sesión </a>
-						</li>
-						<li>
-							<a href="#">Favoritos</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</>
+		</nav>
 	);
 };

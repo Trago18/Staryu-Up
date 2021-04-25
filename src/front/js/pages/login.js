@@ -102,6 +102,9 @@ export const Login = () => {
 														</div>
 													</div>
 												</div>
+												<div className="recup">
+													<span className="boton3">Recuperar contraseña</span>
+												</div>
 											</div>
 										</div>
 									</div>
