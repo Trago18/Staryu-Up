@@ -2,9 +2,9 @@
 
 .register{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    padding-top: 170px;
+    padding-top: 70px;
     padding-right: 20%;
-    padding-bottom: 145px;
+    padding-bottom: 30px;
     padding-left: 20%;
   
 }
@@ -13,9 +13,16 @@
     color: #fff;
     margin-top: 150px;
     margin-right: 20px;
-   
-
 }
+
+.recup{
+    text-align: center;
+    color: #fff;
+    margin-top: 25px;
+    margin-left: 200px; 
+}
+
+
 .register-left input{
     border: none;
     border-radius: 1.5rem;
@@ -32,8 +39,8 @@
     padding-top: -10px;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
-    
 }
+
 .register-left .fa-keycdn{
     margin-top: 15%;
     margin-bottom: 10%;
@@ -113,7 +120,7 @@
 }
 .social_login{
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 .social_login a.google{
@@ -171,6 +178,22 @@
     float: right;
     width: 100%;
     margin-left: 100px;
+}
+
+.boton3 {
+  color: #7e8080 !important;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  
+ 
+  transition: all 1s ease;
+  position: relative;
+}
+.boton3:hover {
+  background: #09181f;
+  color: #fff !important;
 }
 
 
