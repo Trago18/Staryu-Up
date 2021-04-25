@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Supplier, Favorites, Commentaries
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, current_user, jwt_required, JWTManager
-from datetime import timedelta
+from datetime import timedelta, datetime
 import re
 import os
 from sendgrid import SendGridAPIClient
@@ -78,14 +78,24 @@ def login():
     return jsonify('The login has been successful.', {'token':access_token}), 200
 
 
-@api.route('/password-recovery', methods=['POST'])   # recuperar contraseña
+@api.route('/password_recovery', methods=['POST'])   # recuperar contraseña
 def get_password():
+
+    email = request.json.get("email", None)
+
+    if email is None:
+        return jsonify({"msg": "Email is required"}), 400
+
+    user = User.query.filter_by(email=email).one_or_none()
+
+    if not user:
+        return jsonify({"msg": "Email doesn't exist"}), 400
 
     sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     from_email = From("franksolorc@hotmail.com", 'Trago')
-    to_email = To("majorooc09@gmail.com")
-    subject = Subject("I'm the BEST")
-    content = Content("text/plain", "Ya está funcionando lo de mandar correos xD")
+    to_email = To(email)
+    subject = Subject("Recuperación de Contraseña")
+    content = Content("text/plain", user.password)
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 
@@ -126,6 +136,8 @@ def create_user():
         error_messages.append({"msg":"Email required"})
     if 'password' not in request_body:
         error_messages.append({"msg":"Password required"}) 
+    if len(error_messages) > 0:
+        return jsonify(error_messages), 400
 
     if not re.match('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,8}$', request_body['email']):
         error_messages.append({'msg':'Enter a valid email format'})
@@ -170,21 +182,23 @@ def create_supplier():
         error_messages.append({"msg":"Name required"})
     if 'phone_number' not in request_body:
         error_messages.append({"msg":"Phone number required"})
-    if 'category' not in request_body:
-        error_messages.append({"msg":"Category required"})
     if 'email' not in request_body:
         error_messages.append({"msg":"Email required"})
+    if 'category' not in request_body:
+        error_messages.append({"msg":"Category required"})
     if 'address' not in request_body:
         error_messages.append({"msg":"Address required"})
     if 'description' not in request_body:
         error_messages.append({"msg":"Description required"})
+    if len(error_messages) > 0:
+        return jsonify(error_messages), 400
        
     if not re.match('^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,8}$', request_body['email']):
         error_messages.append({'msg':'Enter a valid email format'})
     if len(error_messages) > 0:
         return jsonify(error_messages), 400
 
-    email = User.query.filter_by(email=request_body['email']).first()
+    email = Supplier.query.filter_by(email=request_body['email']).first()
 
     if email:
         error_messages.append({'msg': 'This email already exists. Check your email'})
@@ -194,19 +208,19 @@ def create_supplier():
     supplier = Supplier()
     supplier.name = request_body['name']
     supplier.phone_number = request_body['phone_number']
-    supplier.category = request_body['category']
     supplier.email = request_body['email']
+    supplier.category = request_body['category']
     supplier.address = request_body['address']
     supplier.description = request_body['description']
-    supplier.user_id = request_body['user_id']
 
     if 'schedule' not in request_body:
         supplier.schedule = None
     else:
         supplier.schedule = request_body['schedule']
     
+    supplier.user_id = 1
     supplier.rate = 5
-    supplier.member_since = datetime.datetime.now().strftime("%x")
+    supplier.member_since = datetime.now().strftime("%x")
     supplier.is_active=True
 
     db.session.add(supplier)
