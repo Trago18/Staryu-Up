@@ -85,6 +85,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data));
 			},
+			postSupplierRegister: (name, phone_number, email, category, address, schedule, description) => {
+				const requestOptions = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						name: name,
+						phone_number: phone_number,
+						email: email,
+						category: category,
+						address: address,
+						schedule: schedule,
+						description: description
+					})
+				};
+				fetch(process.env.BACKEND_URL + "/supplier_signup", requestOptions)
+					.then(response => response.json())
+					.then(data => console.log(data));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/supplierRegister.scss";
 
 export const Supplier_Register = () => {
+	const { store, actions } = useContext(Context);
+
+	const [data, setData] = useState({
+		name: "",
+		phone_number: "",
+		email: "",
+		category: "",
+		address: "",
+		schedule: "",
+		description: ""
+	});
+
+	const handleInputChange = e => {
+		// console.log(event.target.name)
+		// console.log(event.target.value);
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const frontSupplierRegister = e => {
+		e.preventDefault();
+		// console.log(data.name, data.phone_number, data.email, data.category, data.address, data.schedule, data.description);
+		actions.postSupplierRegister(
+			data.name,
+			data.phone_number,
+			data.email,
+			data.category,
+			data.address,
+			data.schedule,
+			data.description
+		);
+	};
+
 	return (
 		<div className="page text-center">
 			<div id="page-top-register">
@@ -22,13 +58,15 @@ export const Supplier_Register = () => {
 									role="tabpanel"
 									aria-labelledby="home-tab">
 									<h3 className="formulario-titulo pb-4">Formulario de Proveedor</h3>
-									<div className="row registrarse-formulario">
+									<form className="row registrarse-formulario" onSubmit={frontSupplierRegister}>
 										<div className="col-md-6">
 											<div className="form-group">
 												<input
 													type="text"
 													className="form-control"
 													placeholder="Nombre comercial *"
+													name="name"
+													onChange={handleInputChange}
 												/>
 											</div>
 											<div className="form-group">
@@ -36,16 +74,33 @@ export const Supplier_Register = () => {
 													type="text"
 													className="form-control"
 													placeholder="Correo electrónico *"
+													name="email"
+													onChange={handleInputChange}
 												/>
 											</div>
 											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Teléfono *" />
+												<input
+													type="text"
+													className="form-control"
+													placeholder="Teléfono *"
+													name="phone_number"
+													onChange={handleInputChange}
+												/>
 											</div>
 											<div className="form-group">
-												<input type="text" className="form-control" placeholder="Dirección *" />
+												<input
+													type="text"
+													className="form-control"
+													placeholder="Dirección *"
+													name="address"
+													onChange={handleInputChange}
+												/>
 											</div>
 											<div className="form-group">
-												<select className="form-control">
+												<select
+													className="form-control"
+													name="category"
+													onChange={handleInputChange}>
 													<option className="hidden" selected disabled>
 														Categoría
 													</option>
@@ -62,7 +117,10 @@ export const Supplier_Register = () => {
 										</div>
 										<div className="col-md-6">
 											<div className="form-group">
-												<select className="form-control">
+												<select
+													className="form-control"
+													name="schedule"
+													onChange={handleInputChange}>
 													<option className="hidden" selected disabled>
 														Horario
 													</option>
@@ -97,7 +155,12 @@ export const Supplier_Register = () => {
 											<div className="form-group">
 												<label>Descripción</label>
 												<br />
-												<textarea name="descripcion" rows="4" cols="25" />
+												<textarea
+													name="description"
+													rows="4"
+													cols="25"
+													onChange={handleInputChange}
+												/>
 											</div>
 										</div>
 										<div className="col-md-6">
@@ -117,7 +180,7 @@ export const Supplier_Register = () => {
 												</div>
 											</div>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>
