@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 import mante from "../../img/mante.png";
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+	const [data, setData] = useState({
+		search: ""
+	});
+
+	const handleInputChange = e => {
+		// console.log(event.target.name)
+		// console.log(event.target.value)
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const frontSearch = e => {
+		e.preventDefault();
+		//console.log(data.search);
+		actions.postSearch(data.search);
+	};
+
 	return (
 		<div id="page-top">
+			{store.searchData != "" && console.log(true)}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
 				<div className="section-serch p-5 height d-flex align-items-center flex-column">
@@ -12,14 +35,20 @@ export const Home = () => {
 						<strong>ENCUENTRE SU EXPERTO</strong>
 						<h6>CON LA RECOMENDACIÓN CONFIABLE DE LA COMUNIDAD</h6>
 					</h1>
-					<div className="container d-flex justify-content-center px-5">
+					<form className="container d-flex justify-content-center px-5" onSubmit={frontSearch}>
 						<div className="search">
-							<input type="text" className="search-input" placeholder="Búsqueda..." name="" />
+							<input
+								type="text"
+								className="search-input"
+								placeholder="Búsqueda..."
+								name="search"
+								onChange={handleInputChange}
+							/>
 							<a href="#" className="search-icon">
 								<i className="fa fa-search" />
 							</a>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			{/* <!-- Seccón de categorías--> */}

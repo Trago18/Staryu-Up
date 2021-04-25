@@ -34,6 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				profile_pic: "",
 				image_url: ""
 			},
+			searchData: [],
 			token: null
 		},
 		actions: {
@@ -68,7 +69,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/search", requestOptions)
 					.then(response => response.json())
-					.then(data => console.log(data));
+					.then(data => {
+						//console.log(data);
+						setStore({ searchData: data });
+					});
 			},
 			postUserRegister: (first_name, last_name, phone_number, email, password) => {
 				const requestOptions = {
