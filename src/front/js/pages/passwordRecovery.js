@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/passwordRecovery.scss";
 
 export const Password_Recovery = () => {
+	const { store, actions } = useContext(Context);
+
+	const [data, setData] = useState({
+		email: ""
+	});
+
+	const handleInputChange = e => {
+		// console.log(event.target.name)
+		// console.log(event.target.value)
+		setData({
+			...data,
+			[e.target.name]: e.target.value
+		});
+	};
+
+	const frontRecovery = e => {
+		e.preventDefault();
+		//console.log(data.email);
+		actions.postRecovery(data.email);
+	};
+
 	return (
 		<div className="recovery">
 			<div className="row">
@@ -13,7 +35,7 @@ export const Password_Recovery = () => {
 					<div className="tab-content" id="myTabContent">
 						<div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 							<h3 className="recuperar-contraseña pb-4">Recuperar contraseña</h3>
-							<div className="row recupass">
+							<form className="row recupass" onSubmit={frontRecovery}>
 								<div className="col-md-11 col-sd-2">
 									<div className="form-group">
 										<label className="correo">Ingrese su correo electronico</label>
@@ -21,6 +43,8 @@ export const Password_Recovery = () => {
 											type="text"
 											className="form-control"
 											placeholder="Correo electrónico *"
+											name="email"
+											onChange={handleInputChange}
 										/>
 									</div>
 
@@ -32,7 +56,7 @@ export const Password_Recovery = () => {
 										</div>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>

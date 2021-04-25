@@ -103,6 +103,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data));
 			},
+			postRecovery: email => {
+				const requestOptions = {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ email: email })
+				};
+				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
+					.then(response => response.json())
+					.then(data => console.log(data));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

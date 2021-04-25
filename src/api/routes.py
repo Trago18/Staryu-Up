@@ -78,14 +78,24 @@ def login():
     return jsonify('The login has been successful.', {'token':access_token}), 200
 
 
-@api.route('/password-recovery', methods=['POST'])   # recuperar contraseña
+@api.route('/password_recovery', methods=['POST'])   # recuperar contraseña
 def get_password():
+
+    email = request.json.get("email", None)
+
+    if email is None:
+        return jsonify({"msg": "Email is required"}), 400
+
+    user = User.query.filter_by(email=email).one_or_none()
+
+    if not user:
+        return jsonify({"msg": "Email doesn't exist"}), 400
 
     sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     from_email = From("franksolorc@hotmail.com", 'Trago')
-    to_email = To("majorooc09@gmail.com")
-    subject = Subject("I'm the BEST")
-    content = Content("text/plain", "Ya está funcionando lo de mandar correos xD")
+    to_email = To(email)
+    subject = Subject("Recuperación de Contraseña")
+    content = Content("text/plain", user.password)
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 
