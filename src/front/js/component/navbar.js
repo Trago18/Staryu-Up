@@ -74,19 +74,27 @@ export const Navbar = () => {
 				<div className="menu">
 					<ul>
 						<li>
-							<a href="#">Inicio</a>
+							<Link to="/">
+								<div>Inicio</div>
+							</Link>
 						</li>
 						<li>
-							<a href="#">Perfil</a>
+							<Link to="/user/1">
+								<div>Perfil Usuario</div>
+							</Link>
 						</li>
 						<li>
-							<a href="#">Contáctenos</a>
+							<Link to="/supplier/1">
+								<div>Perfil Proveedor</div>
+							</Link>
 						</li>
 						<li>
-							<a href="#">Iniciar Sesión </a>
+							<div>Contáctenos</div>
 						</li>
 						<li>
-							<a href="#">Favoritos</a>
+							<Link to="/login">
+								<div>Iniciar Sesión</div>
+							</Link>
 						</li>
 					</ul>
 				</div>
