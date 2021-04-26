@@ -90,7 +90,13 @@ export const Login = () => {
 												</div>
 											</div>
 											<div className="recup">
-												<input type="submit" className="boton3" value="Recuperar contraseña" />
+												<Link to="/recovery">
+													<input
+														type="submit"
+														className="boton3"
+														value="Recuperar contraseña"
+													/>
+												</Link>
 											</div>
 										</div>
 									</div>
