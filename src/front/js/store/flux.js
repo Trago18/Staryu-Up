@@ -1,7 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			searchRequest: [{ search: "one" }, { search: "two" }, { search: "three" }, { search: "four" }],
 			message: null,
 			demo: [
 				{

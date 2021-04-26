@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 import "../../styles/home.scss";
 import mante from "../../img/mante.png";
 
@@ -27,7 +28,7 @@ export const Home = () => {
 
 	return (
 		<div id="page-top">
-			{store.searchData != "" && console.log(true)}
+			{store.searchData != "" && <Redirect to="/results" />}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
 				<div className="section-serch p-5 height d-flex align-items-center flex-column">

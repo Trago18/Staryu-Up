@@ -5,7 +5,12 @@ import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Button } from "react-bootstrap";
 
 export const User_Profile = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
+	const params = useParams();
+
+	useEffect(() => {
+		actions.getUser(params.userid);
+	}, []);
 
 	return (
 		<Container className="bg-light my-5">
@@ -38,17 +43,11 @@ export const User_Profile = () => {
 								<hr />
 							</div>
 							<div>
-								<span>
-									Contraseña:
-									{store.userData.password}
-								</span>
+								<span>Contraseña: {store.userData.password}</span>
 								<hr />
 							</div>
 							<div>
-								<span>
-									Teléfono:
-									{store.userData.phone_number}
-								</span>
+								<span>Teléfono: {store.userData.phone_number}</span>
 								<hr />
 							</div>
 						</div>
