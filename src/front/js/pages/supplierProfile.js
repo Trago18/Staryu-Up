@@ -28,7 +28,15 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-							<Row className="justify-content-between p-2">
+							<Row className="justify-content-between px-3">
+								<Card.Link href="#">
+									<i className="far fa-star fa-2x" />
+									<i className="far fa-star fa-2x" />
+									<i className="far fa-star fa-2x" />
+									<i className="far fa-star fa-2x" />
+									<i className="far fa-star fa-2x" />
+								</Card.Link>
+
 								<h5>{store.supplierData.name}</h5>
 								<a href="#" className="likeButton">
 									<i className="far fa-heart fa-2x p-2" />
@@ -36,13 +44,7 @@ export const Supplier_Profile = () => {
 							</Row>
 
 							<hr />
-							<Card.Link href="#">
-								<i className="far fa-star fa-2x" />
-								<i className="far fa-star fa-2x" />
-								<i className="far fa-star fa-2x" />
-								<i className="far fa-star fa-2x" />
-								<i className="far fa-star fa-2x" />
-							</Card.Link>
+							<h5>{store.supplierData.name}</h5>
 							<span> {"4.5 stars"}</span>
 						</Media.Body>
 					</Media>
@@ -54,48 +56,45 @@ export const Supplier_Profile = () => {
 					defaultActiveKey="informacion"
 					id="uncontrolled-tab-example"
 					className="tabs pr-5 mb-5 justify-content-end">
-					<Tab eventKey="informacion" title="Información" className="ml-auto supplierInfoTab">
-						<Row className="pb-4">
-							<Col xs={6}>
+					<Tab eventKey="informacion" title="Información" className="supplierInfoTab">
+						<Row className="pb-4" style={{ width: "100%", height: "100%" }}>
+							<Col lg={6}>
 								<div className="supplierInfo px-4">
 									<h6>Sobre mi</h6>
 									<p> {store.supplierData.description}</p>
 									<hr />
-									<h6>Mis servicios</h6>
-									<p>
-										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-										doloremque laudantium,
-									</p>
-									<hr />
+
 									<h6>Mis horarios</h6>
 									<span>{store.supplierData.schedule} </span>
 								</div>
 							</Col>
-							<Col xs={3} className="supplierMap justify-content-center text-center">
-								<Card className="mapCard" style={{ width: "100%", height: "100%" }}>
+							<Col sm={3} className="supplierContact  text-center">
+								<Card className="p-2 text-center">
+									<h6>Información de contacto</h6>
+									<div className="text-left">
+										<p>
+											<i className="fas fa-phone m-3" />
+											Teléfono: {store.supplierData.phone_number}
+										</p>
+										<hr />
+										<p>
+											<i className="fas fa-envelope m-3" />
+											Email: {store.supplierData.email}
+										</p>
+										<hr />
+										<p>
+											<i className="fas fa-map-marker-alt m-3" />
+											Ubicación: {store.supplierData.address}
+										</p>
+										<hr />
+									</div>
+								</Card>
+							</Col>
+							<Col sm={3} className="supplierMap ">
+								<Card className="mapCard p-2 text-center" style={{ width: "100%", height: "100%" }}>
 									<h6>Mi Mapa de Localización</h6>
 									<img className="p-1" src={googleMaps} alt="Google maps location" />
 								</Card>
-							</Col>
-							<Col xs={3} className="supplierContact  text-center">
-								<h6>Información de contacto</h6>
-								<div className="text-left">
-									<p>
-										<i className="fas fa-phone m-3" />
-										Teléfono: {store.supplierData.phone_number}
-									</p>
-									<hr />
-									<p>
-										<i className="fas fa-envelope m-3" />
-										Email: {store.supplierData.email}
-									</p>
-									<hr />
-									<p>
-										<i className="fas fa-map-marker-alt m-3" />
-										Ubicación: {store.supplierData.address}
-									</p>
-									<hr />
-								</div>
 							</Col>
 						</Row>
 					</Tab>

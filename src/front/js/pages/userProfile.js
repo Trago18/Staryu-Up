@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
-import { Media, Tab, Tabs, Container, Row, Button } from "react-bootstrap";
+import { Media, Tab, Tabs, Container, Row, Button, Modal } from "react-bootstrap";
 
 export const User_Profile = () => {
 	const { store, actions } = useContext(Context);
