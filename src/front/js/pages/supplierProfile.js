@@ -32,11 +32,6 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-<<<<<<< HEAD
-							<Row className="justify-content-between">
-								<h5>{store.supplierData.name}</h5>
-								<span>
-=======
 							<Row className="justify-content-between px-3">
 								<Card.Link href="#">
 									<i className="far fa-star fa-2x" />
@@ -48,7 +43,6 @@ export const Supplier_Profile = () => {
 
 								<h5>{store.supplierData.name}</h5>
 								<a href="#" className="likeButton">
->>>>>>> 4ec360cb5dd3d4684f69e2a959ea38b9a504c2d3
 									<i className="far fa-heart fa-2x p-2" />
 								</a>
 							</Row>

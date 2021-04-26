@@ -28,6 +28,7 @@ export const Home = () => {
 
 	return (
 		<div id="page-top">
+			{console.log(store.token)}
 			{store.searchData != "" && <Redirect to="/results" />}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
