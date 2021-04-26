@@ -54,8 +54,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ supplierData: data[0] }))
 					.catch(error => console.log("Error supplier profile", error));
 			},
-			getUser: id => {
-				fetch(process.env.BACKEND_URL + "/user/" + id)
+			getUser: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/user", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ userData: data[0] }))
 					.catch(error => console.log("Error user profile", error));

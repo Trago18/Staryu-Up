@@ -31,11 +31,11 @@ def data_test():
     user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
@@ -68,16 +68,16 @@ def login():
     if len(error_messages) > 0:
         return jsonify(error_messages), 400
 
-    email = User.query.filter_by(email=email).one_or_none()
+    user = User.query.filter_by(email=email).one_or_none()
 
-    if not email:
+    if not user:
         return jsonify({"msg": "Email doesn't exist"}), 400
-    if not email.check_password(password):
+    if not user.check_password(password):
         return jsonify({"msg": "Invalid password"}), 401
     
     expiration = timedelta(days=1)
-    access_token = create_access_token(identity=email, expires_delta=expiration)
-    return jsonify('The login has been successful.', {'token':access_token}), 200
+    access_token = create_access_token(identity=user, expires_delta=expiration)
+    return jsonify('The login has been successful.', {'access_token':access_token}), 200
 
 
 @api.route('/password_recovery', methods=['POST'])   # recuperar contraseña
@@ -104,10 +104,11 @@ def get_password():
     return jsonify({'msg': 'The email was send.'})
 
     
-@api.route("/user/<int:id>", methods=["GET"])   # Datos del perfil del usuario
-def get_user(id):
+@api.route("/user", methods=["GET"])   # Datos del perfil del usuario
+@jwt_required()
+def get_user():
 
-    user = User.query.filter_by(id=id).all()
+    user = User.query.filter_by(id=current_user.id).all()
     user = list(map(lambda x: x.serialize(), user))
 
     return jsonify(user), 200

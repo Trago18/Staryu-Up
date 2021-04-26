@@ -18,12 +18,12 @@ export const Navbar = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/user/1">
+						<Link to="/user">
 							<div>Perfil Usuario</div>
 						</Link>
 					</li>
 					<li>
-						<Link to="/supplier/1">
+						<Link to="/supplier/:supplierid">
 							<div>Perfil Proveedor</div>
 						</Link>
 					</li>

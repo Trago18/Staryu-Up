@@ -24,12 +24,16 @@ export const Supplier_Profile = () => {
 							width={130}
 							height={130}
 							className="mr-3 rounded-circle"
-							src={store.supplierData.profile_pic}
+							src={
+								store.supplierData.profile_pic == null
+									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+									: store.supplierData.profile_pic
+							}
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
 							<Row className="justify-content-between">
-								<h5>Jimenez Landscaping</h5>
+								<h5>{store.supplierData.name}</h5>
 								<span>
 									<i className="far fa-heart fa-2x p-2" />
 								</span>

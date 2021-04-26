@@ -1,15 +1,13 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Button } from "react-bootstrap";
 
 export const User_Profile = () => {
 	const { store, actions } = useContext(Context);
-	const params = useParams();
 
 	useEffect(() => {
-		actions.getUser(params.userid);
+		actions.getUser();
 	}, []);
 
 	return (
@@ -21,7 +19,11 @@ export const User_Profile = () => {
 							width={130}
 							height={130}
 							className="m-2 rounded-circle  "
-							src={store.userData.profile_pic}
+							src={
+								store.userData.profile_pic == null
+									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+									: store.userData.profile_pic
+							}
 							alt="user_profile_photo"
 						/>
 						<Media.Body>
