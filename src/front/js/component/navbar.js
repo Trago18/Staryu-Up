@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 
-export const Navbar = () => {
+export const Navbar_menu = () => {
 	return (
 		<nav>
 			<div className="logo">

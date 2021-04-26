@@ -13,15 +13,21 @@
 }
 
 .supplierInfoTab{
-    min-height: 23rem;
+    min-height: 20rem;
 
 }
 
 .supplierReviewsTab {
-    min-height: 23rem
+    min-height: 20rem
 
 }
  .supplierGalleryTab {
-     min-height: 23rem;
+     min-height: 20rem;
+ }
+ 
+
+ .likeButton :hover{
+   transform: scale(1.3);
  }
 
+ 
