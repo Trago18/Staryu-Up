@@ -11,7 +11,7 @@ export const Search_Single = () => {
 
 	return (
 		<div>
-			{store.searchRequest.map(() => {
+			{store.searchData.map((value, index) => {
 				return (
 					<>
 						<Card style={{ width: "100%" }}>
@@ -21,23 +21,18 @@ export const Search_Single = () => {
 										width={180}
 										height={200}
 										className="mr-3"
-										src={imgGarden}
+										src={value.profile_pic}
 										alt="Generic placeholder"
 									/>
 									<Media.Body>
 										<Card.Link href="#">
-											<h5>Jimenez Landscaping</h5>
+											<h5>{value.name}</h5>
 										</Card.Link>
 										<span>
-											<b>Poás, Alajuela</b>
+											<b>{value.address}</b>
 										</span>
 										<hr />
-										<p>
-											Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-											ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-											tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-											Donec lacinia congue felis in faucibus.
-										</p>
+										<p>{value.description}</p>
 									</Media.Body>
 									<Card.Link href="#">
 										<i className="far fa-heart fa-2x p-2" />

@@ -33,7 +33,9 @@ export const Login = () => {
 				<div className="register-left">
 					<i className="fab fa-keycdn fa-4x mr-4" />
 					<h3>Bienvenido</h3>
-					<input type="submit" name="" value="Registrarse" />
+					<Link to="/user-register">
+						<input type="submit" name="" value="Registrarse" />
+					</Link>
 					<br />
 				</div>
 				<div className="col-md-9 col-sd-4 register-right">
@@ -88,7 +90,13 @@ export const Login = () => {
 												</div>
 											</div>
 											<div className="recup">
-												<input type="submit" className="boton3" value="Recuperar contraseña" />
+												<Link to="/recovery">
+													<input
+														type="submit"
+														className="boton3"
+														value="Recuperar contraseña"
+													/>
+												</Link>
 											</div>
 										</div>
 									</div>
