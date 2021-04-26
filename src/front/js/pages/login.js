@@ -65,48 +65,32 @@ export const Login = () => {
 									</div>
 									<div className="space" />
 									<div className="col-md" />
-									<div className="form-check form-switch">
-										<input
-											className="form-check-input"
-											type="checkbox"
-											id="flexSwitchCheckDefault"
-										/>
-										<label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-											Recuerdame
-										</label>
-									</div>
 
 									<div className="form-grupo mb-5">
-										<div
-											className="tab-pane fade show"
-											id="profile"
-											role="tabpanel"
-											aria-labelledby="profile-tab">
-											<div className="row register-form">
-												<div className="col-md col-sd-2">
-													<input type="submit" className="btnLogin" value="Login" />
-												</div>
-												<div className="login_form is_closed">
-													<div className="col-md btnsocial">
-														<div className="social_login">
-															<a href="#" className="google">
-																<i className="fab fa-google" />
-																<span>Inicia con Google</span>
-															</a>
-															<a href="#" className="fb">
-																<i className="fab fa-facebook" />
-																<span>Inicia con Facebook</span>
-															</a>
-															<a href="#" className="tw">
-																<i className="fab fa-twitter" />
-																<span>Inicia con Twitter</span>
-															</a>
-														</div>
+										<div className="row register-form">
+											<div className="col-md col-sd-2">
+												<input type="submit" className="btnLogin" value="Login" />
+											</div>
+											<div className="login_form is_closed">
+												<div className="col-md btnsocial">
+													<div className="social_login">
+														<a href="#" className="google">
+															<i className="fab fa-google" />
+															<span>Inicia con Google</span>
+														</a>
+														<a href="#" className="fb">
+															<i className="fab fa-facebook" />
+															<span>Inicia con Facebook</span>
+														</a>
+														<a href="#" className="tw">
+															<i className="fab fa-twitter" />
+															<span>Inicia con Twitter</span>
+														</a>
 													</div>
 												</div>
-												<div className="recup">
-													<span className="boton3">Recuperar contraseña</span>
-												</div>
+											</div>
+											<div className="recup">
+												<input type="submit" className="boton3" value="Recuperar contraseña" />
 											</div>
 										</div>
 									</div>

@@ -1,6 +1,5 @@
-body{
-    background-color: #d64a27;
-}
+
+
 .copy{
    background-color: rgb(28, 38, 49);
    height: 50px;
@@ -8,12 +7,9 @@ body{
 
 footer {
   background: #16222A;
-   background: -webkit-linear-gradient(59deg, rgb(39, 82, 104), rgb(16, 29, 39));
+  background: -webkit-linear-gradient(59deg, rgb(39, 82, 104), rgb(16, 29, 39));
   height: 100px;
-  
 }
-
-
 
 .copy {
   font-size: 12px;
@@ -21,10 +17,10 @@ footer {
  
 }
 
-
 ul.social-network li {
   display: inline;
   margin: 0 5px;
+ 
 }
 
 
@@ -107,3 +103,5 @@ ul.social-network li {
 .social-network a {
   background-color: rgb(219, 216, 216);
 }
+
+
