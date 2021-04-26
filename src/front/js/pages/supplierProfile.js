@@ -28,22 +28,22 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-							<Row className="justify-content-between">
-								<h5>Jimenez Landscaping</h5>
-								<span>
+							<Row className="justify-content-between p-2">
+								<h5>{store.supplierData.name}</h5>
+								<a href="#" className="likeButton">
 									<i className="far fa-heart fa-2x p-2" />
-								</span>
+								</a>
 							</Row>
-							<span>Poás, Alajuela</span>
+
 							<hr />
 							<Card.Link href="#">
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
 							</Card.Link>
-							<span> Reviews</span>
+							<span> {"4.5 stars"}</span>
 						</Media.Body>
 					</Media>
 				</Col>
@@ -55,108 +55,91 @@ export const Supplier_Profile = () => {
 					id="uncontrolled-tab-example"
 					className="tabs pr-5 mb-5 justify-content-end">
 					<Tab eventKey="informacion" title="Información" className="ml-auto supplierInfoTab">
-						<Supplier_Info />
+						<Row className="pb-4">
+							<Col xs={6}>
+								<div className="supplierInfo px-4">
+									<h6>Sobre mi</h6>
+									<p> {store.supplierData.description}</p>
+									<hr />
+									<h6>Mis servicios</h6>
+									<p>
+										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+										doloremque laudantium,
+									</p>
+									<hr />
+									<h6>Mis horarios</h6>
+									<span>{store.supplierData.schedule} </span>
+								</div>
+							</Col>
+							<Col xs={3} className="supplierMap justify-content-center text-center">
+								<Card className="mapCard" style={{ width: "100%", height: "100%" }}>
+									<h6>Mi Mapa de Localización</h6>
+									<img className="p-1" src={googleMaps} alt="Google maps location" />
+								</Card>
+							</Col>
+							<Col xs={3} className="supplierContact  text-center">
+								<h6>Información de contacto</h6>
+								<div className="text-left">
+									<p>
+										<i className="fas fa-phone m-3" />
+										Teléfono: {store.supplierData.phone_number}
+									</p>
+									<hr />
+									<p>
+										<i className="fas fa-envelope m-3" />
+										Email: {store.supplierData.email}
+									</p>
+									<hr />
+									<p>
+										<i className="fas fa-map-marker-alt m-3" />
+										Ubicación: {store.supplierData.address}
+									</p>
+									<hr />
+								</div>
+							</Col>
+						</Row>
 					</Tab>
 					<Tab eventKey="reviews" title="Reviews" className="ml-auto supplierReviewsTab">
-						<Supplier_Reviews />
+						<div className="supplierInfo px-4">
+							<h6>Valoramos su opinión</h6>
+							<InputGroup>
+								<InputGroup.Prepend>
+									<InputGroup.Text>Su comentario aquí:</InputGroup.Text>
+								</InputGroup.Prepend>
+								<FormControl as="textarea" aria-label="With textarea" />
+							</InputGroup>
+							<hr />
+							<h6>Reviews de otros usuarios</h6>
+							<span>{""}</span>
+							<p>
+								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+								laudantium,
+							</p>
+							<hr />
+						</div>
 					</Tab>
 					<Tab eventKey="galeria" title="Galería" className="ml-auto supplierGalleryTab">
-						<Supplier_Gallery />
+						<Container>
+							<Row className="justify-content-center">
+								<Col xs={4}>
+									<Card.Link href="http://via.placeholder.com/440x260">
+										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									</Card.Link>
+								</Col>
+								<Col xs={4}>
+									<Card.Link href="http://via.placeholder.com/440x260">
+										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									</Card.Link>
+								</Col>
+								<Col xs={4}>
+									<Card.Link href="http://via.placeholder.com/440x260">
+										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									</Card.Link>
+								</Col>
+							</Row>
+						</Container>
 					</Tab>
 				</Tabs>
-			</Row>
-		</Container>
-	);
-};
-
-// Supplier info tab section here
-const Supplier_Info = () => {
-	return (
-		<Row className="pb-4">
-			<Col xs={6}>
-				<div className="supplierInfo px-4">
-					<h6>Sobre mi</h6>
-					<p>
-						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-						laudantium, totam rem aperiam, eaque ipsa quae ab illo
-					</p>
-					<hr />
-					<h6>Mis servicios</h6>
-					<p>
-						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-						laudantium,
-					</p>
-					<hr />
-					<h6>Mis horarios</h6>
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-				</div>
-			</Col>
-			<Col xs={3} className="supplierMap justify-content-center text-center">
-				<Card className="mapCard" style={{ width: "100%", height: "100%" }}>
-					<h6>Mi Mapa de Localización</h6>
-					<img className="p-1" src={googleMaps} alt="Google maps location" />
-				</Card>
-			</Col>
-			<Col xs={3} className="supplierContact  text-center">
-				<h6>Información de contacto</h6>
-				<div className="text-left">
-					<p>
-						<i className="fas fa-phone m-3" />
-						Teléfono
-					</p>
-					<hr />
-					<p>
-						<i className="fas fa-envelope m-3" />
-						Email
-					</p>
-					<hr />
-					<p>
-						<i className="fas fa-map-marker-alt m-3" />
-						Ubicación
-					</p>
-					<hr />
-				</div>
-			</Col>
-		</Row>
-	);
-};
-
-// Supplier reviews tabs section here
-const Supplier_Reviews = () => {
-	return (
-		<div className="supplierInfo px-4">
-			<h6>Valoramos su opinión</h6>
-			<InputGroup>
-				<InputGroup.Prepend>
-					<InputGroup.Text>Deje un comentario</InputGroup.Text>
-				</InputGroup.Prepend>
-				<FormControl as="textarea" aria-label="With textarea" />
-			</InputGroup>
-			<hr />
-			<h6>Reviews de otros usuarios</h6>
-			<span>{""}</span>
-			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,</p>
-			<hr />
-		</div>
-	);
-};
-
-// Supplier gallery tabs section here
-const Supplier_Gallery = () => {
-	return (
-		<Container>
-			<Row className="justify-content-center">
-				<Col xs={4}>
-					<Card.Link>
-						<Image src="http://via.placeholder.com/440x260" thumbnail />
-					</Card.Link>
-				</Col>
-				<Col xs={4}>
-					<Image src="http://via.placeholder.com/440x260" thumbnail />
-				</Col>
-				<Col xs={4}>
-					<Image src="http://via.placeholder.com/440x260" thumbnail />
-				</Col>
 			</Row>
 		</Container>
 	);
