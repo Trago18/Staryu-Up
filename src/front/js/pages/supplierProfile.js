@@ -37,11 +37,11 @@ export const Supplier_Profile = () => {
 
 							<hr />
 							<Card.Link href="#">
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
-								<i className="far fa-star fa" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
+								<i className="far fa-star fa-2x" />
 							</Card.Link>
 							<span> {"4.5 stars"}</span>
 						</Media.Body>
@@ -59,10 +59,7 @@ export const Supplier_Profile = () => {
 							<Col xs={6}>
 								<div className="supplierInfo px-4">
 									<h6>Sobre mi</h6>
-									<p>
-										Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-										doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-									</p>
+									<p> {store.supplierData.description}</p>
 									<hr />
 									<h6>Mis servicios</h6>
 									<p>
@@ -85,17 +82,17 @@ export const Supplier_Profile = () => {
 								<div className="text-left">
 									<p>
 										<i className="fas fa-phone m-3" />
-										Teléfono
+										Teléfono: {store.supplierData.phone_number}
 									</p>
 									<hr />
 									<p>
 										<i className="fas fa-envelope m-3" />
-										Email
+										Email: {store.supplierData.email}
 									</p>
 									<hr />
 									<p>
 										<i className="fas fa-map-marker-alt m-3" />
-										Ubicación
+										Ubicación: {store.supplierData.address}
 									</p>
 									<hr />
 								</div>
