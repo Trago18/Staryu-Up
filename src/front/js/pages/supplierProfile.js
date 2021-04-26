@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
-import { Media, Card, Container, Row, Col, Tab, Tabs } from "react-bootstrap";
+import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image } from "react-bootstrap";
 import imgGarden from "../../img/landscapingvert.jpg";
 import imgProfile from "../../img/gardProfile.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
@@ -28,12 +28,12 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-							<div>
+							<Row className="justify-content-between">
 								<h5>Jimenez Landscaping</h5>
 								<span>
 									<i className="far fa-heart fa-2x p-2" />
 								</span>
-							</div>
+							</Row>
 							<span>Poás, Alajuela</span>
 							<hr />
 							<Card.Link href="#">
@@ -49,17 +49,18 @@ export const Supplier_Profile = () => {
 				</Col>
 			</Row>
 			<Row>
+				{/* Tabs section starts here  */}
 				<Tabs
 					defaultActiveKey="informacion"
 					id="uncontrolled-tab-example"
 					className="tabs pr-5 mb-5 justify-content-end">
-					<Tab eventKey="informacion" title="Información" className="ml-auto">
+					<Tab eventKey="informacion" title="Información" className="ml-auto supplierInfoTab">
 						<Supplier_Info />
 					</Tab>
-					<Tab eventKey="reviews" title="Reviews">
+					<Tab eventKey="reviews" title="Reviews" className="ml-auto supplierReviewsTab">
 						<Supplier_Reviews />
 					</Tab>
-					<Tab eventKey="galeria" title="Galería">
+					<Tab eventKey="galeria" title="Galería" className="ml-auto supplierGalleryTab">
 						<Supplier_Gallery />
 					</Tab>
 				</Tabs>
@@ -68,80 +69,53 @@ export const Supplier_Profile = () => {
 	);
 };
 
-// Supplier info tabs section here
+// Supplier info tab section here
 const Supplier_Info = () => {
 	return (
-		<Row>
-			<Col xs={9}>
-				<Row>
-					<Col>
-						<div className="supplierInfo p-3">
-							<h6>Sobre mi</h6>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-								laudantium, totam rem aperiam, eaque ipsa quae ab illo
-							</p>
-							<hr />
-							<h6>Mis servicios</h6>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-								laudantium,
-							</p>
-							<hr />
-							<h6>Reviews</h6>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-								laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-								architecto beatae vitae dicta sunt explicabo
-							</p>
-						</div>
-					</Col>
-					<Col className="supplierGallery">
-						<img
-							width={250}
-							height={350}
-							className="img-fluid w-100 py-3"
-							src={imgGarden}
-							alt="landscaping"
-						/>
-					</Col>
-				</Row>
+		<Row className="pb-4">
+			<Col xs={6}>
+				<div className="supplierInfo px-4">
+					<h6>Sobre mi</h6>
+					<p>
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+						laudantium, totam rem aperiam, eaque ipsa quae ab illo
+					</p>
+					<hr />
+					<h6>Mis servicios</h6>
+					<p>
+						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+						laudantium,
+					</p>
+					<hr />
+					<h6>Mis horarios</h6>
+					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+				</div>
 			</Col>
-
-			<Col xs={3} className="supplierMap">
-				<Row>
-					<Col xs={12} className="justify-content-center">
-						<img
-							style={{ width: "100%", height: "100%" }}
-							className="p-1"
-							src={googleMaps}
-							alt="Google maps location"
-						/>
-					</Col>
-				</Row>
-				<Row>
-					<Col xs={12} className="justify-content-center ">
-						<hr />
-						<h5>Información de contacto</h5>
-						<div>
-							<p>
-								<i className="fas fa-phone m-3" />
-								Teléfono
-							</p>
-							<hr />
-							<p>
-								<i className="fas fa-envelope m-3" />
-								Email
-							</p>
-							<hr />
-							<p>
-								<i className="fas fa-map-marker-alt m-3" />
-								Email
-							</p>
-							<hr />
-						</div>
-					</Col>
-				</Row>
+			<Col xs={3} className="supplierMap justify-content-center text-center">
+				<Card className="mapCard" style={{ width: "100%", height: "100%" }}>
+					<h6>Mi Mapa de Localización</h6>
+					<img className="p-1" src={googleMaps} alt="Google maps location" />
+				</Card>
+			</Col>
+			<Col xs={3} className="supplierContact  text-center">
+				<h6>Información de contacto</h6>
+				<div className="text-left">
+					<p>
+						<i className="fas fa-phone m-3" />
+						Teléfono
+					</p>
+					<hr />
+					<p>
+						<i className="fas fa-envelope m-3" />
+						Email
+					</p>
+					<hr />
+					<p>
+						<i className="fas fa-map-marker-alt m-3" />
+						Ubicación
+					</p>
+					<hr />
+				</div>
 			</Col>
 		</Row>
 	);
@@ -150,21 +124,40 @@ const Supplier_Info = () => {
 // Supplier reviews tabs section here
 const Supplier_Reviews = () => {
 	return (
-		<>
-			When in disgrace with fortune and mens eyes I all alone beweep my outcast state, And trouble deaf heaven
-			with my bootless cries, And look upon myself, and curse my fate, Wishing me like to one more rich in hope,
-			Featurd like him,{" "}
-		</>
+		<div className="supplierInfo px-4">
+			<h6>Valoramos su opinión</h6>
+			<InputGroup>
+				<InputGroup.Prepend>
+					<InputGroup.Text>Deje un comentario</InputGroup.Text>
+				</InputGroup.Prepend>
+				<FormControl as="textarea" aria-label="With textarea" />
+			</InputGroup>
+			<hr />
+			<h6>Reviews de otros usuarios</h6>
+			<span>{""}</span>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,</p>
+			<hr />
+		</div>
 	);
 };
 
 // Supplier gallery tabs section here
 const Supplier_Gallery = () => {
 	return (
-		<>
-			When in disgrace with fortune and mens eyes I all alone beweep my outcast state, And trouble deaf heaven
-			with my bootless cries, And look upon myself, and curse my fate, Wishing me like to one more rich in hope,
-			Featurd like him,{" "}
-		</>
+		<Container>
+			<Row className="justify-content-center">
+				<Col xs={4}>
+					<Card.Link>
+						<Image src="http://via.placeholder.com/440x260" thumbnail />
+					</Card.Link>
+				</Col>
+				<Col xs={4}>
+					<Image src="http://via.placeholder.com/440x260" thumbnail />
+				</Col>
+				<Col xs={4}>
+					<Image src="http://via.placeholder.com/440x260" thumbnail />
+				</Col>
+			</Row>
+		</Container>
 	);
 };
