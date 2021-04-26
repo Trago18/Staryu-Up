@@ -104,19 +104,57 @@ export const Supplier_Register = () => {
 													<option className="hidden" selected disabled>
 														Categoría
 													</option>
-													<option>Bienes raíces</option>
-													<option>Electronica</option>
-													<option>Vehículos</option>
+													<option>Mascotas</option>
+													<option>Pintor</option>
+													<option>Transporte</option>
+													<option>Fotógrafo</option>
+													<option>Catering</option>
+													<option>Jardinero</option>
+													<option>Express</option>
+													<option>Construcción </option>
 													<option>Computación</option>
-													<option>Pintura</option>
-													<option>Jardinería</option>
-													<option>Construcción</option>
-													<option>Fotografo</option>
+													<option>Eléctrico</option>
+													<option>Enseñanza</option>
+													<option>Mecánico</option>
 												</select>
 											</div>
 										</div>
 										<div className="col-md-6">
 											<div className="form-group">
+												<button
+													type="button"
+													className="btn btn-primary"
+													data-toggle="modal"
+													data-target="#myModal">
+													Open modal
+												</button>
+
+												<div className="modal" id="myModal">
+													<div className="modal-dialog">
+														<div className="modal-content">
+															<div className="modal-header">
+																<h4 className="modal-title">Modal Heading</h4>
+																<button
+																	type="button"
+																	className="close"
+																	data-dismiss="modal">
+																	&times;
+																</button>
+															</div>
+
+															<div className="modal-body">Modal body..</div>
+
+															<div className="modal-footer">
+																<button
+																	type="button"
+																	className="btn btn-danger"
+																	data-dismiss="modal">
+																	Close
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
 												<select
 													className="form-control"
 													name="schedule"
@@ -158,7 +196,8 @@ export const Supplier_Register = () => {
 												<textarea
 													name="description"
 													rows="4"
-													cols="25"
+													cols="30"
+													maxLength="50"
 													onChange={handleInputChange}
 												/>
 											</div>

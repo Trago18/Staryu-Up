@@ -6,8 +6,8 @@ export const Footer = () => {
 		<footer className="footer mt-auto text-center text-white">
 			<div className="container">
 				{/*<!-- Social -->*/}
-				<section className="mb-4">
-					<ul className="social-network social-circle">
+				<section className="mb-1">
+					<ul className="social-network social-circle pt-3">
 						<li>
 							<a href="#" className="icoFacebook" title="Facebook">
 								<i className="fab fa-facebook-f" />

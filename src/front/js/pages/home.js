@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 import "../../styles/home.scss";
 import mante from "../../img/mante.png";
 
@@ -27,7 +28,7 @@ export const Home = () => {
 
 	return (
 		<div id="page-top">
-			{store.searchData != "" && console.log(true)}
+			{store.searchData != "" && <Redirect to="/results" />}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
 				<div className="section-serch p-5 height d-flex align-items-center flex-column">
@@ -44,9 +45,9 @@ export const Home = () => {
 								name="search"
 								onChange={handleInputChange}
 							/>
-							<a href="#" className="search-icon">
+							<button href="#" className="search-icon">
 								<i className="fa fa-search" />
-							</a>
+							</button>
 						</div>
 					</form>
 				</div>
@@ -116,9 +117,10 @@ export const Home = () => {
 						</div>
 						<div className="col-md-2">
 							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-music fa-3x" />
+								<i className="icono fa fa-toolbox fa-3x" />
+
 								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Músico</span>
+									<span className="mg-text">Construcción</span>
 								</div>
 							</div>
 						</div>

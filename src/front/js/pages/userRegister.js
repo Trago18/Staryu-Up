@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/userRegister.scss";
 
 export const User_Register = () => {
@@ -36,8 +37,9 @@ export const User_Register = () => {
 						<div className="login">
 							<i className="fa fa-user-shield fa-4x mr-4" />
 							<h3>Bienvenido</h3>
-
-							<input type="submit" name="" value="Login" />
+							<Link to="/login">
+								<input type="submit" name="" value="Login" />
+							</Link>
 							<br />
 						</div>
 						<div className="col-md-9 formulario">
