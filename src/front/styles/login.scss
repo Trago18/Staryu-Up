@@ -2,9 +2,9 @@
 
 .register{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    padding-top: 70px;
+    padding-top: 140px;
     padding-right: 20%;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     padding-left: 20%;
   
 }
@@ -73,7 +73,7 @@
     font-weight: 600;
     width: 150px;
     margin-top: 25px;
-    margin-right: 180px;
+    margin-right: 160px;
     box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 }
 
@@ -182,14 +182,16 @@
 
 .boton3 {
   color: #7e8080 !important;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 500;
   padding: 0.5em 1.2em;
   background: rgba(0,0,0,0);
-  
- 
+  border: 2px solid;
+  border-color: #30d9df;
+  border-radius: 25px;
   transition: all 1s ease;
   position: relative;
+  margin-left: 50px;
 }
 .boton3:hover {
   background: #09181f;
