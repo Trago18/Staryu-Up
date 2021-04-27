@@ -13,6 +13,7 @@ export const Supplier_Profile = () => {
 
 	useEffect(() => {
 		actions.getSupplier(params.supplierid);
+		actions.getCommentaries(params.supplierid);
 	}, []);
 
 	return (
@@ -120,11 +121,15 @@ export const Supplier_Profile = () => {
 							<hr />
 							<h6>Reviews de otros usuarios</h6>
 							<span>{""}</span>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-								laudantium,
-							</p>
-							<hr />
+							{store.commentaries != "" &&
+								store.commentaries.map((value, index) => {
+									return (
+										<>
+											<p key={index}>{value.message}</p>
+											<hr />
+										</>
+									);
+								})}
 						</div>
 					</Tab>
 					<Tab eventKey="galeria" title="Galería" className="ml-auto supplierGalleryTab">

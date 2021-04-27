@@ -35,6 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			searchData: [],
 			favorites: [],
+			commentaries: [],
 			token: null
 		},
 		actions: {
@@ -164,6 +165,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ favorites: data }))
 					.catch(error => console.log("Error post favorites", error));
+			},
+			getCommentaries: id => {
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment")
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error get commentaries", error));
 			},
 			changeColor: (index, color) => {
 				//get the store
