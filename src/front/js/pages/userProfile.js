@@ -19,17 +19,12 @@ export const User_Profile = () => {
 						<img
 							width={130}
 							height={130}
-<<<<<<< HEAD
-							className="m-2 rounded-circle  "
+							className=" rounded-circle  "
 							src={
 								store.userData.profile_pic == null
 									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
 									: store.userData.profile_pic
 							}
-=======
-							className=" rounded-circle  "
-							src={store.userData.profile_pic}
->>>>>>> 8decc5237eb93356bf9fe3c89fb844ca3be1d1ca
 							alt="user_profile_photo"
 						/>
 						<Media.Body>

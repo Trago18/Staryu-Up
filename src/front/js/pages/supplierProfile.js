@@ -23,17 +23,12 @@ export const Supplier_Profile = () => {
 						<img
 							width={130}
 							height={130}
-<<<<<<< HEAD
-							className="mr-3 rounded-circle"
+							className=" rounded-circle"
 							src={
 								store.supplierData.profile_pic == null
 									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
 									: store.supplierData.profile_pic
 							}
-=======
-							className=" rounded-circle"
-							src={store.supplierData.profile_pic}
->>>>>>> 8decc5237eb93356bf9fe3c89fb844ca3be1d1ca
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
