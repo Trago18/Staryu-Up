@@ -27,6 +27,7 @@ class User(db.Model):
             "phone_number": self.phone_number,
             "profile_pic": self.profile_pic,
             "email": self.email,
+            "password": self.password
         }
     
     def check_password(self, password):
