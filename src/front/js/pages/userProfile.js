@@ -13,7 +13,6 @@ export const User_Profile = () => {
 
 	return (
 		<Container className="bg-light my-5">
-			{/* {store.favorites != "" && console.log(store.favorites)} */}
 			<Row>
 				<div className="userCard p-3 " style={{ width: "100%", height: "160px" }}>
 					<Media>

@@ -73,6 +73,7 @@ class Supplier(db.Model):
 
     def serializeSearch(self):
         return {
+            "id": self.id,
             "name": self.name,
             "profile_pic": self.profile_pic,
             "address": self.address,

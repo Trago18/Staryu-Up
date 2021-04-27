@@ -21,7 +21,11 @@ export const Search_Single = () => {
 										width={180}
 										height={200}
 										className="mr-3"
-										src={value.profile_pic}
+										src={
+											value.profile_pic == null
+												? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+												: value.profile_pic
+										}
 										alt="Generic placeholder"
 									/>
 									<Media.Body>

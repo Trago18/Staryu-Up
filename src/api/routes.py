@@ -303,6 +303,7 @@ def get_favorite():
 
 
 @api.route('/favorite', methods=['POST'])      # agregar proveedor a favoritos
+@jwt_required()
 def add_favorite():
 
     favorite = request.json.get("favorite", None)
@@ -322,6 +323,7 @@ def add_favorite():
 
 
 @api.route('/favorite', methods=['DELETE'])     # eliminar proveedor de favoritos
+@jwt_required()
 def delete_favorite():
 
     favorite = request.json.get("favorite", None)
