@@ -151,15 +151,15 @@ textarea{
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
 	background: #fff;
-	background: -moz-linear-gradient(#fff, #999);
-	background: -webkit-linear-gradient(#fff, #999);
-	background: -o-linear-gradient(#fff, #999);
+	background: -moz-linear-gradient(#fff, rgb(255, 255, 255));
+	background: -webkit-linear-gradient(#fff, rgb(255, 255, 255));
+	background: -o-linear-gradient(#fff, rgb(255, 255, 255));
   -webkit-transition: opacity 400ms ease-in;
 -moz-transition: opacity 400ms ease-in;
 transition: opacity 400ms ease-in;
 }
 .close {
-	background: #606061;
+	background: #19b9c4;
 	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
@@ -180,10 +180,6 @@ transition: opacity 400ms ease-in;
     background: #00d9ff;
 }
 
-.btn{
-    background-color: #df3064;
-    border: none;
-}
 
 
 

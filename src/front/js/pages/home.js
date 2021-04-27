@@ -53,8 +53,11 @@ export const Home = () => {
 				</div>
 			</div>
 			{/* <!-- Seccón de categorías--> */}
-			<section className="page-section portfolio pt-5 pb-5" id="portfolio">
+			<section className="page-section portfolio pb-5" id="portfolio">
 				<div className="container">
+					<div className="categ-pop pb-3">
+						<h3>Categorías populares</h3>
+					</div>
 					{/* <!-- Iconos--> */}
 					<div className="row ">
 						<div className="categ col-md-2">
