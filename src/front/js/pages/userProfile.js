@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
-import { Media, Tab, Tabs, Container, Row, Button, Modal } from "react-bootstrap";
+import { Media, Tab, Tabs, Container, Row, Col } from "react-bootstrap";
 
 export const User_Profile = () => {
 	const { store, actions } = useContext(Context);
@@ -14,17 +14,22 @@ export const User_Profile = () => {
 	return (
 		<Container className="bg-light my-5">
 			<Row>
-				<div className="userCard p-3 " style={{ width: "100%", height: "160px" }}>
+				<Col className="userCard py-3 px-4 " style={{ width: "100%", height: "160px" }}>
 					<Media>
 						<img
 							width={130}
 							height={130}
+<<<<<<< HEAD
 							className="m-2 rounded-circle  "
 							src={
 								store.userData.profile_pic == null
 									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
 									: store.userData.profile_pic
 							}
+=======
+							className=" rounded-circle  "
+							src={store.userData.profile_pic}
+>>>>>>> 8decc5237eb93356bf9fe3c89fb844ca3be1d1ca
 							alt="user_profile_photo"
 						/>
 						<Media.Body>
@@ -34,7 +39,7 @@ export const User_Profile = () => {
 							</div>
 						</Media.Body>
 					</Media>
-				</div>
+				</Col>
 			</Row>
 			<Row>
 				<Tabs defaultActiveKey="cuenta" id="uncontrolled-tab-example" className="tabs pr-5 justify-content-end">
