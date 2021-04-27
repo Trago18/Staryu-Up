@@ -31,18 +31,33 @@ export const Supplier_Profile = () => {
 							<Row className="justify-content-between px-3">
 								<div>
 									<Card.Link href="#">
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
+										<form>
+											<p className="clasificacion">
+												<input id="radio1" type="radio" name="estrellas" value="5" />
+												<label htmlFor="radio1">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio2" type="radio" name="estrellas" value="4" />
+												<label htmlFor="radio2">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio3" type="radio" name="estrellas" value="3" />
+												<label htmlFor="radio3">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio4" type="radio" name="estrellas" value="2" />
+												<label htmlFor="radio4">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio5" type="radio" name="estrellas" value="1" />
+												<label htmlFor="radio5">
+													<i className="fa fa-star"></i>
+												</label>
+											</p>
+										</form>
 									</Card.Link>
 									<div className="supplierRating p-2"> {"4.5 stars"}</div>
 								</div>
-
-								<a href="#" className="likeButton">
-									<i className="far fa-heart fa-2x p-2" />
-								</a>
 							</Row>
 							<h5>{store.supplierData.name}</h5>
 							<hr />

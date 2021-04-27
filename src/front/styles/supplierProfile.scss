@@ -1,10 +1,6 @@
-.fa-star {
-    color:yellow
-}
 
-.fas{
-     color: #1abc9c
-}
+
+
 
 .supplierCard{
     background-color:#2c3e50;
@@ -34,4 +30,32 @@
      width: 100%;
  }
 
- 
+
+/*Estrellas*/
+label{ 
+     color:grey;}
+
+input[type = "radio"]{ display:none;}
+
+.clasificacion{
+      direction: rtl;
+      unicode-bidi: bidi-override;
+  }
+
+label:hover{
+    color:orange;
+}
+
+label:hover ~ label{
+    color:orange;
+}
+
+input[type = "radio"]:checked ~ label{
+    color:orange;
+}
+
+
+/*Corazón favoritos*/
+
+
+
