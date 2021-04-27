@@ -40,7 +40,7 @@ export const Home = () => {
 							<input
 								type="text"
 								className="search-input"
-								placeholder="Búsqueda..."
+								placeholder="Búsqueda por proveedor..."
 								name="search"
 								onChange={handleInputChange}
 							/>

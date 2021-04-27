@@ -26,7 +26,7 @@ export const Search_Single = () => {
 									/>
 									<Media.Body>
 										<Card.Link href="#">
-											<h5>Jimenez Landscaping</h5>
+											<h5 className="name-result">Jimenez Landscaping</h5>
 										</Card.Link>
 										<span>
 											<b>Poás, Alajuela</b>

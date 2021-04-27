@@ -46,7 +46,6 @@ export const Supplier_Register = () => {
 						<div className="usuario">
 							<i className="fa fa-address-card fa-4x mr-5" />
 							<h3>Bienvenido</h3>
-
 							<input type="submit" name="" value="Login" />
 							<br />
 						</div>
@@ -121,76 +120,213 @@ export const Supplier_Register = () => {
 										</div>
 										<div className="col-md-6">
 											<div className="form-group">
-												<button
-													type="button"
-													className="btn btn-primary"
-													data-toggle="modal"
-													data-target="#myModal">
-													Open modal
-												</button>
-
-												<div className="modal" id="myModal">
-													<div className="modal-dialog">
-														<div className="modal-content">
-															<div className="modal-header">
-																<h4 className="modal-title">Modal Heading</h4>
-																<button
-																	type="button"
-																	className="close"
-																	data-dismiss="modal">
-																	&times;
-																</button>
-															</div>
-
-															<div className="modal-body">Modal body..</div>
-
-															<div className="modal-footer">
-																<button
-																	type="button"
-																	className="btn btn-danger"
-																	data-dismiss="modal">
-																	Close
-																</button>
-															</div>
+												<div className="horario">
+													<a className="btnModal" href="#openModal">
+														Horario laboral
+													</a>
+												</div>
+												<div id="openModal" className="modalDialog">
+													<div>
+														<a href="#close" title="Close" className="close">
+															X
+														</a>
+														<h2>Horario laboral</h2>
+														<p>
+															Selecciones los días en que labora con su respectivo
+															horario.
+														</p>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Lun.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Mar.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Miér.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Jue.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Vier.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Sáb.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="form-group form-check">
+															<input
+																type="checkbox"
+																className="form-check-input"
+																id="exampleCheck1"
+															/>
+															<label className="form-check-label" htmlFor="exampleCheck1">
+																Dom.
+															</label>
+															<label className="star">de</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+															<label className="final">a</label>
+															<input
+																type="time"
+																name="hora"
+																min="18:00"
+																max="21:00"
+																step="3600"
+															/>
+														</div>
+														<div className="modal-footer">
+															<button type="button" className="btn btn-primary">
+																Salvar cambios
+															</button>
 														</div>
 													</div>
 												</div>
-												<select
-													className="form-control"
-													name="schedule"
-													onChange={handleInputChange}>
-													<option className="hidden" selected disabled>
-														Horario
-													</option>
-													<option>Lunes a viernes</option>
-													<option>Lunes a sábados</option>
-													<option>Sábados y domingos</option>
-													<option>Toda la semana</option>
-												</select>
-											</div>
-											<div className="form-group">
-												<label>Horario</label>
-												<form name="formulario" method="post" action="/send.php">
-													<label className="star">De</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
-													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
-												</form>
 											</div>
 
-											<div className="form-group">
+											<div className="col-12 form-group">
 												<label>Descripción</label>
 												<br />
 												<textarea
@@ -203,19 +339,9 @@ export const Supplier_Register = () => {
 											</div>
 										</div>
 										<div className="col-md-6">
-											<div
-												className="tab-pane fade show"
-												id="profile"
-												role="tabpanel"
-												aria-labelledby="profile-tab">
-												<div className="row register-form">
-													<div className="col-md">
-														<input
-															type="submit"
-															className="btnRegistrar"
-															value="Registrarse"
-														/>
-													</div>
+											<div className="row register-form">
+												<div className="col-md">
+													<input type="submit" className="btnRegistrar" value="Registrarse" />
 												</div>
 											</div>
 										</div>

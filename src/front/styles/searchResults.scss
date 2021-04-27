@@ -1,9 +1,22 @@
-
-
-.fa-heart {
-    color: #1abc9c
+.results{
+    color: rgb(211, 206, 206);
 }
 
-.nextButton {
-   background-color: #1abc9c
+.fa-heart{
+    color: rgb(221, 63, 102);
+    width: 47px;
+    height: 45px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.fa-heart:hover{
+    background: #14c0cc;
+    color:rgb(255, 255, 255);
+    
+}
+
+.name-result{
+    width: 200px;
+ 
 }
