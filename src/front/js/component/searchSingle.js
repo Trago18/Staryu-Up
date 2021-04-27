@@ -26,7 +26,7 @@ export const Search_Single = () => {
 									/>
 									<Media.Body>
 										<Card.Link href="#">
-											<h5>{value.name}</h5>
+											<h5 className="name-result">{value.name}</h5>
 										</Card.Link>
 										<span>
 											<b>{value.address}</b>
