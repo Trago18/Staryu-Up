@@ -293,9 +293,10 @@ def delete_comment(id):
 
 
 @api.route('/favorite', methods=['GET'])      # obtener proveedor en favoritos
+@jwt_required()
 def get_favorite():
 
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
@@ -306,7 +307,7 @@ def add_favorite():
 
     favorite = request.json.get("favorite", None)
 
-    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=current_user.id).first()
     if favorites == None:
         favorites = Favorites(supplier_id=favorite, user_id=1)
         db.session.add(favorites)
@@ -325,7 +326,7 @@ def delete_favorite():
 
     favorite = request.json.get("favorite", None)
 
-    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=current_user.id).first()
     db.session.delete(favorites)
     db.session.commit()
 

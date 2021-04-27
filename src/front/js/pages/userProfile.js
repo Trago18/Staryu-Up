@@ -8,10 +8,12 @@ export const User_Profile = () => {
 
 	useEffect(() => {
 		actions.getUser();
+		actions.getFavorites();
 	}, []);
 
 	return (
 		<Container className="bg-light my-5">
+			{/* {store.favorites != "" && console.log(store.favorites)} */}
 			<Row>
 				<div className="userCard p-3 " style={{ width: "100%", height: "160px" }}>
 					<Media>
@@ -60,14 +62,15 @@ export const User_Profile = () => {
 								<h5>Mi lista de favoritos:</h5>
 								<hr />
 								<Row />
-								<ul>
-									<li />
-									<hr />
-									<li />
-									<hr />
-									<li />
-									<hr />
-								</ul>
+								{store.favorites != "" &&
+									store.favorites.map((value, index) => {
+										return (
+											<>
+												<ul key={index}>{value.name}</ul>
+												<hr />
+											</>
+										);
+									})}
 							</div>
 						</div>
 					</Tab>

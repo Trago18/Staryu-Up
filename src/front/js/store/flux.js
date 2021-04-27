@@ -34,6 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				image_url: ""
 			},
 			searchData: [],
+			favorites: [],
 			token: null
 		},
 		actions: {
@@ -136,6 +137,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
 					.then(response => response.json())
 					.then(data => console.log(data));
+			},
+			getFavorites: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error favorites", error));
 			},
 			changeColor: (index, color) => {
 				//get the store
