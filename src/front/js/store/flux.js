@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			searchData: [],
 			favorites: [],
 			commentaries: [],
-			token: null
+			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -61,7 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					}
 				};
 				fetch(process.env.BACKEND_URL + "/user", requestOptions)
@@ -116,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data));
 			},
-			postLogin: (email, password) => {
+			postLogin: (email, password, checkbox) => {
 				const requestOptions = {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -126,7 +126,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => {
 						console.log(data[0]);
-						setStore({ token: data[1] });
+						checkbox == "on"
+							? (localStorage.Token = data[1].access_token)
+							: (sessionStorage.Token = data[1].access_token);
+						setStore({ token: data[1].access_token });
 					});
 			},
 			postRecovery: email => {
@@ -144,7 +147,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					}
 				};
 				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
@@ -157,7 +160,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					},
 					body: JSON.stringify({ favorite: id })
 				};
@@ -171,7 +174,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					},
 					body: JSON.stringify({ favorite: id })
 				};
@@ -191,7 +194,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					},
 					body: JSON.stringify({ comment: comment })
 				};
@@ -205,7 +208,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
-						Authorization: "Bearer " + getStore().token.access_token
+						Authorization: "Bearer " + getStore().token
 					},
 					body: JSON.stringify({ comment: comment })
 				};

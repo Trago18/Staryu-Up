@@ -7,7 +7,8 @@ export const Navbar_menu = () => {
 	const { store } = useContext(Context);
 
 	const logout = () => {
-		store.token = null;
+		sessionStorage.removeItem("Token");
+		localStorage.removeItem("Token");
 	};
 
 	return (

@@ -75,7 +75,7 @@ def login():
     if not user.check_password(password):
         return jsonify({"msg": "Invalid password"}), 401
     
-    expiration = timedelta(days=1)
+    expiration = timedelta(days=365)
     access_token = create_access_token(identity=user, expires_delta=expiration)
     return jsonify('The login has been successful.', {'access_token':access_token}), 200
 

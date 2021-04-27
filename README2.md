@@ -7,12 +7,12 @@ create database example;
 \q
 
 # Backend
+pipenv run reset_db;
+
 pipenv run init;
 pipenv run migrate;
 pipenv run upgrade;
-pipenv run reset_db;
 pipenv run start
-
 
 # Frontend
 npm run start

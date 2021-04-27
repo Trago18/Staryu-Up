@@ -30,7 +30,6 @@ export const Home = () => {
 
 	return (
 		<div id="page-top">
-			{/* {console.log(data.change)} */}
 			{data.change != "" && <Redirect to="/results" />}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
