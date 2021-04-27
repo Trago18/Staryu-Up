@@ -132,8 +132,7 @@ export const Supplier_Register = () => {
 														</a>
 														<h2>Horario laboral</h2>
 														<p>
-															Selecciones los días en que labora con su respectivo
-															horario.
+															Seleccione los días en que labora con su respectivo horario.
 														</p>
 														<div className="form-group form-check">
 															<input
@@ -316,11 +315,6 @@ export const Supplier_Register = () => {
 																max="21:00"
 																step="3600"
 															/>
-														</div>
-														<div className="modal-footer">
-															<button type="button" className="btn btn-primary">
-																Salvar cambios
-															</button>
 														</div>
 													</div>
 												</div>

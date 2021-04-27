@@ -13,7 +13,7 @@ export const Search_Results = () => {
 		<Container className="row p-3 m-auto">
 			<form className="col-12 d-flex justify-content-center px-5">
 				<div className="search">
-					<input type="text" className="search-input" placeholder="Búsqueda..." name="search" />
+					<input type="text" className="search-input" placeholder="Búsqueda por proveedor..." name="search" />
 					<button href="#" className="search-icon">
 						<i className="fa fa-search" />
 					</button>

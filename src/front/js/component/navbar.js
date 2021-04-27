@@ -28,7 +28,63 @@ export const Navbar_menu = () => {
 						</Link>
 					</li>
 					<li>
-						<div>Contáctenos</div>
+						<div className="form-contact">
+							<a className="btnContact" href="#openContact">
+								Contáctenos
+							</a>
+						</div>
+						<div id="openContact" className="modalContact">
+							<div>
+								<a href="#close" title="Close" className="close">
+									X
+								</a>
+								<h2>Horario laboral</h2>
+								<p>Seleccione los días en que labora con su respectivo horario.</p>
+								<div calssName="row">
+									<div calssName="form-group col-sm-6">
+										<label htmlFor="name" calssName="h4">
+											Name
+										</label>
+										<input
+											type="text"
+											calssName="form-control"
+											id="name"
+											placeholder="Enter name"
+											required
+										/>
+									</div>
+									<div calssName="form-group col-sm-6">
+										<label htmlFor="email" calssName="h4">
+											Email
+										</label>
+										<input
+											type="email"
+											calssName="form-control"
+											id="email"
+											placeholder="Enter email"
+											required
+										/>
+									</div>
+								</div>
+								<div calssName="form-group">
+									<label htmlFor="message" calssName="h4 ">
+										Message
+									</label>
+									<textarea
+										id="message"
+										calssName="form-control"
+										rows="5"
+										placeholder="Enter your message"
+										required></textarea>
+								</div>
+								<button type="submit" id="form-submit" calssName="btn btn-success btn-lg pull-right ">
+									Submit
+								</button>
+								<div id="msgSubmit" calssName="h3 text-center hidden">
+									Message Submitted!
+								</div>
+							</div>
+						</div>
 					</li>
 					<li>
 						<Link to="/login">
