@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/passwordRecovery.scss";
 
 export const Password_Recovery = () => {
@@ -30,6 +31,9 @@ export const Password_Recovery = () => {
 				<div className="recovery-left">
 					<i className="fa fa-lock fa-4x mr-4" />
 					<h3>Bienvenido</h3>
+					<Link to="/login">
+						<input type="submit" name="" value="Login" />
+					</Link>
 				</div>
 				<div className="col-md-9 col-sd-4 recovery-right">
 					<div className="tab-content" id="myTabContent">

@@ -48,6 +48,8 @@ def search():
     search = request.json.get("search", None)
     
     supplier = Supplier.query.filter_by(name=search).all()
+    if supplier == []:
+        return jsonify({"msg": f"There is no data with {search}"}), 200
     all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))
 
     return jsonify(all_suppliers), 200

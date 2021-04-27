@@ -1,7 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			searchRequest: [{ search: "one" }, { search: "two" }, { search: "three" }, { search: "four" }],
 			message: null,
 			demo: [
 				{
@@ -31,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				address: "",
 				schedule: "",
 				description: "",
-				profile_pic: "",
+				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg",
 				image_url: ""
 			},
 			searchData: [],

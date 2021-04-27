@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 export const Search_Results = () => {
 	const { store } = useContext(Context);
 
-	const numberResults = store.searchRequest.length; //Pulls the number of search results from the store
+	const numberResults = store.searchData.length; //Pulls the number of search results from the store
 
 	return (
 		<Container className="row p-3 m-auto">
@@ -21,7 +21,7 @@ export const Search_Results = () => {
 			</form>
 			<h5 className="results pt-4 pb-3">
 				{numberResults + " "}
-				Resultados encontrados para {' " " '}
+				Resultado(s) encontrados para {' " " '}
 			</h5>
 
 			<Row>
