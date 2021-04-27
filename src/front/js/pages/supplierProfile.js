@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
-import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image } from "react-bootstrap";
+import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image, Button } from "react-bootstrap";
 import imgGarden from "../../img/landscapingvert.jpg";
 import imgProfile from "../../img/gardProfile.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
@@ -45,23 +45,41 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-							<Row className="justify-content-between px-3">
+							<Row className="justify-content-between px-4">
 								<div>
 									<Card.Link href="#">
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
-										<i className="far fa-star fa-2x" />
+										<form>
+											<p className="clasificacion">
+												<input id="radio1" type="radio" name="estrellas" value="5" />
+												<label htmlFor="radio1">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio2" type="radio" name="estrellas" value="4" />
+												<label htmlFor="radio2">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio3" type="radio" name="estrellas" value="3" />
+												<label htmlFor="radio3">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio4" type="radio" name="estrellas" value="2" />
+												<label htmlFor="radio4">
+													<i className="fa fa-star"></i>
+												</label>
+												<input id="radio5" type="radio" name="estrellas" value="1" />
+												<label htmlFor="radio5">
+													<i className="fa fa-star"></i>
+												</label>
+											</p>
+										</form>
 									</Card.Link>
 									<div className="supplierRating p-2"> {"4.5 stars"}</div>
 								</div>
-
-								<a href="#" className="likeButton">
-									<i className="far fa-heart fa-2x p-2" />
-								</a>
 							</Row>
-							<h5>{store.supplierData.name}</h5>
+							<div className="p-3">
+								<h5>{store.supplierData.name}</h5>
+							</div>
+
 							<hr />
 						</Media.Body>
 					</Media>
@@ -92,20 +110,20 @@ export const Supplier_Profile = () => {
 									<Card className="p-2 text-center">
 										<h6>Información de contacto</h6>
 										<div className="text-left">
-											<p>
+											<div>
 												<i className="fas fa-phone m-3" />
 												Teléfono: {store.supplierData.phone_number}
-											</p>
+											</div>
 											<hr />
-											<p>
+											<div>
 												<i className="fas fa-envelope m-3" />
 												Email: {store.supplierData.email}
-											</p>
+											</div>
 											<hr />
-											<p>
+											<div>
 												<i className="fas fa-map-marker-alt m-3" />
 												Ubicación: {store.supplierData.address}
-											</p>
+											</div>
 											<hr />
 										</div>
 									</Card>

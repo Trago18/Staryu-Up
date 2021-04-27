@@ -76,11 +76,11 @@ export const Login = () => {
 
 									<div className="form-grupo mb-5">
 										<div className="row register-form">
-											<div className="col-md col-sd-2">
+											<div className="btnLoginDiv d-flex justify-content-center">
 												<input type="submit" className="btnLogin" value="Login" />
 											</div>
-											<div className="login_form is_closed">
-												<div className="col-md btnsocial">
+											<div className="login_form is_closed ">
+												<div className="row btnsocial m-4 d-flex justify-content-center">
 													<div className="social_login">
 														<a href="#" className="google">
 															<i className="fab fa-google" />
@@ -97,7 +97,7 @@ export const Login = () => {
 													</div>
 												</div>
 											</div>
-											<div className="recup">
+											<div className="recup d-flex justify-content-center">
 												<Link to="/recovery">
 													<input
 														type="submit"

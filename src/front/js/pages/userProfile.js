@@ -33,7 +33,7 @@ export const User_Profile = () => {
 						/>
 						<Media.Body>
 							<div>
-								<h5>{store.userData.first_name + " " + store.userData.last_name}</h5>
+								<h5 className="p-3">{store.userData.first_name + " " + store.userData.last_name}</h5>
 								<hr />
 							</div>
 						</Media.Body>

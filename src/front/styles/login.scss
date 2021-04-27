@@ -18,8 +18,9 @@
 .recup{
     text-align: center;
     color: #fff;
-    margin-top: 25px;
-    margin-left: 200px; 
+    width: 100%;
+    //margin-top: 25px;
+    //margin-left: 200px; 
 }
 
 
@@ -63,6 +64,15 @@
     padding: 15%;
     margin-top: 5%;
 }
+
+ .inicio-sesion{
+    padding: 15%;
+    margin-top: 5%;
+}
+
+.btnLoginDiv{
+    width: 100%;
+}
 .btnLogin {
     float: right;
     border: none;
@@ -72,8 +82,8 @@
     color: #fff;
     font-weight: 600;
     width: 150px;
-    margin-top: 25px;
-    margin-right: 160px;
+    //margin-top: 25px;
+    //margin-right: 160px;
     box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 }
 
@@ -118,10 +128,7 @@
 	box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 	transition: all .35s;
 }
-.social_login{
-    margin-top: 20px;
-    margin-left: 80px;
-}
+
 
 .social_login a.google{
 	background-color: #ea4335;
@@ -175,27 +182,31 @@
 }
 
 .login_form {
-    float: right;
+    //float: right;
     width: 100%;
-    margin-left: 100px;
+    //margin-left: 100px;
 }
 
 .boton3 {
   color: #7e8080 !important;
   font-size: 12px;
   font-weight: 500;
-  padding: 0.5em 1.2em;
+  //padding: 0.5em 1.2em;
   background: rgba(0,0,0,0);
   border: 2px solid;
   border-color: #30d9df;
   border-radius: 25px;
   transition: all 1s ease;
   position: relative;
-  margin-left: 50px;
+  //margin-left: 50px;
 }
 .boton3:hover {
   background: #09181f;
   color: #fff !important;
+}
+
+.btnsocial{
+    width:100%
 }
 
 

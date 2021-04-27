@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
-import { Media, Card, Button } from "react-bootstrap";
+import { Media, Card, Button, Container, Col } from "react-bootstrap";
 import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
@@ -18,36 +18,41 @@ export const Search_Single = () => {
 			{store.searchData.map((value, index) => {
 				return (
 					<>
-						<Card style={{ width: "100%" }}>
-							<Card.Body>
-								<Media>
-									<img
-										width={180}
-										height={200}
-										className="mr-3"
-										src={
+						<Container>
+							<Card style={{ width: "100%" }}>
+								<Card.Body>
+									<Media>
+										<img
+											width={180}
+											height={200}
+											className="mr-3"
+											src={
 											value.profile_pic == null
 												? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
 												: value.profile_pic
-										}
-										alt="Generic placeholder"
-									/>
-									<Media.Body>
-										<Card.Link href="#">
-											<h5 className="name-result">{value.name}</h5>
-										</Card.Link>
-										<span>
-											<b>{value.address}</b>
-										</span>
-										<hr />
-										<p>{value.description}</p>
-									</Media.Body>
-									<Button onClick={() => addFavorite(value.id)}>
-										<i className="far fa-heart fa-2x p-2" />
-									</Button>
-								</Media>
-							</Card.Body>
-						</Card>
+										    }
+											alt="Supplier Avatar"
+										/>
+										<Media.Body>
+											<Card.Link href="#">
+												<h5 className="name-result">{value.name}</h5>
+											</Card.Link>
+											<span>
+												<b>{value.address}</b>
+											</span>
+											<hr />
+											<p>{value.description}</p>
+										</Media.Body>
+										<Col xs={1} className="resultsStars p-1">
+                                            <Button onClick={() => addFavorite(value.id)}>
+											    <i className="far fa-star fa-2x" />
+                                            </Button>
+											<p className="supplierRating p-2"> {"4.5 stars"}</p>
+										</Col>
+									</Media>
+								</Card.Body>
+							</Card>
+						</Container>
 					</>
 				);
 			})}
