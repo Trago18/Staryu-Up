@@ -264,10 +264,11 @@ def get_comment(id):
 
 
 @api.route('/supplier/<int:id>/comment', methods=['POST'])      # comentario al proveedor
+@jwt_required()
 def add_comment(id):
 
     comment = request.json.get("comment", None)
-    commentaries = Commentaries(message=comment, user_id=1, supplier_id=id)
+    commentaries = Commentaries(message=comment, user_id=current_user.id, supplier_id=id)
     db.session.add(commentaries)
     db.session.commit()
     
@@ -278,11 +279,12 @@ def add_comment(id):
 
 
 @api.route('/supplier/<int:id>/comment', methods=['DELETE'])      # eliminar comentario
+@jwt_required()
 def delete_comment(id):
 
     comment = request.json.get("comment", None)
 
-    commentaries = Commentaries.query.filter_by(id=comment , user_id=1).first()
+    commentaries = Commentaries.query.filter_by(id=comment , user_id=current_user.id).first()
     db.session.delete(commentaries)
     db.session.commit()
 

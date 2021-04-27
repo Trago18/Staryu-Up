@@ -16,6 +16,14 @@ export const Supplier_Profile = () => {
 		actions.getCommentaries(params.supplierid);
 	}, []);
 
+	const addComment = e => {
+		e.preventDefault();
+		if (e.key === "Enter") {
+			actions.postCommentaries(params.supplierid, e.target.value);
+			e.target.value = "";
+		}
+	};
+
 	return (
 		<Container className="bg-light my-5">
 			<Row>
@@ -116,7 +124,7 @@ export const Supplier_Profile = () => {
 								<InputGroup.Prepend>
 									<InputGroup.Text>Su comentario aquí:</InputGroup.Text>
 								</InputGroup.Prepend>
-								<FormControl as="textarea" aria-label="With textarea" />
+								<FormControl onKeyUp={addComment} as="textarea" aria-label="With textarea" />
 							</InputGroup>
 							<hr />
 							<h6>Reviews de otros usuarios</h6>

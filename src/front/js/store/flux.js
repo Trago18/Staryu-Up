@@ -172,6 +172,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ commentaries: data }))
 					.catch(error => console.log("Error get commentaries", error));
 			},
+			postCommentaries: (id, comment) => {
+				const requestOptions = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					},
+					body: JSON.stringify({ comment: comment })
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error post commentaries", error));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
