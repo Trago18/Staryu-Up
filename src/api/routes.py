@@ -310,13 +310,13 @@ def add_favorite():
 
     favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=current_user.id).first()
     if favorites == None:
-        favorites = Favorites(supplier_id=favorite, user_id=1)
+        favorites = Favorites(supplier_id=favorite, user_id=current_user.id)
         db.session.add(favorites)
         db.session.commit()
     else:
         return jsonify({'msg': 'This supplier is already in favorites.'})
     
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
@@ -332,7 +332,7 @@ def delete_favorite():
     db.session.delete(favorites)
     db.session.commit()
 
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200

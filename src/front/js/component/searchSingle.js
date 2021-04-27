@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
-import { Media, Card } from "react-bootstrap";
+import { Media, Card, Button } from "react-bootstrap";
 import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
 // This is the loop for the search result component
 
 export const Search_Single = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
+
+	const favorite = id => {
+		actions.postFavorites(id);
+	};
 
 	return (
 		<div>
@@ -38,9 +42,9 @@ export const Search_Single = () => {
 										<hr />
 										<p>{value.description}</p>
 									</Media.Body>
-									<Card.Link href="#">
+									<Button onClick={() => favorite(value.id)}>
 										<i className="far fa-heart fa-2x p-2" />
-									</Card.Link>
+									</Button>
 								</Media>
 							</Card.Body>
 						</Card>

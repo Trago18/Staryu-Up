@@ -149,7 +149,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ favorites: data }))
-					.catch(error => console.log("Error favorites", error));
+					.catch(error => console.log("Error get favorites", error));
+			},
+			postFavorites: favorite => {
+				const requestOptions = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					},
+					body: JSON.stringify({ favorite: favorite })
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error post favorites", error));
 			},
 			changeColor: (index, color) => {
 				//get the store
