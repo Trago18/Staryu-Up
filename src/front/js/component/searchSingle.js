@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
-import { Media, Card, Container } from "react-bootstrap";
+import { Media, Card, Container, Col } from "react-bootstrap";
 import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
@@ -35,14 +35,10 @@ export const Search_Single = () => {
 											<hr />
 											<p>{value.description}</p>
 										</Media.Body>
-										<Card.Link href="#" className="resultsStars p-2">
+										<Col xs={1} className="resultsStars p-1">
 											<i className="far fa-star fa-2x" />
-											<i className="far fa-star fa-2x" />
-											<i className="far fa-star fa-2x" />
-											<i className="far fa-star fa-2x" />
-											<i className="far fa-star fa-2x" />
-										</Card.Link>
-										<div className="supplierRating p-2"> {"4.5 stars"}</div>
+											<p className="supplierRating p-2"> {"4.5 stars"}</p>
+										</Col>
 									</Media>
 								</Card.Body>
 							</Card>
