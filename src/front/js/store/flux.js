@@ -34,7 +34,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				image_url: ""
 			},
 			searchData: [],
-			token: null
+			favorites: [],
+			commentaries: [],
+			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -54,8 +56,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ supplierData: data[0] }))
 					.catch(error => console.log("Error supplier profile", error));
 			},
-			getUser: id => {
-				fetch(process.env.BACKEND_URL + "/user/" + id)
+			getUser: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/user", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ userData: data[0] }))
 					.catch(error => console.log("Error user profile", error));
@@ -107,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => console.log(data));
 			},
-			postLogin: (email, password) => {
+			postLogin: (email, password, checkbox) => {
 				const requestOptions = {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
@@ -117,7 +126,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(data => {
 						console.log(data[0]);
-						setStore({ token: data[1] });
+						checkbox == "on"
+							? (localStorage.Token = data[1].access_token)
+							: (sessionStorage.Token = data[1].access_token);
+						setStore({ token: data[1].access_token });
 					});
 			},
 			postRecovery: email => {
@@ -129,6 +141,81 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
 					.then(response => response.json())
 					.then(data => console.log(data));
+			},
+			getFavorites: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error get favorites", error));
+			},
+			postFavorites: id => {
+				const requestOptions = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify({ favorite: id })
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error post favorites", error));
+			},
+			deleteFavorites: id => {
+				const requestOptions = {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify({ favorite: id })
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error delete favorites", error));
+			},
+			getCommentaries: id => {
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment")
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error get commentaries", error));
+			},
+			postCommentaries: (id, comment) => {
+				const requestOptions = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify({ comment: comment })
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error post commentaries", error));
+			},
+			deleteCommentaries: (id, comment) => {
+				const requestOptions = {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify({ comment: comment })
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error delete commentaries", error));
 			},
 			changeColor: (index, color) => {
 				//get the store

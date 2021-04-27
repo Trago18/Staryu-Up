@@ -8,12 +8,13 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	const [data, setData] = useState({
-		search: ""
+		search: "",
+		change: ""
 	});
 
 	const handleInputChange = e => {
-		// console.log(event.target.name)
-		// console.log(event.target.value)
+		// console.log(event.target.name);
+		// console.log(event.target.value);
 		setData({
 			...data,
 			[e.target.name]: e.target.value
@@ -22,13 +23,14 @@ export const Home = () => {
 
 	const frontSearch = e => {
 		e.preventDefault();
-		//console.log(data.search);
+		// console.log(data.search);
+		setData({ change: data.search });
 		actions.postSearch(data.search);
 	};
 
 	return (
 		<div id="page-top">
-			{store.searchData != "" && <Redirect to="/results" />}
+			{data.change != "" && <Redirect to="/results" />}
 			{/* <!-- Area de expertos y buscador--> */}
 			<div className="inicio">
 				<div className="section-serch p-5 height d-flex align-items-center flex-column">

@@ -31,11 +31,11 @@ def data_test():
     user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', profile_pic='url', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
@@ -68,16 +68,16 @@ def login():
     if len(error_messages) > 0:
         return jsonify(error_messages), 400
 
-    email = User.query.filter_by(email=email).one_or_none()
+    user = User.query.filter_by(email=email).one_or_none()
 
-    if not email:
+    if not user:
         return jsonify({"msg": "Email doesn't exist"}), 400
-    if not email.check_password(password):
+    if not user.check_password(password):
         return jsonify({"msg": "Invalid password"}), 401
     
-    expiration = timedelta(days=1)
-    access_token = create_access_token(identity=email, expires_delta=expiration)
-    return jsonify('The login has been successful.', {'token':access_token}), 200
+    expiration = timedelta(days=365)
+    access_token = create_access_token(identity=user, expires_delta=expiration)
+    return jsonify('The login has been successful.', {'access_token':access_token}), 200
 
 
 @api.route('/password_recovery', methods=['POST'])   # recuperar contraseña
@@ -104,10 +104,11 @@ def get_password():
     return jsonify({'msg': 'The email was send.'})
 
     
-@api.route("/user/<int:id>", methods=["GET"])   # Datos del perfil del usuario
-def get_user(id):
+@api.route("/user", methods=["GET"])   # Datos del perfil del usuario
+@jwt_required()
+def get_user():
 
-    user = User.query.filter_by(id=id).all()
+    user = User.query.filter_by(id=current_user.id).all()
     user = list(map(lambda x: x.serialize(), user))
 
     return jsonify(user), 200
@@ -263,10 +264,11 @@ def get_comment(id):
 
 
 @api.route('/supplier/<int:id>/comment', methods=['POST'])      # comentario al proveedor
+@jwt_required()
 def add_comment(id):
 
     comment = request.json.get("comment", None)
-    commentaries = Commentaries(message=comment, user_id=1, supplier_id=id)
+    commentaries = Commentaries(message=comment, user_id=current_user.id, supplier_id=id)
     db.session.add(commentaries)
     db.session.commit()
     
@@ -277,11 +279,12 @@ def add_comment(id):
 
 
 @api.route('/supplier/<int:id>/comment', methods=['DELETE'])      # eliminar comentario
+@jwt_required()
 def delete_comment(id):
 
     comment = request.json.get("comment", None)
 
-    commentaries = Commentaries.query.filter_by(id=comment , user_id=1).first()
+    commentaries = Commentaries.query.filter_by(message=comment, user_id=current_user.id, supplier_id=id).first()
     db.session.delete(commentaries)
     db.session.commit()
 
@@ -292,43 +295,46 @@ def delete_comment(id):
 
 
 @api.route('/favorite', methods=['GET'])      # obtener proveedor en favoritos
+@jwt_required()
 def get_favorite():
 
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
 
 
 @api.route('/favorite', methods=['POST'])      # agregar proveedor a favoritos
+@jwt_required()
 def add_favorite():
 
     favorite = request.json.get("favorite", None)
 
-    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=current_user.id).first()
     if favorites == None:
-        favorites = Favorites(supplier_id=favorite, user_id=1)
+        favorites = Favorites(supplier_id=favorite, user_id=current_user.id)
         db.session.add(favorites)
         db.session.commit()
     else:
         return jsonify({'msg': 'This supplier is already in favorites.'})
     
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
 
 
 @api.route('/favorite', methods=['DELETE'])     # eliminar proveedor de favoritos
+@jwt_required()
 def delete_favorite():
 
     favorite = request.json.get("favorite", None)
 
-    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=1).first()
+    favorites = Favorites.query.filter_by(supplier_id=favorite, user_id=current_user.id).first()
     db.session.delete(favorites)
     db.session.commit()
 
-    favorites = Favorites.query.filter_by(user_id=1).all()
+    favorites = Favorites.query.filter_by(user_id=current_user.id).all()
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200

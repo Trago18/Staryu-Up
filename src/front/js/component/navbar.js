@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
 
 export const Navbar_menu = () => {
+	const { store } = useContext(Context);
+
+	const logout = () => {
+		sessionStorage.removeItem("Token");
+		localStorage.removeItem("Token");
+	};
+
 	return (
 		<nav>
 			<div className="logo">
@@ -18,7 +26,7 @@ export const Navbar_menu = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/user/1">
+						<Link to="/user">
 							<div>Perfil Usuario</div>
 						</Link>
 					</li>
@@ -87,9 +95,18 @@ export const Navbar_menu = () => {
 						</div>
 					</li>
 					<li>
-						<Link to="/login">
+						{store.token == null ? (
+							<Link to="/login">
+								<div>Iniciar Sesión</div>
+							</Link>
+						) : (
+							<a href="/">
+								<div onClick={logout}>Cerrar Sesión</div>
+							</a>
+						)}
+						{/* <Link to="/login">
 							<div>Iniciar Sesión</div>
-						</Link>
+						</Link> */}
 					</li>
 				</ul>
 			</div>

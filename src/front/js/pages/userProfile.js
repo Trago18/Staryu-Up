@@ -1,16 +1,19 @@
 import React, { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Col } from "react-bootstrap";
 
 export const User_Profile = () => {
 	const { store, actions } = useContext(Context);
-	const params = useParams();
 
 	useEffect(() => {
-		actions.getUser(params.userid);
+		actions.getUser();
+		actions.getFavorites();
 	}, []);
+
+	const removeFavorite = id => {
+		actions.deleteFavorites(id);
+	};
 
 	return (
 		<Container className="bg-light my-5">
@@ -21,7 +24,11 @@ export const User_Profile = () => {
 							width={130}
 							height={130}
 							className=" rounded-circle  "
-							src={store.userData.profile_pic}
+							src={
+								store.userData.profile_pic == null
+									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+									: store.userData.profile_pic
+							}
 							alt="user_profile_photo"
 						/>
 						<Media.Body>
@@ -58,14 +65,18 @@ export const User_Profile = () => {
 								<h5>Mi lista de favoritos:</h5>
 								<hr />
 								<Row />
-								<ul>
-									<li />
-									<hr />
-									<li />
-									<hr />
-									<li />
-									<hr />
-								</ul>
+								{store.favorites != "" &&
+									store.favorites.map((value, index) => {
+										return (
+											<>
+												<ul key={index}>{value.name}</ul>
+												<button onClick={() => removeFavorite(value.id)}>
+													<i className="fas fa-trash" />
+												</button>
+												<hr />
+											</>
+										);
+									})}
 							</div>
 						</div>
 					</Tab>

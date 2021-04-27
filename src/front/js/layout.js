@@ -48,7 +48,7 @@ const Layout = () => {
 						<Route exact path="/recovery">
 							<Password_Recovery />
 						</Route>
-						<Route exact path="/user/:userid">
+						<Route exact path="/user">
 							<User_Profile />
 						</Route>
 						<Route exact path="/supplier/:supplierid">

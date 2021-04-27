@@ -8,12 +8,13 @@ export const Login = () => {
 
 	const [data, setData] = useState({
 		email: "",
-		password: ""
+		password: "",
+		checkbox: ""
 	});
 
 	const handleInputChange = e => {
-		// console.log(event.target.name)
-		// console.log(event.target.value)
+		// console.log(event.target.name);
+		// console.log(event.target.value);
 		setData({
 			...data,
 			[e.target.name]: e.target.value
@@ -22,8 +23,8 @@ export const Login = () => {
 
 	const frontLogin = e => {
 		e.preventDefault();
-		//console.log(data.email, data.password);
-		actions.postLogin(data.email, data.password);
+		// console.log(data.email, data.password, data.checkbox);
+		actions.postLogin(data.email, data.password, data.checkbox);
 	};
 
 	return (
@@ -63,6 +64,13 @@ export const Login = () => {
 											onChange={handleInputChange}
 										/>
 									</div>
+									<input
+										type="checkbox"
+										className="form-check-input"
+										id="exampleCheck1"
+										name="checkbox"
+										onChange={handleInputChange}
+									/>
 									<div className="space" />
 									<div className="col-md" />
 

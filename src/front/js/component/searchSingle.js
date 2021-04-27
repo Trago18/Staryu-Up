@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
-import { Media, Card, Container, Col } from "react-bootstrap";
+import { Media, Card, Button, Container, Col } from "react-bootstrap";
 import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
 // This is the loop for the search result component
 
 export const Search_Single = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
+
+	const addFavorite = id => {
+		actions.postFavorites(id);
+	};
 
 	return (
 		<div>
@@ -22,7 +26,11 @@ export const Search_Single = () => {
 											width={180}
 											height={200}
 											className="mr-3"
-											src={value.profile_pic}
+											src={
+												value.profile_pic == null
+													? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+													: value.profile_pic
+											}
 											alt="Supplier Avatar"
 										/>
 										<Media.Body>
@@ -36,7 +44,9 @@ export const Search_Single = () => {
 											<p>{value.description}</p>
 										</Media.Body>
 										<Col xs={1} className="resultsStars p-1">
-											<i className="far fa-star fa-2x" />
+											<Button onClick={() => addFavorite(value.id)}>
+												<i className="far fa-star fa-2x" />
+											</Button>
 											<p className="supplierRating p-2"> {"4.5 stars"}</p>
 										</Col>
 									</Media>

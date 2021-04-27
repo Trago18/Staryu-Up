@@ -13,7 +13,20 @@ export const Supplier_Profile = () => {
 
 	useEffect(() => {
 		actions.getSupplier(params.supplierid);
+		actions.getCommentaries(params.supplierid);
 	}, []);
+
+	const addComment = e => {
+		// e.preventDefault();
+		if (e.key === "Enter") {
+			actions.postCommentaries(params.supplierid, e.target.value);
+			e.target.value = "";
+		}
+	};
+
+	const removeComment = comment => {
+		actions.deleteCommentaries(params.supplierid, comment);
+	};
 
 	return (
 		<Container className="bg-light my-5">
@@ -24,7 +37,11 @@ export const Supplier_Profile = () => {
 							width={130}
 							height={130}
 							className=" rounded-circle"
-							src={store.supplierData.profile_pic}
+							src={
+								store.supplierData.profile_pic == null
+									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+									: store.supplierData.profile_pic
+							}
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
@@ -129,16 +146,24 @@ export const Supplier_Profile = () => {
 								<InputGroup.Prepend>
 									<InputGroup.Text>Su comentario aquí:</InputGroup.Text>
 								</InputGroup.Prepend>
-								<FormControl as="textarea" aria-label="With textarea" />
+								<FormControl onKeyUp={addComment} as="textarea" aria-label="With textarea" />
 							</InputGroup>
 							<hr />
 							<h6>Reviews de otros usuarios</h6>
 							<span>{""}</span>
-							<p>
-								Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-								laudantium,
-							</p>
-							<hr />
+							{store.commentaries != "" &&
+								store.commentaries.map((value, index) => {
+									return (
+										<>
+											<p key={index}>{value.comment}</p>
+											<p key={index}>{value.name}</p>
+											<button onClick={() => removeComment(value.comment)}>
+												<i className="fas fa-trash" />
+											</button>
+											<hr />
+										</>
+									);
+								})}
 						</div>
 					</Tab>
 					<Tab eventKey="galeria" title="Galería" className="ml-auto supplierGalleryTab">
