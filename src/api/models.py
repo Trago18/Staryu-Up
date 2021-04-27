@@ -92,6 +92,7 @@ class Favorites(db.Model):
     def serialize(self):
         supplier = Supplier.query.filter_by(id=self.supplier_id).first()
         return {
+            "id": supplier.id,
             "name": supplier.name
         }
 
@@ -105,6 +106,8 @@ class Commentaries(db.Model):
         return '<Commentaries %r>' % self.id
     
     def serialize(self):
+        user = User.query.filter_by(id=self.user_id).first()
         return {
-            "message": self.message
+            "comment": self.message,
+            "name": user.first_name + " " + user.last_name
         }

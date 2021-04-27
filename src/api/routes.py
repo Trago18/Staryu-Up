@@ -284,7 +284,7 @@ def delete_comment(id):
 
     comment = request.json.get("comment", None)
 
-    commentaries = Commentaries.query.filter_by(id=comment , user_id=current_user.id).first()
+    commentaries = Commentaries.query.filter_by(message=comment, user_id=current_user.id, supplier_id=id).first()
     db.session.delete(commentaries)
     db.session.commit()
 

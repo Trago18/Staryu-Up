@@ -152,19 +152,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ favorites: data }))
 					.catch(error => console.log("Error get favorites", error));
 			},
-			postFavorites: favorite => {
+			postFavorites: id => {
 				const requestOptions = {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 						Authorization: "Bearer " + getStore().token.access_token
 					},
-					body: JSON.stringify({ favorite: favorite })
+					body: JSON.stringify({ favorite: id })
 				};
 				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ favorites: data }))
 					.catch(error => console.log("Error post favorites", error));
+			},
+			deleteFavorites: id => {
+				const requestOptions = {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					},
+					body: JSON.stringify({ favorite: id })
+				};
+				fetch(process.env.BACKEND_URL + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorites: data }))
+					.catch(error => console.log("Error delete favorites", error));
 			},
 			getCommentaries: id => {
 				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment")
@@ -185,6 +199,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ commentaries: data }))
 					.catch(error => console.log("Error post commentaries", error));
+			},
+			deleteCommentaries: (id, comment) => {
+				const requestOptions = {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token.access_token
+					},
+					body: JSON.stringify({ comment: comment })
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/comment", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ commentaries: data }))
+					.catch(error => console.log("Error delete commentaries", error));
 			},
 			changeColor: (index, color) => {
 				//get the store

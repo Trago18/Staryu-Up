@@ -9,7 +9,7 @@ import { Context } from "../store/appContext";
 export const Search_Single = () => {
 	const { store, actions } = useContext(Context);
 
-	const favorite = id => {
+	const addFavorite = id => {
 		actions.postFavorites(id);
 	};
 
@@ -42,7 +42,7 @@ export const Search_Single = () => {
 										<hr />
 										<p>{value.description}</p>
 									</Media.Body>
-									<Button onClick={() => favorite(value.id)}>
+									<Button onClick={() => addFavorite(value.id)}>
 										<i className="far fa-heart fa-2x p-2" />
 									</Button>
 								</Media>

@@ -17,11 +17,15 @@ export const Supplier_Profile = () => {
 	}, []);
 
 	const addComment = e => {
-		e.preventDefault();
+		// e.preventDefault();
 		if (e.key === "Enter") {
 			actions.postCommentaries(params.supplierid, e.target.value);
 			e.target.value = "";
 		}
+	};
+
+	const removeComment = comment => {
+		actions.deleteCommentaries(params.supplierid, comment);
 	};
 
 	return (
@@ -133,7 +137,11 @@ export const Supplier_Profile = () => {
 								store.commentaries.map((value, index) => {
 									return (
 										<>
-											<p key={index}>{value.message}</p>
+											<p key={index}>{value.comment}</p>
+											<p key={index}>{value.name}</p>
+											<button onClick={() => removeComment(value.comment)}>
+												<i className="fas fa-trash" />
+											</button>
 											<hr />
 										</>
 									);

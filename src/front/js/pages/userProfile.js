@@ -11,6 +11,10 @@ export const User_Profile = () => {
 		actions.getFavorites();
 	}, []);
 
+	const removeFavorite = id => {
+		actions.deleteFavorites(id);
+	};
+
 	return (
 		<Container className="bg-light my-5">
 			<Row>
@@ -66,6 +70,9 @@ export const User_Profile = () => {
 										return (
 											<>
 												<ul key={index}>{value.name}</ul>
+												<button onClick={() => removeFavorite(value.id)}>
+													<i className="fas fa-trash" />
+												</button>
 												<hr />
 											</>
 										);
