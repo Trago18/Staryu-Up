@@ -26,13 +26,13 @@ export const Navbar_menu = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/user">
-							<div>Perfil Usuario</div>
+						<Link to="/supplier-register">
+							<div>Hacerme Proveedor</div>
 						</Link>
 					</li>
 					<li>
-						<Link to="/supplier/1">
-							<div>Perfil Proveedor</div>
+						<Link to="/user">
+							<div>Perfil Usuario</div>
 						</Link>
 					</li>
 					<li>

@@ -49,7 +49,7 @@ export const User_Register = () => {
 									id="home"
 									role="tabpanel"
 									aria-labelledby="home-tab">
-									<h3 className="formulario-encabezado pb-4">Formulario de registro</h3>
+									<h3 className="formulario-encabezado pb-4">Formulario de usuario</h3>
 									<form className="row form-regist" onSubmit={frontUserRegister}>
 										<div className="col-md-11">
 											<div className="form-group">
