@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
-import { Media, Card } from "react-bootstrap";
+import { Media, Card, Container } from "react-bootstrap";
 import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
 
@@ -14,32 +14,39 @@ export const Search_Single = () => {
 			{store.searchData.map((value, index) => {
 				return (
 					<>
-						<Card style={{ width: "100%" }}>
-							<Card.Body>
-								<Media>
-									<img
-										width={180}
-										height={200}
-										className="mr-3"
-										src={value.profile_pic}
-										alt="Generic placeholder"
-									/>
-									<Media.Body>
-										<Card.Link href="#">
-											<h5 className="name-result">{value.name}</h5>
+						<Container>
+							<Card style={{ width: "100%" }}>
+								<Card.Body>
+									<Media>
+										<img
+											width={180}
+											height={200}
+											className="mr-3"
+											src={value.profile_pic}
+											alt="Supplier Avatar"
+										/>
+										<Media.Body>
+											<Card.Link href="#">
+												<h5 className="name-result">{value.name}</h5>
+											</Card.Link>
+											<span>
+												<b>{value.address}</b>
+											</span>
+											<hr />
+											<p>{value.description}</p>
+										</Media.Body>
+										<Card.Link href="#" className="resultsStars p-2">
+											<i className="far fa-star fa-2x" />
+											<i className="far fa-star fa-2x" />
+											<i className="far fa-star fa-2x" />
+											<i className="far fa-star fa-2x" />
+											<i className="far fa-star fa-2x" />
 										</Card.Link>
-										<span>
-											<b>{value.address}</b>
-										</span>
-										<hr />
-										<p>{value.description}</p>
-									</Media.Body>
-									<Card.Link href="#">
-										<i className="far fa-heart fa-2x p-2" />
-									</Card.Link>
-								</Media>
-							</Card.Body>
-						</Card>
+										<div className="supplierRating p-2"> {"4.5 stars"}</div>
+									</Media>
+								</Card.Body>
+							</Card>
+						</Container>
 					</>
 				);
 			})}
