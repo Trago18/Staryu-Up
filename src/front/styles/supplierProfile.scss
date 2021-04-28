@@ -1,7 +1,4 @@
 
-
-
-
 .supplierCard{
     background-color:#2c3e50;
     color: white;
@@ -32,30 +29,50 @@
 
 
 /*Estrellas*/
-label{ 
+.label1{ 
      color:grey;}
 
-input[type = "radio"]{ display:none;}
+.input1[type = "radio"]{ display:none;}
 
 .clasificacion{
       direction: rtl;
       unicode-bidi: bidi-override;
   }
 
-label:hover{
+.label1:hover{
     color:orange;
 }
 
-label:hover ~ label{
+.label1:hover ~ .label1{
     color:orange;
 }
 
-input[type = "radio"]:checked ~ label{
+.input1[type = "radio"]:checked ~ .label1{
     color:orange;
 }
+
 
 
 /*Corazón favoritos*/
+.label2{ 
+     color:rgb(124, 122, 122);}
 
+.input2[type = "radios"]{ display:none;}
 
+.clasificacion2{
+      direction: rtl;
+      unicode-bidi: bidi-override;
+  }
+
+.label2:hover{
+    color:rgb(187, 47, 77);
+}
+
+.label2:hover ~ .label2{
+     color:rgb(187, 47, 77);
+}
+
+.input2[type = "radios"]:checked ~ .label2{
+     color:rgb(187, 47, 77);
+}
 
