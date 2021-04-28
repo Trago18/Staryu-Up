@@ -28,9 +28,18 @@ export const Supplier_Profile = () => {
 		actions.deleteCommentaries(params.supplierid, comment);
 	};
 
-	const handleInputChange = e => {
-		console.log(e.target.value);
-		// actions.postRate(e.target.value);
+	let i = "0";
+	const handleInputClick = e => {
+		if (i == e.target.value && i != "0") {
+			e.target.checked = false;
+			i = "0";
+			console.log(i);
+			actions.userRate(params.supplierid, i);
+		} else {
+			i = e.target.value;
+			console.log(i);
+			actions.userRate(params.supplierid, i);
+		}
 	};
 
 	return (
@@ -60,7 +69,7 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="5"
-													onChange={handleInputChange}
+													onClick={handleInputClick}
 												/>
 												<label htmlFor="radio1">
 													<i className="fa fa-star"></i>
@@ -70,7 +79,7 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="4"
-													onChange={handleInputChange}
+													onClick={handleInputClick}
 												/>
 												<label htmlFor="radio2">
 													<i className="fa fa-star"></i>
@@ -80,7 +89,7 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="3"
-													onChange={handleInputChange}
+													onClick={handleInputClick}
 												/>
 												<label htmlFor="radio3">
 													<i className="fa fa-star"></i>
@@ -90,7 +99,7 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="2"
-													onChange={handleInputChange}
+													onClick={handleInputClick}
 												/>
 												<label htmlFor="radio4">
 													<i className="fa fa-star"></i>
@@ -100,7 +109,7 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="1"
-													onChange={handleInputChange}
+													onClick={handleInputClick}
 												/>
 												<label htmlFor="radio5">
 													<i className="fa fa-star"></i>

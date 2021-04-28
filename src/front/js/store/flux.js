@@ -219,6 +219,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ commentaries: data }))
 					.catch(error => console.log("Error delete commentaries", error));
 			},
+			userRate: (id, rate) => {
+				let method = "";
+				if (rate == "0") {
+					method = "DELETE";
+				} else {
+					method = "POST";
+				}
+				const requestOptions = {
+					method: method,
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					},
+					body: JSON.stringify({ rate: rate })
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions);
+				// .then(res => res.json())
+				// .then(data => setStore({ commentaries: data }))
+				// .catch(error => console.log("Error post rate", error));
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

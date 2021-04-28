@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Supplier, Favorites, Commentaries
+from api.models import db, User, Supplier, Favorites, Commentaries, Rates
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, current_user, jwt_required, JWTManager
 from datetime import timedelta, datetime
@@ -243,15 +243,32 @@ def get_rate(id):
     return jsonify(rate=supplier.rate), 200
 
 
-@api.route('/supplier/<int:id>/rate', methods=['POST'])     # calificar al proveedor
+@api.route('/supplier/<int:id>/rate', methods=["POST","DELETE"])     # calificar al proveedor
+@jwt_required()
 def add_rate(id):
 
-    rate = request.json.get("rate", None)
-    supplier = Supplier.query.filter_by(id=id).first()
-    supplier.rate = (supplier.rate + rate)/2
-    db.session.commit()
+    if request.method == 'POST':
 
-    return jsonify(rate=supplier.rate), 200
+        rate = request.json.get("rate", None)
+
+        rates = Rates.query.filter_by(user_id=current_user.id, supplier_id=id).first()
+        if rates == None:
+            rates = Rates(rate=rate, user_id=current_user.id, supplier_id=id)
+            db.session.add(rates)
+            db.session.commit()
+            return jsonify(rate), 200
+        else:
+            rates.rate = rate
+            db.session.commit()
+            return jsonify(rate), 200
+
+    if request.method == 'DELETE':
+
+        rates = Rates.query.filter_by(user_id=current_user.id, supplier_id=id).first()
+        db.session.delete(rates)
+        db.session.commit()
+
+        return jsonify({"msg":"Rate deleted"}), 200
 
 
 @api.route('/supplier/<int:id>/comment', methods=['GET'])      # obtener comentarios del proveedor
