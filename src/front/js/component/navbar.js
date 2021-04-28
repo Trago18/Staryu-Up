@@ -42,54 +42,81 @@ export const Navbar_menu = () => {
 							</a>
 						</div>
 						<div id="openContact" className="modalContact">
-							<div>
+							<div className="cont-header pt-4">
 								<a href="#close" title="Close" className="close">
 									X
 								</a>
-								<h2>Horario laboral</h2>
-								<p>Seleccione los días en que labora con su respectivo horario.</p>
-								<div calssName="row">
-									<div calssName="form-group col-sm-6">
-										<label htmlFor="name" calssName="h4">
-											Name
-										</label>
-										<input
-											type="text"
-											calssName="form-control"
-											id="name"
-											placeholder="Enter name"
-											required
-										/>
+								<h2>Formulario de contacto</h2>
+								<div className="contact_form">
+									<div className="form-cont">
+										<form action="submeter-formulario.php" method="post">
+											<p>
+												<label htmlFor="nombre" className="label2 colocar_nombre">
+													Nombre
+													<span className="obligatorio">*</span>
+												</label>
+												<input
+													className="input2"
+													type="text"
+													name="introducir_nombre"
+													id="nombre"
+													required="obligatorio"
+													placeholder="Escribe tu nombre"
+												/>
+											</p>
+
+											<p>
+												<label htmlFor="email" className="label2 colocar_email">
+													Email
+													<span className="obligatorio">*</span>
+												</label>
+												<input
+													className="input2"
+													type="email"
+													name="introducir_email"
+													id="email"
+													required="obligatorio"
+													placeholder="Escribe tu correo electrónico"
+												/>
+											</p>
+											<p>
+												<label htmlFor="asunto" className="label2 colocar_asunto">
+													Asunto
+													<span className="obligatorio">*</span>
+												</label>
+												<input
+													className="input2"
+													type="text"
+													name="introducir_asunto"
+													id="assunto"
+													required="obligatorio"
+													placeholder="Escribe un asunto"
+												/>
+											</p>
+											<p>
+												<label htmlFor="mensaje" className="label2 colocar_mensaje">
+													Mensaje
+													<span className="obligatorio">*</span>
+												</label>
+												<textarea
+													name="introducir_mensaje"
+													className="texto_mensaje"
+													id="mensaje"
+													required="obligatorio"
+													placeholder="Deja aquí tu comentario..."></textarea>
+											</p>
+											<button
+												className="btnSubmit"
+												type="submit"
+												name="enviar_formulario"
+												id="enviar">
+												<p className="enviar">Enviar</p>
+											</button>
+											<p className="aviso">
+												<span className="obligatorio"> * </span>Los campos son obligatorios.
+											</p>
+										</form>
 									</div>
-									<div calssName="form-group col-sm-6">
-										<label htmlFor="email" calssName="h4">
-											Email
-										</label>
-										<input
-											type="email"
-											calssName="form-control"
-											id="email"
-											placeholder="Enter email"
-											required
-										/>
-									</div>
-								</div>
-								<div calssName="form-group">
-									<label htmlFor="message" calssName="h4 ">
-										Message
-									</label>
-									<textarea
-										id="message"
-										calssName="form-control"
-										rows="5"
-										placeholder="Enter your message"
-										required></textarea>
-								</div>
-								<button type="submit" id="form-submit" calssName="btn btn-success btn-lg pull-right ">
-									Submit
-								</button>
-								<div id="msgSubmit" calssName="h3 text-center hidden">
-									Message Submitted!
 								</div>
 							</div>
 						</div>

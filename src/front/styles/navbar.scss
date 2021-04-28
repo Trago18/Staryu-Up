@@ -151,12 +151,13 @@ a:hover{
 	background: -moz-linear-gradient(#fff, rgb(255, 255, 255));
 	background: -webkit-linear-gradient(#fff, rgb(255, 255, 255));
 	background: -o-linear-gradient(#fff, rgb(255, 255, 255));
-  -webkit-transition: opacity 400ms ease-in;
--moz-transition: opacity 400ms ease-in;
-transition: opacity 400ms ease-in;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
 }
+
 .close {
-	background: #19b9c4;
+	background: #da2a5e;
 	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
@@ -175,4 +176,65 @@ transition: opacity 400ms ease-in;
 }
 .close:hover { 
     background: #00d9ff;
+}
+
+.input2{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #27cfd4; 
+	padding-left: 10px;
+}
+
+.texto_mensaje{
+    background-color: #fbfbfb; 
+	width: 405px; 
+	height: 150px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: #27cfd4; 
+	padding-left: 10px;
+    margin-bottom: 20px; 
+    
+}
+
+.label2{
+    display: block; 
+    float: center; 	
+    text-align: left;
+    padding-left: 30px;
+    margin-bottom: -5px;
+    
+}
+
+.btnSubmit{
+	height: 45px; 
+	padding-left: 5px;
+	padding-right: 5px; 	
+	margin-bottom: 10px; 
+	text-transform: uppercase;
+	background-color: #38d3d8; 
+	border-color: #38d3d8; 
+	border-style: solid; 
+	border-radius: 10px;	
+	width: 420px;   
+    
+}
+
+.btnSubmit .enviar{
+	color: #fff; 
+}
+
+.aviso{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.obligatorio{
+    color: #da2a5e;
+    padding-left: 5px;
 }
