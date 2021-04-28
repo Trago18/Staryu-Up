@@ -192,14 +192,12 @@ a:hover{
 .texto_mensaje{
     background-color: #fbfbfb; 
 	width: 405px; 
-	height: 150px; 
+	height: 50px; 
 	border-radius: 5px;  
 	border-style: solid; 
 	border-width: 1px; 
 	border-color: #27cfd4; 
 	padding-left: 10px;
-    margin-bottom: 20px; 
-    
 }
 
 .label2{
@@ -208,6 +206,7 @@ a:hover{
     text-align: left;
     padding-left: 30px;
     margin-bottom: -5px;
+    margin-top: -10px;
     
 }
 
@@ -215,10 +214,9 @@ a:hover{
 	height: 45px; 
 	padding-left: 5px;
 	padding-right: 5px; 	
-	margin-bottom: 10px; 
 	text-transform: uppercase;
-	background-color: #38d3d8; 
-	border-color: #38d3d8; 
+	background-color: #d83875; 
+	border-color: #d83875; 
 	border-style: solid; 
 	border-radius: 10px;	
 	width: 420px;   
@@ -229,9 +227,20 @@ a:hover{
 	color: #fff; 
 }
 
+.btnSubmit:hover{
+    background-color: rgb(51, 168, 177);
+    border-color: rgb(51, 168, 177);
+    text-transform: uppercase;
+}
+.btnSubmit{
+    transition: background-color 0.8s linear 0.2s;
+}
+
 .aviso{
     text-align: left;
     padding-left: 20px;
+    padding-bottom: -50px;
+    margin-bottom: 1px;
 }
 
 .obligatorio{
