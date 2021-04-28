@@ -57,7 +57,7 @@
 .label2{ 
      color:rgb(124, 122, 122);}
 
-.input2[type = "radios"]{ display:none;}
+.input2[type = "checkbox"]{ display:none;}
 
 .clasificacion2{
       direction: rtl;
@@ -72,7 +72,7 @@
      color:rgb(187, 47, 77);
 }
 
-.input2[type = "radios"]:checked ~ .label2{
+.input2[type = "checkbox"]:checked ~ .label2{
      color:rgb(187, 47, 77);
 }
 
