@@ -24,6 +24,7 @@ export const Home = () => {
 	const frontSearch = e => {
 		e.preventDefault();
 		// console.log(data.search);
+		store.search = data.search;
 		setData({ change: data.search });
 		actions.postSearch(data.search);
 	};
