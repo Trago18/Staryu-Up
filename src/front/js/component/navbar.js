@@ -13,11 +13,13 @@ export const Navbar_menu = () => {
 
 	return (
 		<nav>
-			<div className="logo">
-				<h1 className="display-4">
-					<i className="fa fa-star-half-alt fa-3x" />
-				</h1>
-			</div>
+			<Link to="/">
+				<div className="logo">
+					<h1 className="display-4">
+						<i className="fa fa-star-half-alt fa-3x" />
+					</h1>
+				</div>
+			</Link>
 			<div className="menu">
 				<ul>
 					<li>
