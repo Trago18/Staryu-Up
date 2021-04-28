@@ -122,7 +122,8 @@ a:hover{
 /* Modal Contact*/ 
 .modalContact {
 	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -164,7 +165,7 @@ a:hover{
 	right: -12px;
 	text-align: center;
 	top: -10px;
-	width: 24px;
+    width: 44px;
 	text-decoration: none;
 	font-weight: bold;
 	-webkit-border-radius: 12px;
@@ -200,13 +201,14 @@ a:hover{
 	padding-left: 10px;
 }
 
-.label2{
+.label3{
     display: block; 
     float: center; 	
     text-align: left;
     padding-left: 30px;
     margin-bottom: -5px;
     margin-top: -10px;
+    color:rgb(77, 75, 75);
     
 }
 
@@ -219,7 +221,7 @@ a:hover{
 	border-color: #d83875; 
 	border-style: solid; 
 	border-radius: 10px;	
-	width: 420px;   
+	width: 200px;   
     
 }
 
@@ -241,9 +243,14 @@ a:hover{
     padding-left: 20px;
     padding-bottom: -50px;
     margin-bottom: 1px;
+    color: #8a8787;
 }
 
 .obligatorio{
     color: #da2a5e;
     padding-left: 5px;
+}
+
+.cont-header{
+    margin-bottom: 25px;
 }
