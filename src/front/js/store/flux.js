@@ -38,6 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			searchData: [],
 			favorites: [],
 			commentaries: [],
+			rate: "",
 			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
@@ -219,7 +220,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => setStore({ commentaries: data }))
 					.catch(error => console.log("Error delete commentaries", error));
 			},
-			userRate: (id, rate) => {
+			userRate: async (id, rate) => {
 				let method = "";
 				if (rate == "0") {
 					method = "DELETE";
@@ -234,10 +235,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify({ rate: rate })
 				};
-				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions);
-				// .then(res => res.json())
-				// .then(data => setStore({ commentaries: data }))
-				// .catch(error => console.log("Error post rate", error));
+				await fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions);
+				await fetch(process.env.BACKEND_URL + "/supplier/" + id, { method: "POST" });
+			},
+			getRate: id => {
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate")
+					.then(res => res.json())
+					.then(data => setStore({ rate: data }))
+					.catch(error => console.log("Error get rate", error));
 			},
 			changeColor: (index, color) => {
 				//get the store
