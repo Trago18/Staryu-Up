@@ -33,6 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg",
 				image_url: ""
 			},
+			search: "",
 			searchData: [],
 			favorites: [],
 			commentaries: [],
