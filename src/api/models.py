@@ -15,6 +15,7 @@ class User(db.Model):
     user_supplier = db.relationship('Supplier', backref='user', lazy=True)
     user_commentaries = db.relationship('Commentaries', backref='user', lazy=True)
     user_favorites = db.relationship('Favorites', backref='user', lazy=True)
+    user_rates = db.relationship('Rates', backref='user', lazy=True)
 
     def __repr__(self):
         return '<User %r>' % self.id
@@ -51,6 +52,7 @@ class Supplier(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     supplier_commentaries = db.relationship('Commentaries', backref='supplier', lazy=True)
     supplier_favorites = db.relationship('Favorites', backref='supplier', lazy=True)
+    supplier_rates = db.relationship('Rates', backref='supplier', lazy=True)
 
     def __repr__(self):
         return '<Supplier %s>' % self.name
@@ -111,4 +113,18 @@ class Commentaries(db.Model):
         return {
             "comment": self.message,
             "name": user.first_name + " " + user.last_name
+        }
+
+class Rates(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    rate = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
+    
+    def __repr__(self):
+        return '<Rates %r>' % self.id
+    
+    def serialize(self):
+        return {
+            "rate": self.rate
         }
