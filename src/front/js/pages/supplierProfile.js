@@ -125,7 +125,7 @@ export const Supplier_Profile = () => {
 									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
 								</div>
 								<form>
-									<p className="clasificacion2 pt-3">
+									<p className="clasificacion2">
 										<input
 											className="input2"
 											id="radios"

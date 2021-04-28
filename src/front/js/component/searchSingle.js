@@ -9,10 +9,6 @@ import { Context } from "../store/appContext";
 export const Search_Single = () => {
 	const { store, actions } = useContext(Context);
 
-	const addFavorite = id => {
-		actions.postFavorites(id);
-	};
-
 	return (
 		<div>
 			{store.searchData.map((value, index) => {
@@ -44,9 +40,9 @@ export const Search_Single = () => {
 											<p>{value.description}</p>
 										</Media.Body>
 										<Col xs={1} className="resultsStars p-1">
-											<Button onClick={() => addFavorite(value.id)}>
-												<i className="far fa-star fa-2x" />
-											</Button>
+											<Col className="resul">
+												<i className="starme fas fa-star-half-alt fa-2x" />
+											</Col>
 											<p className="supplierRating p-2"> {"4.5 stars"}</p>
 										</Col>
 									</Media>
