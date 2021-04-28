@@ -28,6 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				category: "",
 				email: "",
 				address: "",
+				rate: "",
 				schedule: "",
 				description: "",
 				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg",

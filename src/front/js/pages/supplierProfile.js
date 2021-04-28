@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
@@ -28,6 +28,11 @@ export const Supplier_Profile = () => {
 		actions.deleteCommentaries(params.supplierid, comment);
 	};
 
+	const handleInputChange = e => {
+		console.log(e.target.value);
+		// actions.postRate(e.target.value);
+	};
+
 	return (
 		<Container className="bg-light my-5">
 			<Row>
@@ -50,33 +55,63 @@ export const Supplier_Profile = () => {
 									<Card.Link href="#">
 										<form>
 											<p className="clasificacion">
-												<input id="radio1" type="radio" name="estrellas" value="5" />
+												<input
+													id="radio1"
+													type="radio"
+													name="star"
+													value="5"
+													onChange={handleInputChange}
+												/>
 												<label htmlFor="radio1">
 													<i className="fa fa-star"></i>
 												</label>
-												<input id="radio2" type="radio" name="estrellas" value="4" />
+												<input
+													id="radio2"
+													type="radio"
+													name="star"
+													value="4"
+													onChange={handleInputChange}
+												/>
 												<label htmlFor="radio2">
 													<i className="fa fa-star"></i>
 												</label>
-												<input id="radio3" type="radio" name="estrellas" value="3" />
+												<input
+													id="radio3"
+													type="radio"
+													name="star"
+													value="3"
+													onChange={handleInputChange}
+												/>
 												<label htmlFor="radio3">
 													<i className="fa fa-star"></i>
 												</label>
-												<input id="radio4" type="radio" name="estrellas" value="2" />
+												<input
+													id="radio4"
+													type="radio"
+													name="star"
+													value="2"
+													onChange={handleInputChange}
+												/>
 												<label htmlFor="radio4">
 													<i className="fa fa-star"></i>
 												</label>
-												<input id="radio5" type="radio" name="estrellas" value="1" />
+												<input
+													id="radio5"
+													type="radio"
+													name="star"
+													value="1"
+													onChange={handleInputChange}
+												/>
 												<label htmlFor="radio5">
 													<i className="fa fa-star"></i>
 												</label>
 											</p>
 										</form>
 									</Card.Link>
-									<div className="supplierRating p-2"> {"4.5 stars"}</div>
+									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
 								</div>
 							</Row>
-							<div className="p-3">
+							<div className="pl-2 pt-4">
 								<h5>{store.supplierData.name}</h5>
 							</div>
 
@@ -155,8 +190,8 @@ export const Supplier_Profile = () => {
 								store.commentaries.map((value, index) => {
 									return (
 										<>
-											<p key={index}>{value.comment}</p>
-											<p key={index}>{value.name}</p>
+											<p key={"comment " + index}>{value.comment}</p>
+											<p key={"name " + index}>{value.name}</p>
 											<button onClick={() => removeComment(value.comment)}>
 												<i className="fas fa-trash" />
 											</button>
