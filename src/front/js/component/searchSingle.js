@@ -43,7 +43,7 @@ export const Search_Single = () => {
 											<Col className="resul">
 												<i className="starme fas fa-star-half-alt fa-2x" />
 											</Col>
-											<p className="supplierRating p-2"> {"4.5 stars"}</p>
+											<p className="supplierRating p-2"> {"Stars: " + value.rate}</p>
 										</Col>
 									</Media>
 								</Card.Body>
