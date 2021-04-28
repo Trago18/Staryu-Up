@@ -57,8 +57,8 @@ export const Supplier_Register = () => {
 									role="tabpanel"
 									aria-labelledby="home-tab">
 									<h3 className="formulario-titulo pb-4">Formulario de Proveedor</h3>
-									<form className="row registrarse-formulario" onSubmit={frontSupplierRegister}>
-										<div className="col-md-6">
+									<form className="row registrarse-formulario " onSubmit={frontSupplierRegister}>
+										<div className="col">
 											<div className="form-group">
 												<input
 													type="text"
@@ -120,7 +120,7 @@ export const Supplier_Register = () => {
 										</div>
 										<div className="col-md-6">
 											<div className="form-group">
-												<div className="horario">
+												<div className="horario d-flex justify-content-center">
 													<a className="btnModal" href="#openModal">
 														Horario laboral
 													</a>
@@ -320,7 +320,7 @@ export const Supplier_Register = () => {
 												</div>
 											</div>
 
-											<div className="col-12 form-group">
+											<div className="col form-group">
 												<label>Descripción</label>
 												<br />
 												<textarea
@@ -332,12 +332,8 @@ export const Supplier_Register = () => {
 												/>
 											</div>
 										</div>
-										<div className="col-md-6">
-											<div className="row register-form">
-												<div className="col-md">
-													<input type="submit" className="btnRegistrar" value="Registrarse" />
-												</div>
-											</div>
+										<div className="col-12 register-form d-flex justify-content-center mt-3">
+											<input type="submit" className="btnRegistrar" value="Registrarse" />
 										</div>
 									</form>
 								</div>
