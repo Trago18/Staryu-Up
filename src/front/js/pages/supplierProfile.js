@@ -42,6 +42,14 @@ export const Supplier_Profile = () => {
 		}
 	};
 
+	const handdleFavorite = e => {
+		if (e.target.checked == true) {
+			actions.postFavorites(params.supplierid);
+		} else if (e.target.checked == false) {
+			actions.deleteFavorites(params.supplierid);
+		}
+	};
+
 	return (
 		<Container className="bg-light my-5">
 			<Row>
@@ -129,10 +137,9 @@ export const Supplier_Profile = () => {
 										<input
 											className="input2"
 											id="radios"
-											type="radios"
+											type="checkbox"
 											name="heart"
-											value=""
-											onClick={handleInputClick}
+											onClick={handdleFavorite}
 										/>
 										<label className="label2" htmlFor="radios">
 											<i className="fas fa-heart fa-2x"></i>

@@ -128,11 +128,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/login", requestOptions)
 					.then(response => response.json())
 					.then(data => {
-						console.log(data[0]);
+						console.log(data);
 						checkbox == "on"
-							? (localStorage.Token = data[1].access_token)
-							: (sessionStorage.Token = data[1].access_token);
-						setStore({ token: data[1].access_token });
+							? (localStorage.Token = data.access_token)
+							: (sessionStorage.Token = data.access_token);
+						setStore({ token: data.access_token });
 					});
 			},
 			postRecovery: email => {
