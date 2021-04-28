@@ -34,7 +34,7 @@ export const Navbar_menu = () => {
 					</li>
 					<li>
 						<Link to="/user">
-							<div>Perfil Usuario</div>
+							<div>Perfil</div>
 						</Link>
 					</li>
 					<li>
@@ -48,12 +48,12 @@ export const Navbar_menu = () => {
 								<a href="#close" title="Close" className="close">
 									X
 								</a>
-								<h2>Formulario de contacto</h2>
+								<h2 className="cont-header">Formulario de contacto</h2>
 								<div className="contact_form">
 									<div className="form-cont">
 										<form action="submeter-formulario.php" method="post">
 											<p>
-												<label htmlFor="nombre" className="label2 colocar_nombre">
+												<label htmlFor="nombre" className="label3 colocar_nombre">
 													Nombre
 													<span className="obligatorio">*</span>
 												</label>
@@ -68,7 +68,7 @@ export const Navbar_menu = () => {
 											</p>
 
 											<p>
-												<label htmlFor="email" className="label2 colocar_email">
+												<label htmlFor="email" className="label3 colocar_email">
 													Email
 													<span className="obligatorio">*</span>
 												</label>
@@ -82,7 +82,7 @@ export const Navbar_menu = () => {
 												/>
 											</p>
 											<p>
-												<label htmlFor="asunto" className="label2 colocar_asunto">
+												<label htmlFor="asunto" className="label3 colocar_asunto">
 													Asunto
 													<span className="obligatorio">*</span>
 												</label>
@@ -96,7 +96,7 @@ export const Navbar_menu = () => {
 												/>
 											</p>
 											<p>
-												<label htmlFor="mensaje" className="label2 colocar_mensaje">
+												<label htmlFor="mensaje" className="label3 colocar_mensaje">
 													Mensaje
 													<span className="obligatorio">*</span>
 												</label>
