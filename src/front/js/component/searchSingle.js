@@ -40,15 +40,9 @@ export const Search_Single = () => {
 											<p>{value.description}</p>
 										</Media.Body>
 										<Col xs={1} className="resultsStars p-1">
-<<<<<<< HEAD
-											<Button>
-												<i className="far fa-star fa-2x" />
-											</Button>
-=======
 											<Col className="resul">
 												<i className="starme fas fa-star-half-alt fa-2x" />
 											</Col>
->>>>>>> fe25db8d4d4d35a99368a9e3241afa59f6a30969
 											<p className="supplierRating p-2"> {"4.5 stars"}</p>
 										</Col>
 									</Media>
