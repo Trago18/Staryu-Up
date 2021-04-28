@@ -41,11 +41,15 @@ export const Login = () => {
 				</div>
 				<div className="col-md-9 col-sd-4 register-right">
 					<div className="tab-content" id="myTabContent">
-						<div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-							<h3 className="register-heading pb-4">Inicio de sesión</h3>
-							<form className="row inicio-sesion" onSubmit={frontLogin}>
+						<div
+							className="tab-pane fade show active ml-2"
+							id="home"
+							role="tabpanel"
+							aria-labelledby="home-tab">
+							<h3 className="register-heading p-4">Inicio de sesión</h3>
+							<form className="pl-5 inicio-sesion" onSubmit={frontLogin}>
 								<div className="col-md-11 col-sd-2">
-									<div className="form-group">
+									<div className="form-group px-4 pt-3">
 										<input
 											type="text"
 											className="form-control"
@@ -55,7 +59,7 @@ export const Login = () => {
 										/>
 									</div>
 									<div className="space" />
-									<div className="form-group">
+									<div className="form-group px-4 pb-3">
 										<input
 											type="password"
 											className="form-control"
@@ -64,23 +68,24 @@ export const Login = () => {
 											onChange={handleInputChange}
 										/>
 									</div>
-									<input
-										type="checkbox"
-										className="form-check-input"
-										id="exampleCheck1"
-										name="checkbox"
-										onChange={handleInputChange}
-									/>
-									<div className="space" />
-									<div className="col-md" />
+									<div className="checkboxLogin mx-4 mb-4">
+										<input
+											type="checkbox"
+											id="exampleCheck1"
+											name="checkbox"
+											onChange={handleInputChange}
+										/>
+										{"  "}
+										Recordar contraseña
+									</div>
 
-									<div className="form-grupo mb-5">
+									<div className="form-grupo mb-3">
 										<div className="row register-form">
-											<div className="btnLoginDiv d-flex justify-content-center">
+											<div className="btnLoginDiv mt-2 d-flex justify-content-center">
 												<input type="submit" className="btnLogin" value="Login" />
 											</div>
 											<div className="login_form is_closed ">
-												<div className="row btnsocial m-4 d-flex justify-content-center">
+												<div className="row btnsocial mt-5 d-flex justify-content-center">
 													<div className="social_login">
 														<a href="#" className="google">
 															<i className="fab fa-google" />
@@ -97,7 +102,7 @@ export const Login = () => {
 													</div>
 												</div>
 											</div>
-											<div className="recup d-flex justify-content-center">
+											<div className="recup mt-5 d-flex justify-content-center">
 												<Link to="/recovery">
 													<input
 														type="submit"
