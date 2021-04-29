@@ -174,7 +174,7 @@ def create_user():
     db.session.commit()
 
     response_body = {
-        "msg": "The user was successfully created."
+        "msg": "The user was successfully created"
     }
 
     return jsonify(response_body), 200
@@ -235,8 +235,11 @@ def create_supplier():
     db.session.add(supplier)
     db.session.commit()
 
+    supplier = Supplier.query.filter_by(email=supplier.email).first()
+
     response_body = {
-        "msg": "The supplier was successfully created."
+        "msg": "The supplier was successfully created",
+        "id": supplier.id
     }
 
     return jsonify(response_body), 200

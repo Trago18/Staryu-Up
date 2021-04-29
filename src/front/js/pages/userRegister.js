@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/userRegister.scss";
 
 export const User_Register = () => {
@@ -31,6 +31,7 @@ export const User_Register = () => {
 
 	return (
 		<div className="registro">
+			{store.userInfo.msg == "The user was successfully created" && <Redirect to="/login" />}
 			<div className="row ">
 				<div className="login">
 					<i className="fa fa-user-shield fa-4x mr-4" />

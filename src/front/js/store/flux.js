@@ -4,6 +4,8 @@ import supplierImg from "../../img/supplier.png";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			userInfo: "",
+			supplierInfo: "",
 			userData: {
 				first_name: "",
 				last_name: "",
@@ -62,7 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						//console.log(data);
 						setStore({ searchData: data });
-					});
+					})
+					.catch(error => console.log("Error search", error));
 			},
 			postUserRegister: (first_name, last_name, phone_number, email, password) => {
 				const requestOptions = {
@@ -78,7 +81,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/user_signup", requestOptions)
 					.then(response => response.json())
-					.then(data => console.log(data));
+					.then(data => setStore({ userInfo: data }))
+					.catch(error => console.log("Error user register", error));
 			},
 			postSupplierRegister: (name, phone_number, email, category, address, schedule, description) => {
 				const requestOptions = {
@@ -96,7 +100,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/supplier_signup", requestOptions)
 					.then(response => response.json())
-					.then(data => console.log(data));
+					.then(data => setStore({ supplierInfo: data }))
+					.catch(error => console.log("Error supplier register", error));
 			},
 			postLogin: (email, password, checkbox) => {
 				const requestOptions = {
@@ -107,12 +112,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(process.env.BACKEND_URL + "/login", requestOptions)
 					.then(response => response.json())
 					.then(data => {
-						console.log(data);
+						//console.log(data);
 						checkbox == "on"
 							? (localStorage.Token = data.access_token)
 							: (sessionStorage.Token = data.access_token);
 						setStore({ token: data.access_token });
-					});
+					})
+					.catch(error => console.log("Error login", error));
 			},
 			postRecovery: email => {
 				const requestOptions = {
@@ -122,7 +128,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
 					.then(response => response.json())
-					.then(data => console.log(data));
+					//.then(data => console.log(data))
+					.catch(error => console.log("Error password recovery", error));
 			},
 			getFavorites: () => {
 				const requestOptions = {
@@ -214,8 +221,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify({ rate: rate })
 				};
-				await fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions);
-				await fetch(process.env.BACKEND_URL + "/supplier/" + id, { method: "POST" });
+				await fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions).catch(error =>
+					console.log("Error post/delete rate user", error)
+				);
+				await fetch(process.env.BACKEND_URL + "/supplier/" + id, { method: "POST" }).catch(error =>
+					console.log("Error post rate supplier", error)
+				);
 			},
 			getRate: id => {
 				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate")
