@@ -14,16 +14,6 @@ from sendgrid.helpers.mail import Mail, From, To, Subject, Content
 
 api = Blueprint('api', __name__)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend"
-    }
-
-    return jsonify(response_body), 200
-
-
 @api.route('/data-test', methods=['GET'])   # datos de prueba
 def data_test():
     user=User(first_name='nombre1', last_name='apellido1', phone_number='numero1', email='test1@gmail.com', password='Pass123*', is_active=True)

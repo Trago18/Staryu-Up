@@ -11,9 +11,6 @@ import { Login } from "./pages/login";
 import { Password_Recovery } from "./pages/passwordRecovery";
 import { User_Profile } from "./pages/userProfile";
 import { Supplier_Profile } from "./pages/supplierProfile";
-import { Rigo } from "./pages/rigo";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar_menu } from "./component/navbar";
@@ -65,15 +62,6 @@ const Layout = () => {
 							component={Supplier_Profile}
 							isAuth={store.token}
 						/>
-						<Route exact path="/rigo">
-							<Rigo />
-						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
-						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

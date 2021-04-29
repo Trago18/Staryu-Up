@@ -86,7 +86,7 @@ export const Login = () => {
 											<div className="btnLoginDiv mt-2 d-flex justify-content-center">
 												<input type="submit" className="btnLogin" value="Login" />
 											</div>
-											<div className="login_form ">
+											<div className="login_form">
 												<div className="row btnsocial mt-4 d-flex justify-content-center">
 													<div className="social_login">
 														<a href="#" className="google">

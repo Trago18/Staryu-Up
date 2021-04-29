@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image, Button } from "react-bootstrap";
-import imgGarden from "../../img/landscapingvert.jpg";
-import imgProfile from "../../img/gardProfile.jpg";
 import googleMaps from "../../img/googleMaps.jpg";
 
 export const Supplier_Profile = () => {
