@@ -207,7 +207,15 @@ export const Supplier_Profile = () => {
 										className="mapCard p-2  text-center"
 										style={{ width: "100%", height: "100%" }}>
 										<h6>Mapa de Localización</h6>
-										<img className="p-1" src={googleMaps} alt="Google maps location" />
+										<iframe
+											src="https://maps.google.com/maps?width=250&amp;height=130&amp;hl=es&amp;q=Fuente%20de%20la%20Hispanidad+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+											style={{
+												width: "250",
+												height: "130",
+												border: "0",
+												ariaHidden: "false",
+												tabIndex: "0"
+											}}></iframe>
 									</Card>
 								</Col>
 							</Row>
