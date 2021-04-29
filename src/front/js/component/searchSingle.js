@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import "../../styles/searchResults.scss";
 import { Media, Card, Button, Container, Col } from "react-bootstrap";
-import imgGarden from "../../img/rigo-baby.jpg";
 import { Context } from "../store/appContext";
+import supplierImg from "../../img/supplier.png";
 
 // This is the loop for the search result component
 
@@ -22,11 +22,7 @@ export const Search_Single = () => {
 											width={180}
 											height={200}
 											className="mr-3"
-											src={
-												value.profile_pic == null
-													? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
-													: value.profile_pic
-											}
+											src={value.profile_pic == null ? supplierImg : value.profile_pic}
 											alt="Supplier Avatar"
 										/>
 										<Media.Body>

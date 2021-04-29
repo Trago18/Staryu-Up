@@ -6,6 +6,8 @@ import "../../styles/login.scss";
 export const Login = () => {
 	const { store, actions } = useContext(Context);
 
+	store.userInfo = "";
+
 	const [data, setData] = useState({
 		email: "",
 		password: "",

@@ -120,9 +120,9 @@ def supplier_rate(id):
     rates = Rates.query.filter_by(supplier_id=id).all()
     all_rates = list(map(lambda x: x.serialize(), rates))
     # print(sum(all_rates)/len(all_rates))
-    
+
     supplier = Supplier.query.filter_by(id=id).first()
-    supplier.rate = sum(all_rates)/len(all_rates)
+    supplier.rate = (sum(all_rates)+5)/(len(all_rates)+1)
     db.session.commit()
     
     return jsonify(supplier.rate), 200
@@ -174,7 +174,7 @@ def create_user():
     db.session.commit()
 
     response_body = {
-        "msg": "The user was successfully created."
+        "msg": "The user was successfully created"
     }
 
     return jsonify(response_body), 200
@@ -235,8 +235,11 @@ def create_supplier():
     db.session.add(supplier)
     db.session.commit()
 
+    supplier = Supplier.query.filter_by(email=supplier.email).first()
+
     response_body = {
-        "msg": "The supplier was successfully created."
+        "msg": "The supplier was successfully created",
+        "id": supplier.id
     }
 
     return jsonify(response_body), 200

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/supplierRegister.scss";
 
 export const Supplier_Register = () => {
@@ -40,11 +41,17 @@ export const Supplier_Register = () => {
 
 	return (
 		<div className="registro-proveedor">
+			{console.log(store.supplierInfo.msg)}
+			{store.supplierInfo.msg == "The supplier was successfully created" && (
+				<Redirect to={"/supplier/" + store.supplierInfo.id} />
+			)}
 			<div className="row">
 				<div className="usuario">
 					<i className="fa fa-address-card fa-4x mr-5" />
 					<h3>Bienvenido</h3>
-					<input type="submit" name="" value="Login" />
+					<Link to="/login">
+						<input type="submit" name="" value="Login" />
+					</Link>
 					<br />
 				</div>
 				<div className="col-md-9 formulario-proveedor">
