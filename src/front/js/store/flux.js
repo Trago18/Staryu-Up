@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			postSupplierRegister: (name, phone_number, email, category, address, schedule, description) => {
 				const requestOptions = {
 					method: "POST",
-					headers: { "Content-Type": "application/json" },
+					headers: { "Content-Type": "application/json", Authorization: "Bearer " + getStore().token },
 					body: JSON.stringify({
 						name: name,
 						phone_number: phone_number,

@@ -113,7 +113,7 @@ export const Supplier_Register = () => {
 											<option>Computación</option>
 											<option>Eléctrico</option>
 											<option>Enseñanza</option>
-											<option>Mecánico</option>
+											<option>Mecánica</option>
 										</select>
 									</div>
 								</div>
