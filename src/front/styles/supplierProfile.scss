@@ -30,7 +30,9 @@
 
 /*Estrellas*/
 .label1{ 
-     color:grey;}
+     color:grey;
+    font-size: 17px;
+}
 
 .input1[type = "radio"]{ display:none;}
 
@@ -55,7 +57,10 @@
 
 /*Corazón favoritos*/
 .label2{ 
-     color:rgb(124, 122, 122);}
+     color:rgb(124, 122, 122);
+    font-size: 20px;
+}
+     
 
 .input2[type = "checkbox"]{ display:none;}
 
@@ -84,7 +89,7 @@
 
 .trash {
   color: #7e8080 !important;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   //padding: 0.5em 1.2em;
   background: rgba(0,0,0,0);

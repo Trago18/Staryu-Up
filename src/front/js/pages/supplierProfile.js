@@ -140,7 +140,7 @@ export const Supplier_Profile = () => {
 											onClick={handdleFavorite}
 										/>
 										<label className="label2" htmlFor="radios">
-											<i className="fas fa-heart fa-2x"></i>
+											<i className="fas fa-heart"></i>
 										</label>
 									</p>
 								</form>
