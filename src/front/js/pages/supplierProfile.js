@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image, Button } from "react-bootstrap";
 import supplierImg from "../../img/supplier.png";
-import googleMaps from "../../img/googleMaps.jpg";
 import imagen1 from "../../img/prof1.jpg";
 import imagen2 from "../../img/prof2.png";
 import imagen3 from "../../img/prof3.jpg";
@@ -150,7 +149,10 @@ export const Supplier_Profile = () => {
 							<div className="pl-3 ">
 								<h5>{store.supplierData.name}</h5>
 							</div>
-
+							<div>
+								<p className="pl-3 mt-3 mb-0">Miembro desde:</p>
+								<p className="pl-3">{store.supplierData.member_since}</p>
+							</div>
 							<hr />
 						</Media.Body>
 					</Media>

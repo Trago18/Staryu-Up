@@ -24,6 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				schedule: "",
 				description: "",
 				profile_pic: supplierImg,
+				member_since: "",
 				image_url: ""
 			},
 			search: "",
@@ -37,7 +38,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getSupplier: id => {
 				fetch(process.env.BACKEND_URL + "/supplier/" + id)
 					.then(res => res.json())
-					.then(data => setStore({ supplierData: data[0] }))
+					.then(data => {
+						console.log(data);
+						setStore({ supplierData: data[0] });
+					})
 					.catch(error => console.log("Error supplier profile", error));
 			},
 			getUser: () => {
