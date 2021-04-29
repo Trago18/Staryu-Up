@@ -1,3 +1,6 @@
+import userImg from "../../img/avatar.jpg";
+import supplierImg from "../../img/supplier.png";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -7,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				phone_number: "",
 				email: "",
 				password: "",
-				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
+				profile_pic: userImg
 			},
 			supplierData: {
 				name: "",
@@ -18,7 +21,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				rate: "",
 				schedule: "",
 				description: "",
-				profile_pic: "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg",
+				profile_pic: supplierImg,
 				image_url: ""
 			},
 			search: "",

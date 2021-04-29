@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image, Button } from "react-bootstrap";
+import supplierImg from "../../img/supplier.png";
 import googleMaps from "../../img/googleMaps.jpg";
 
 export const Supplier_Profile = () => {
@@ -57,11 +58,7 @@ export const Supplier_Profile = () => {
 							width={130}
 							height={130}
 							className=" rounded-circle"
-							src={
-								store.supplierData.profile_pic == null
-									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
-									: store.supplierData.profile_pic
-							}
+							src={store.supplierData.profile_pic == null ? supplierImg : store.supplierData.profile_pic}
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>

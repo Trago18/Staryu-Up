@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Col } from "react-bootstrap";
+import userImg from "../../img/avatar.jpg";
 
 export const User_Profile = () => {
 	const { store, actions } = useContext(Context);
@@ -24,11 +25,7 @@ export const User_Profile = () => {
 							width={130}
 							height={130}
 							className=" rounded-circle  "
-							src={
-								store.userData.profile_pic == null
-									? "https://image.freepik.com/vector-gratis/diseno-avatar-persona_24877-38131.jpg"
-									: store.userData.profile_pic
-							}
+							src={store.userData.profile_pic == null ? userImg : store.userData.profile_pic}
 							alt="user_profile_photo"
 						/>
 						<Media.Body>
