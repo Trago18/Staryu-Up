@@ -128,7 +128,9 @@ export const Supplier_Profile = () => {
 											</p>
 										</form>
 									</Card.Link>
-									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
+									<div className="supplierRating pt-0 pl-2">
+										{"Stars: " + store.supplierData.rate}
+									</div>
 								</div>
 								<form>
 									<p className="clasificacion2">
@@ -140,7 +142,7 @@ export const Supplier_Profile = () => {
 											onClick={handdleFavorite}
 										/>
 										<label className="label2" htmlFor="radios">
-											<i className="fas fa-heart fa-2x"></i>
+											<i className="fas fa-heart"></i>
 										</label>
 									</p>
 								</form>

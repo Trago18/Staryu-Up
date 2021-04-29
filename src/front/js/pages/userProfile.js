@@ -32,8 +32,13 @@ export const User_Profile = () => {
 							alt="user_profile_photo"
 						/>
 						<Media.Body>
-							<div>
-								<h5 className="p-3">{store.userData.first_name + " " + store.userData.last_name}</h5>
+							<div className="row">
+								<h5 className="col-9 pl-4">
+									{store.userData.first_name + " " + store.userData.last_name}
+								</h5>
+								<div className="col mt-4 d-flex justify-content-center">
+									<input type="submit" className="boton15" value="Perfil proveedor" />
+								</div>
 								<hr />
 							</div>
 						</Media.Body>

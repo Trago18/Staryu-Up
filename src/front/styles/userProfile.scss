@@ -32,7 +32,7 @@ body{
 
 .trash2 {
   color: #7e8080 !important;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   //padding: 0.5em 1.2em;
   background: rgba(0,0,0,0);
@@ -45,5 +45,23 @@ body{
 }
 .trash2:hover {
   background: #c93767;
+  color: #fff !important;
+}
+
+.boton15 {
+  color: #7e8080 !important;
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: #30d9df;
+  border-radius: 25px;
+  transition: all 1s ease;
+  position: relative;
+  width: 130px;
+}
+
+.boton15:hover {
+  background: #09181f;
   color: #fff !important;
 }

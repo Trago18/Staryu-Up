@@ -30,12 +30,13 @@ export const Search_Single = () => {
 											alt="Supplier Avatar"
 										/>
 										<Media.Body>
-											<Card.Link href={"/supplier/" + value.id}>
-												<h5 className="name-result">{value.name}</h5>
+											<Card.Link className="supplierName" href={"/supplier/" + value.id}>
+												{value.name}
 											</Card.Link>
-											<span>
+
+											<p>
 												<b>{value.address}</b>
-											</span>
+											</p>
 											<hr />
 											<p>{value.description}</p>
 										</Media.Body>
