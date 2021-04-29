@@ -52,10 +52,6 @@ export const User_Profile = () => {
 								<hr />
 							</div>
 							<div>
-								<span>Contraseña: {store.userData.password}</span>
-								<hr />
-							</div>
-							<div>
 								<span>Teléfono: {store.userData.phone_number}</span>
 								<hr />
 							</div>
