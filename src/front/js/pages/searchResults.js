@@ -62,7 +62,8 @@ export const Search_Results = () => {
 			</Row>
 			<Row>
 				<Col className="resultsSingle">
-					<Search_Single />
+					{store.searchData.name ? console.log(true) : console.log(false)}
+					{/* <Search_Single /> */}
 				</Col>
 			</Row>
 		</Container>
