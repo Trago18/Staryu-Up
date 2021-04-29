@@ -148,21 +148,9 @@ export const Supplier_Register = () => {
 														Lun.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -174,21 +162,9 @@ export const Supplier_Register = () => {
 														Mar.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -200,21 +176,9 @@ export const Supplier_Register = () => {
 														Miér.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -226,21 +190,9 @@ export const Supplier_Register = () => {
 														Jue.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -252,21 +204,9 @@ export const Supplier_Register = () => {
 														Vier.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -278,21 +218,9 @@ export const Supplier_Register = () => {
 														Sáb.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 												<div className="form-group form-check">
 													<input
@@ -304,21 +232,9 @@ export const Supplier_Register = () => {
 														Dom.
 													</label>
 													<label className="star">de</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 													<label className="final">a</label>
-													<input
-														type="time"
-														name="hora"
-														min="18:00"
-														max="21:00"
-														step="3600"
-													/>
+													<input type="time" name="hora" />
 												</div>
 											</div>
 										</div>
