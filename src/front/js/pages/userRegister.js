@@ -59,6 +59,7 @@ export const User_Register = () => {
 													placeholder="Nombre *"
 													name="first_name"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
@@ -68,6 +69,7 @@ export const User_Register = () => {
 													placeholder="Apellido *"
 													name="last_name"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
@@ -77,15 +79,17 @@ export const User_Register = () => {
 													placeholder="Celular *"
 													name="phone_number"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
 												<input
-													type="text"
+													type="email"
 													className="form-control"
 													placeholder="Correo Electrónico*"
 													name="email"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
@@ -95,6 +99,7 @@ export const User_Register = () => {
 													placeholder="Contraseña *"
 													name="password"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="col-md" />

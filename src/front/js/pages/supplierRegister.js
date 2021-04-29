@@ -66,15 +66,17 @@ export const Supplier_Register = () => {
 													placeholder="Nombre comercial *"
 													name="name"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
 												<input
-													type="text"
+													type="email"
 													className="form-control"
 													placeholder="Correo electrónico *"
 													name="email"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
@@ -84,6 +86,7 @@ export const Supplier_Register = () => {
 													placeholder="Teléfono *"
 													name="phone_number"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
@@ -93,13 +96,15 @@ export const Supplier_Register = () => {
 													placeholder="Dirección *"
 													name="address"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 											<div className="form-group">
 												<select
 													className="form-control"
 													name="category"
-													onChange={handleInputChange}>
+													onChange={handleInputChange}
+													required>
 													<option className="hidden" selected disabled>
 														Categoría
 													</option>
@@ -329,6 +334,7 @@ export const Supplier_Register = () => {
 													cols="30"
 													maxLength="50"
 													onChange={handleInputChange}
+													required
 												/>
 											</div>
 										</div>
