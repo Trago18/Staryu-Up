@@ -53,17 +53,15 @@ export const Search_Results = () => {
 			<Row>
 				<Col>
 					<h5 className="results py-4">
-						{numberResults + " "}
+						{numberResults ? numberResults : 0}
 						{numberResults == 1
-							? "Resultado encontrado para " + store.search
-							: "Resultados encontrados para " + store.search}
+							? " Resultado encontrado para " + store.search
+							: " Resultados encontrados para " + store.search}
 					</h5>
 				</Col>
 			</Row>
 			<Row>
-				<Col className="resultsSingle">
-					<Search_Single />
-				</Col>
+				<Col className="resultsSingle">{store.searchData[0] && <Search_Single />}</Col>
 			</Row>
 		</Container>
 	);

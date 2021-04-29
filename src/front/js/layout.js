@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "./store/appContext";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
@@ -17,12 +18,15 @@ import injectContext from "./store/appContext";
 
 import { Navbar_menu } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { ProtectedRoute } from "./component/protectedRoute";
 
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
+
+	const { store } = useContext(Context);
 
 	return (
 		<div className="d-flex flex-column h-100">
@@ -48,12 +52,19 @@ const Layout = () => {
 						<Route exact path="/recovery">
 							<Password_Recovery />
 						</Route>
-						<Route exact path="/user">
+						{/* <Route exact path="/user">
 							<User_Profile />
-						</Route>
-						<Route exact path="/supplier/:supplierid">
+						</Route> */}
+						<ProtectedRoute exact path="/user" component={User_Profile} isAuth={store.token} />
+						{/* <Route exact path="/supplier/:supplierid">
 							<Supplier_Profile />
-						</Route>
+						</Route> */}
+						<ProtectedRoute
+							exact
+							path="/supplier/:supplierid"
+							component={Supplier_Profile}
+							isAuth={store.token}
+						/>
 						<Route exact path="/rigo">
 							<Rigo />
 						</Route>
