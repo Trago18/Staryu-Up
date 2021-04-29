@@ -33,7 +33,7 @@ export const Search_Single = () => {
 											<Card.Link className="supplierName" href={"/supplier/" + value.id}>
 												{value.name}
 											</Card.Link>
-											<hr />
+
 											<p>
 												<b>{value.address}</b>
 											</p>
