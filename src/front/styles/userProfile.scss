@@ -23,3 +23,27 @@ body{
 // .userButton{
 //     background-color: #1abc9c;
 // }
+
+.basurero2{
+    text-align: right;
+    color: rgb(136, 136, 134);
+}
+
+
+.trash2 {
+  color: #7e8080 !important;
+  font-size: 20px;
+  font-weight: 600;
+  //padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  padding: 5px;
+  border-color: #30d9df;
+  border-radius: 15px;
+  transition: all 1s ease;
+  position: relative;
+  margin-right: 20px;
+}
+.trash2:hover {
+  background: #c93767;
+  color: #fff !important;
+}

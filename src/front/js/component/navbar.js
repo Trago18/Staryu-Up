@@ -51,7 +51,7 @@ export const Navbar_menu = () => {
 								<h2 className="cont-header">Formulario de contacto</h2>
 								<div className="contact_form">
 									<div className="form-cont">
-										<form action="submeter-formulario.php" method="post">
+										<form action="https://formspree.io/f/xaylkyoz" method="post">
 											<p>
 												<label htmlFor="nombre" className="label3 colocar_nombre">
 													Nombre

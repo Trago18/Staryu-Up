@@ -44,11 +44,12 @@ export const Password_Recovery = () => {
 									<div className="form-group">
 										<label className="correo">Ingrese su correo electronico</label>
 										<input
-											type="text"
+											type="email"
 											className="form-control"
 											placeholder="Correo electrónico *"
 											name="email"
 											onChange={handleInputChange}
+											required
 										/>
 									</div>
 

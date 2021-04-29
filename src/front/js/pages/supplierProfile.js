@@ -130,9 +130,7 @@ export const Supplier_Profile = () => {
 											</p>
 										</form>
 									</Card.Link>
-									<div className="supplierRating pt-0 pl-2">
-										{"Stars: " + store.supplierData.rate}
-									</div>
+									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
 								</div>
 								<form>
 									<p className="clasificacion2">
@@ -170,7 +168,7 @@ export const Supplier_Profile = () => {
 								<Col sm={6}>
 									<Card className="p-2 supplierInfo text-left">
 										<div>
-											<h6>Sobre mi</h6>
+											<h6>Descripción</h6>
 											<p> {store.supplierData.description}</p>
 											<hr />
 
@@ -190,7 +188,7 @@ export const Supplier_Profile = () => {
 											<hr />
 											<div>
 												<i className="fas fa-envelope m-3" />
-												Email: {store.supplierData.email}
+												Correo: {store.supplierData.email}
 											</div>
 											<hr />
 											<div>
@@ -212,7 +210,7 @@ export const Supplier_Profile = () => {
 							</Row>
 						</Container>
 					</Tab>
-					<Tab eventKey="reviews" title="Reviews" className="ml-auto supplierReviewsTab">
+					<Tab eventKey="reviews" title="Comentarios" className="ml-auto supplierReviewsTab">
 						<div className="supplierInfo px-4">
 							<h6>Valoramos su opinión</h6>
 							<InputGroup>
@@ -222,17 +220,25 @@ export const Supplier_Profile = () => {
 								<FormControl onKeyUp={addComment} as="textarea" aria-label="With textarea" />
 							</InputGroup>
 							<hr />
-							<h6>Reviews de otros usuarios</h6>
+							<h6>Comentarios de otros usuarios</h6>
 							<span>{""}</span>
 							{store.commentaries != "" &&
 								store.commentaries.map((value, index) => {
 									return (
 										<>
-											<p key={"comment " + index}>{value.comment}</p>
-											<p key={"name " + index}>{value.name}</p>
-											<button onClick={() => removeComment(value.comment)}>
-												<i className="fas fa-trash" />
-											</button>
+											<div className="row">
+												<p className="col-12" key={"comment " + index}>
+													{value.comment}
+												</p>
+												<p className="col-11" key={"name " + index}>
+													{value.name}
+												</p>
+												<div
+													className="col basurero"
+													onClick={() => removeComment(value.comment)}>
+													<i className="fas fa-trash-alt trash" />
+												</div>
+											</div>
 											<hr />
 										</>
 									);

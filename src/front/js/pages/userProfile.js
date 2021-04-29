@@ -69,10 +69,16 @@ export const User_Profile = () => {
 									store.favorites.map((value, index) => {
 										return (
 											<>
-												<ul key={index}>{value.name}</ul>
-												<button onClick={() => removeFavorite(value.id)}>
-													<i className="fas fa-trash" />
-												</button>
+												<div className="row">
+													<ul className="col-11" key={index}>
+														{value.name}
+													</ul>
+													<div
+														className="col basurero2"
+														onClick={() => removeFavorite(value.id)}>
+														<i className="fas fa-trash-alt trash2" />
+													</div>
+												</div>
 												<hr />
 											</>
 										);

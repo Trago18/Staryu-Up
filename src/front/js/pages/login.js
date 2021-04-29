@@ -51,11 +51,12 @@ export const Login = () => {
 								<div className="col-md-11 col-sd-2">
 									<div className="form-group px-4 pt-3">
 										<input
-											type="text"
+											type="email"
 											className="form-control"
 											placeholder="Correo electrónico *"
 											name="email"
 											onChange={handleInputChange}
+											required
 										/>
 									</div>
 									<div className="space" />
@@ -66,6 +67,7 @@ export const Login = () => {
 											placeholder="Contraseña *"
 											name="password"
 											onChange={handleInputChange}
+											required
 										/>
 									</div>
 									<div className="checkboxLogin mx-4 mb-4">

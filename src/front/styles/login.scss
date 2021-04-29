@@ -79,7 +79,7 @@
     float: right;
     border: none;
     border-radius: 30px;
-    //padding: 6px;
+    padding: 6px;
     background: #df3064;
     color: #fff;
     font-weight: 600;
@@ -110,8 +110,6 @@
 }
 
 /* Iconos sociales*/
-
-
 .login_form,
 .login_form *{
 	display: flex;
@@ -119,7 +117,7 @@
 
 .social_login a{
 	width: 80px;
-	height: 40px;
+	height: 35px;
 	justify-content: center;
 	align-items: center;
 	text-decoration: none;
