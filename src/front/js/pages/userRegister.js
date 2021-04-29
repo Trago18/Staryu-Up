@@ -103,8 +103,8 @@ export const User_Register = () => {
 												id="profile"
 												role="tabpanel"
 												aria-labelledby="profile-tab">
-												<div className="row register-form">
-													<div className="col-md">
+												<div className="row register-form ">
+													<div className="col d-flex justify-content-center">
 														<input
 															type="submit"
 															className="btnRegistrarse"
