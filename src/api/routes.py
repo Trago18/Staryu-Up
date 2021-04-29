@@ -22,11 +22,11 @@ def data_test():
     user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='Mascotas', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='11111111', email='test1@gmail.com', category='Mascotas', address='San José', description='test1', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='Pintor', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='22222222', email='test2@gmail.com', category='Pintor', address='Heredia', description='test2', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='Transporte', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='33333333', email='test3@gmail.com', category='Transporte', address='Cartago', description='test3', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
