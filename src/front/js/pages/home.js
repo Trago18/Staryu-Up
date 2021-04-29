@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/home.scss";
-import mante from "../../img/mante.png";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -64,12 +63,14 @@ export const Home = () => {
 					{/* <!-- Iconos--> */}
 					<div className="row ">
 						<div className="categ col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-paw fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Mascotas</span>
+							<Link>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-paw fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Mascotas</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
 							<div className="card-inner p-3 d-flex flex-column align-items-center">
