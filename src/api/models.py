@@ -117,7 +117,7 @@ class Commentaries(db.Model):
 
 class Rates(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    rate = db.Column(db.Integer, nullable=False)
+    rate = db.Column(db.Float, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
     
@@ -125,6 +125,4 @@ class Rates(db.Model):
         return '<Rates %r>' % self.id
     
     def serialize(self):
-        return {
-            "rate": self.rate
-        }
+        return self.rate

@@ -122,7 +122,8 @@ a:hover{
 /* Modal Contact*/ 
 .modalContact {
 	position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -164,7 +165,7 @@ a:hover{
 	right: -12px;
 	text-align: center;
 	top: -10px;
-	width: 24px;
+    width: 44px;
 	text-decoration: none;
 	font-weight: bold;
 	-webkit-border-radius: 12px;
@@ -192,22 +193,22 @@ a:hover{
 .texto_mensaje{
     background-color: #fbfbfb; 
 	width: 405px; 
-	height: 150px; 
+	height: 50px; 
 	border-radius: 5px;  
 	border-style: solid; 
 	border-width: 1px; 
 	border-color: #27cfd4; 
 	padding-left: 10px;
-    margin-bottom: 20px; 
-    
 }
 
-.label2{
+.label3{
     display: block; 
     float: center; 	
     text-align: left;
     padding-left: 30px;
     margin-bottom: -5px;
+    margin-top: -10px;
+    color:rgb(77, 75, 75);
     
 }
 
@@ -215,13 +216,12 @@ a:hover{
 	height: 45px; 
 	padding-left: 5px;
 	padding-right: 5px; 	
-	margin-bottom: 10px; 
 	text-transform: uppercase;
-	background-color: #38d3d8; 
-	border-color: #38d3d8; 
+	background-color: #d83875; 
+	border-color: #d83875; 
 	border-style: solid; 
 	border-radius: 10px;	
-	width: 420px;   
+	width: 200px;   
     
 }
 
@@ -229,12 +229,28 @@ a:hover{
 	color: #fff; 
 }
 
+.btnSubmit:hover{
+    background-color: rgb(51, 168, 177);
+    border-color: rgb(51, 168, 177);
+    text-transform: uppercase;
+}
+.btnSubmit{
+    transition: background-color 0.8s linear 0.2s;
+}
+
 .aviso{
     text-align: left;
     padding-left: 20px;
+    padding-bottom: -50px;
+    margin-bottom: 1px;
+    color: #8a8787;
 }
 
 .obligatorio{
     color: #da2a5e;
     padding-left: 5px;
+}
+
+.cont-header{
+    margin-bottom: 25px;
 }

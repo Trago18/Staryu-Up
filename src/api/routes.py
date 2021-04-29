@@ -77,7 +77,7 @@ def login():
     
     expiration = timedelta(days=365)
     access_token = create_access_token(identity=user, expires_delta=expiration)
-    return jsonify('The login has been successful.', {'access_token':access_token}), 200
+    return jsonify({"msg": "The login has been successful", "access_token":access_token}), 200
 
 
 @api.route('/password_recovery', methods=['POST'])   # recuperar contraseña
@@ -121,6 +121,20 @@ def get_supplier(id):
     supplier = list(map(lambda x: x.serialize(), supplier))
 
     return jsonify(supplier), 200
+
+
+@api.route('/supplier/<int:id>', methods=['POST'])
+def supplier_rate(id):
+
+    rates = Rates.query.filter_by(supplier_id=id).all()
+    all_rates = list(map(lambda x: x.serialize(), rates))
+    # print(sum(all_rates)/len(all_rates))
+    
+    supplier = Supplier.query.filter_by(id=id).first()
+    supplier.rate = sum(all_rates)/len(all_rates)
+    db.session.commit()
+    
+    return jsonify(supplier.rate), 200
 
 
 @api.route('/user_signup', methods=['POST'])    # Creacion de nuevo usuario
@@ -176,6 +190,7 @@ def create_user():
 
 
 @api.route('/supplier_signup', methods=['POST'])    # Creacion de nuevo proveedor
+@jwt_required()
 def create_supplier():
 
     request_body = request.get_json()
@@ -221,7 +236,7 @@ def create_supplier():
     else:
         supplier.schedule = request_body['schedule']
     
-    supplier.user_id = 1
+    supplier.user_id = current_user.id
     supplier.rate = 5
     supplier.member_since = datetime.now().strftime("%x")
     supplier.is_active=True
@@ -237,10 +252,11 @@ def create_supplier():
 
 
 @api.route('/supplier/<int:id>/rate', methods=['GET'])     # obtener calificacion del proveedor
+@jwt_required()
 def get_rate(id):
 
-    supplier = Supplier.query.filter_by(id=id).first()
-    return jsonify(rate=supplier.rate), 200
+    rates = Rates.query.filter_by(user_id=current_user.id, supplier_id=id).first()
+    return jsonify(rate=rates.rate), 200
 
 
 @api.route('/supplier/<int:id>/rate', methods=["POST","DELETE"])     # calificar al proveedor

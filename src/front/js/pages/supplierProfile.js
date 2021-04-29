@@ -42,6 +42,14 @@ export const Supplier_Profile = () => {
 		}
 	};
 
+	const handdleFavorite = e => {
+		if (e.target.checked == true) {
+			actions.postFavorites(params.supplierid);
+		} else if (e.target.checked == false) {
+			actions.deleteFavorites(params.supplierid);
+		}
+	};
+
 	return (
 		<Container className="bg-light my-5">
 			<Row>
@@ -65,60 +73,81 @@ export const Supplier_Profile = () => {
 										<form>
 											<p className="clasificacion">
 												<input
+													className="input1"
 													id="radio1"
 													type="radio"
 													name="star"
 													value="5"
 													onClick={handleInputClick}
 												/>
-												<label htmlFor="radio1">
+												<label className="label1" htmlFor="radio1">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
+													className="input1"
 													id="radio2"
 													type="radio"
 													name="star"
 													value="4"
 													onClick={handleInputClick}
 												/>
-												<label htmlFor="radio2">
+												<label className="label1" htmlFor="radio2">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
+													className="input1"
 													id="radio3"
 													type="radio"
 													name="star"
 													value="3"
 													onClick={handleInputClick}
 												/>
-												<label htmlFor="radio3">
+												<label className="label1" htmlFor="radio3">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
+													className="input1"
 													id="radio4"
 													type="radio"
 													name="star"
 													value="2"
 													onClick={handleInputClick}
 												/>
-												<label htmlFor="radio4">
+												<label className="label1" htmlFor="radio4">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
+													className="input1"
 													id="radio5"
 													type="radio"
 													name="star"
 													value="1"
 													onClick={handleInputClick}
 												/>
-												<label htmlFor="radio5">
+												<label className="label1" htmlFor="radio5">
 													<i className="fa fa-star"></i>
 												</label>
 											</p>
 										</form>
 									</Card.Link>
-									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
+									<div className="supplierRating pt-0 pl-2">
+										{"Stars: " + store.supplierData.rate}
+									</div>
 								</div>
+								<form>
+									<p className="clasificacion2">
+										<input
+											className="input2"
+											id="radios"
+											type="checkbox"
+											name="heart"
+											onClick={handdleFavorite}
+										/>
+										<label className="label2" htmlFor="radios">
+											<i className="fas fa-heart fa-2x"></i>
+										</label>
+									</p>
+								</form>
 							</Row>
 							<div className="pl-2 pt-4">
 								<h5>{store.supplierData.name}</h5>
