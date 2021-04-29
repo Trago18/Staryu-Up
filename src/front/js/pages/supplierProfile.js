@@ -4,6 +4,9 @@ import { Context } from "../store/appContext";
 import "../../styles/supplierProfile.scss";
 import { Media, Card, Container, Row, Col, Tab, Tabs, InputGroup, FormControl, Image, Button } from "react-bootstrap";
 import googleMaps from "../../img/googleMaps.jpg";
+import imagen1 from "../../img/prof1.jpg";
+import imagen2 from "../../img/prof2.png";
+import imagen3 from "../../img/prof3.jpg";
 
 export const Supplier_Profile = () => {
 	const { store, actions } = useContext(Context);
@@ -249,18 +252,18 @@ export const Supplier_Profile = () => {
 						<Container>
 							<Row className="justify-content-center">
 								<Col xs={4}>
-									<Card.Link href="http://via.placeholder.com/440x260">
-										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									<Card.Link href={imagen1}>
+										<Image src={imagen1} thumbnail />
 									</Card.Link>
 								</Col>
 								<Col xs={4}>
-									<Card.Link href="http://via.placeholder.com/440x260">
-										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									<Card.Link href={imagen2}>
+										<Image src={imagen2} thumbnail />
 									</Card.Link>
 								</Col>
 								<Col xs={4}>
-									<Card.Link href="http://via.placeholder.com/440x260">
-										<Image src="http://via.placeholder.com/440x260" thumbnail />
+									<Card.Link href={imagen3}>
+										<Image src={imagen3} thumbnail />
 									</Card.Link>
 								</Col>
 							</Row>
