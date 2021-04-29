@@ -33,7 +33,7 @@ export const User_Profile = () => {
 						/>
 						<Media.Body>
 							<div className="row">
-								<h5 className="col-9 p-3">
+								<h5 className="col-9 pl-4">
 									{store.userData.first_name + " " + store.userData.last_name}
 								</h5>
 								<div className="col mt-4 d-flex justify-content-center">

@@ -10,6 +10,7 @@ import re
 import os
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, From, To, Subject, Content
+from sqlalchemy import or_
 
 
 api = Blueprint('api', __name__)
@@ -21,11 +22,11 @@ def data_test():
     user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='numero1', email='test1@gmail.com', category='Mascotas', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='numero2', email='test2@gmail.com', category='Pintor', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='random', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='numero3', email='test3@gmail.com', category='Transporte', address='cr', description='test', rate=5, member_since='2021', is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
@@ -37,7 +38,7 @@ def search():
 
     search = request.json.get("search", None)
     
-    supplier = Supplier.query.filter_by(name=search).all()
+    supplier = Supplier.query.filter(or_(Supplier.name.contains(search),Supplier.category == (search) )).all()
     if supplier == []:
         return jsonify({"msg": f"There is no data with {search}"}), 200
     all_suppliers = list(map(lambda x: x.serializeSearch(), supplier))

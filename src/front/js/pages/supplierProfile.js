@@ -128,7 +128,9 @@ export const Supplier_Profile = () => {
 											</p>
 										</form>
 									</Card.Link>
-									<div className="supplierRating pt-0 pl-2">{"Rate: " + store.supplierData.rate}</div>
+									<div className="supplierRating pt-0 pl-2">
+										{"Stars: " + store.supplierData.rate}
+									</div>
 								</div>
 								<form>
 									<p className="clasificacion2">
