@@ -23,6 +23,7 @@ export const Home = () => {
 	const handleClick = value => {
 		console.log(value);
 		setData({ change: value });
+		store.search = value;
 		actions.postSearch(value);
 	};
 
@@ -69,10 +70,8 @@ export const Home = () => {
 					{/* <!-- Iconos--> */}
 					<div className="row ">
 						<div className="categ col-md-2">
-							<Link>
-								<div
-									className="card-inner p-3 d-flex flex-column align-items-center"
-									onClick={() => handleClick("Mascotas")}>
+							<Link onClick={() => handleClick("Mascotas")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
 									<i className="icono fa fa-paw fa-3x" />
 									<div className="text-center mg-text pt-2">
 										<span className="mg-text">Mascotas</span>
@@ -81,95 +80,116 @@ export const Home = () => {
 							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-paint-roller fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Pintor</span>
+							<Link onClick={() => handleClick("Pintor")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-paint-roller fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Pintor</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-truck-moving fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Transporte</span>
+							<Link onClick={() => handleClick("Transporte")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-truck-moving fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Transporte</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-camera-retro fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Fotógrafo</span>
+							<Link onClick={() => handleClick("Fotógrafo")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-camera-retro fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Fotógrafo</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-utensils fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Catering</span>
+							<Link onClick={() => handleClick("Catering")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-utensils fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Catering</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-spa fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Jardinero</span>
+							<Link onClick={() => handleClick("Jardinero")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-spa fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Jardinero</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 					<div className="row mt-3">
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-motorcycle fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Express</span>
+							<Link onClick={() => handleClick("Express")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-motorcycle fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Express</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-toolbox fa-3x" />
-
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Construcción</span>
+							<Link onClick={() => handleClick("Construcción")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-toolbox fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Construcción</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-laptop fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Computación</span>
+							<Link onClick={() => handleClick("Computación")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-laptop fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Computación</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-charging-station fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Eléctrico</span>
+							<Link onClick={() => handleClick("Eléctrico")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-charging-station fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Eléctrico</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-chalkboard-teacher fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Enseñanza</span>
+							<Link onClick={() => handleClick("Enseñanza")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-chalkboard-teacher fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Enseñanza</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 						<div className="col-md-2">
-							<div className="card-inner p-3 d-flex flex-column align-items-center">
-								<i className="icono fa fa-wrench fa-3x" />
-								<div className="text-center mg-text pt-2">
-									<span className="mg-text">Mecánico</span>
+							<Link onClick={() => handleClick("Mecánica")}>
+								<div className="card-inner p-3 d-flex flex-column align-items-center">
+									<i className="icono fa fa-wrench fa-3x" />
+									<div className="text-center mg-text pt-2">
+										<span className="mg-text">Mecánica</span>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 					</div>
 				</div>
