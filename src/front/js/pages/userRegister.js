@@ -112,4 +112,3 @@ export const User_Register = () => {
 		</div>
 	);
 };
-git;
