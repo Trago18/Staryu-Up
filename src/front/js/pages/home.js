@@ -20,6 +20,12 @@ export const Home = () => {
 		});
 	};
 
+	const handleClick = value => {
+		console.log(value);
+		setData({ change: value });
+		actions.postSearch(value);
+	};
+
 	const frontSearch = e => {
 		e.preventDefault();
 		// console.log(data.search);
@@ -64,7 +70,9 @@ export const Home = () => {
 					<div className="row ">
 						<div className="categ col-md-2">
 							<Link>
-								<div className="card-inner p-3 d-flex flex-column align-items-center">
+								<div
+									className="card-inner p-3 d-flex flex-column align-items-center"
+									onClick={() => handleClick("Mascotas")}>
 									<i className="icono fa fa-paw fa-3x" />
 									<div className="text-center mg-text pt-2">
 										<span className="mg-text">Mascotas</span>
