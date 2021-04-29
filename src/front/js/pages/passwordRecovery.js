@@ -55,7 +55,7 @@ export const Password_Recovery = () => {
 
 									<div className="form-grupo mb-5">
 										<div className="row register-form">
-											<div className="col-md col-sd-2">
+											<div className="col-md col-sd-2 d-flex justify-content-center">
 												<input type="submit" className="btnEnviar" value="Enviar" />
 											</div>
 										</div>

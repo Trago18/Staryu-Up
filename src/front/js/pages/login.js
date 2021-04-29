@@ -104,7 +104,7 @@ export const Login = () => {
 													</div>
 												</div>
 											</div>
-											<div className="recup mt-5 d-flex justify-content-center">
+											<div className="recup mt-4 d-flex justify-content-center">
 												<Link to="/recovery">
 													<input
 														type="submit"
