@@ -168,7 +168,7 @@ export const Supplier_Profile = () => {
 								<Col sm={6}>
 									<Card className="p-2 supplierInfo text-left">
 										<div>
-											<h6>Sobre mi</h6>
+											<h6>Descripción</h6>
 											<p> {store.supplierData.description}</p>
 											<hr />
 

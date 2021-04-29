@@ -1,17 +1,18 @@
 
 .registro{
     background: -webkit-linear-gradient(left, #295686, #11afdb);
-    padding-top: 180px;
+    padding-top: 40px;
     padding-right: 20%;
-    padding-bottom: 130px;
+    padding-bottom: 40px;
     padding-left: 20%;
+    height: 100vh
 }
 
 .login{
     text-align: center;
     color: #fff;
     margin-top: 150px;
-    margin-right: 20px;
+    margin-right: 30px;
     
    
 }
@@ -26,7 +27,7 @@
 }
 .formulario{
     background: #f8f9fa;
-    height: 558px;
+    height: 500px;
     padding-top: 15px;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
@@ -35,7 +36,7 @@
 }
 .login .fa-user-shield {
     margin-top: 15%;
-    margin-bottom: 10%;
+    //margin-bottom: 10%;
     width: 25%;
     -webkit-animation: mover 2s infinite  alternate;
     animation: mover 1s infinite  alternate;
@@ -63,7 +64,7 @@
     font-weight: 600;
     width: 200px;
     margin-top: 30px;
-    margin-right: 150px;
+    //margin-right: 150px;
     box-shadow: 10px 10px 6px rgba(0,0,0,.3);
 }
 
