@@ -65,11 +65,11 @@ export const Supplier_Profile = () => {
 							alt="supplier_profile_photo"
 						/>
 						<Media.Body>
-							<Row className="justify-content-between px-4">
+							<Row className="ratingBox justify-content-between px-3 ">
 								<div>
-									<Card.Link href="#">
+									<Col>
 										<form>
-											<p className="clasificacion">
+											<p className="clasificacion my-0 ">
 												<input
 													className="input1"
 													id="radio1"
@@ -78,7 +78,7 @@ export const Supplier_Profile = () => {
 													value="5"
 													onClick={handleInputClick}
 												/>
-												<label className="label1" htmlFor="radio1">
+												<label className="label1 my-0" htmlFor="radio1">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
@@ -89,7 +89,7 @@ export const Supplier_Profile = () => {
 													value="4"
 													onClick={handleInputClick}
 												/>
-												<label className="label1" htmlFor="radio2">
+												<label className="label1 my-0" htmlFor="radio2">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
@@ -100,7 +100,7 @@ export const Supplier_Profile = () => {
 													value="3"
 													onClick={handleInputClick}
 												/>
-												<label className="label1" htmlFor="radio3">
+												<label className="label1 my-0" htmlFor="radio3">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
@@ -111,7 +111,7 @@ export const Supplier_Profile = () => {
 													value="2"
 													onClick={handleInputClick}
 												/>
-												<label className="label1" htmlFor="radio4">
+												<label className="label1 my-0" htmlFor="radio4">
 													<i className="fa fa-star"></i>
 												</label>
 												<input
@@ -122,13 +122,13 @@ export const Supplier_Profile = () => {
 													value="1"
 													onClick={handleInputClick}
 												/>
-												<label className="label1" htmlFor="radio5">
+												<label className="label1 my-0" htmlFor="radio5">
 													<i className="fa fa-star"></i>
 												</label>
 											</p>
 										</form>
-									</Card.Link>
-									<div className="supplierRating pt-0 pl-2">
+									</Col>
+									<div className="supplierRating pt-0 ml-3">
 										{"Stars: " + store.supplierData.rate}
 									</div>
 								</div>
@@ -147,7 +147,7 @@ export const Supplier_Profile = () => {
 									</p>
 								</form>
 							</Row>
-							<div className="pl-2 pt-4">
+							<div className="pl-3 ">
 								<h5>{store.supplierData.name}</h5>
 							</div>
 

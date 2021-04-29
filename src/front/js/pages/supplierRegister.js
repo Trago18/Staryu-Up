@@ -341,7 +341,7 @@ export const Supplier_Register = () => {
 								<div className="col-12 register-form d-flex justify-content-center mt-3">
 									<input type="submit" className="btnRegistrar" value="Registrarse" />
 								</div>
-								<p className="aviso3">
+								<p className="aviso3 align-self-center">
 									<span className="obligatorio3">
 										<i className="alert fas fa-exclamation-triangle"></i>
 									</span>
