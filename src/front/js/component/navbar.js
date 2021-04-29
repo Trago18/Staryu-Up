@@ -29,7 +29,7 @@ export const Navbar_menu = () => {
 					</li>
 					<li>
 						<Link to="/supplier-register">
-							<div>Hacerme Proveedor</div>
+							<div>Crear Proveedor</div>
 						</Link>
 					</li>
 					<li>

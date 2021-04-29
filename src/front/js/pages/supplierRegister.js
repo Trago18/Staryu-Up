@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/supplierRegister.scss";
 
 export const Supplier_Register = () => {
@@ -44,7 +45,9 @@ export const Supplier_Register = () => {
 				<div className="usuario">
 					<i className="fa fa-address-card fa-4x mr-5" />
 					<h3>Bienvenido</h3>
-					<input type="submit" name="" value="Login" />
+					<Link to="/login">
+						<input type="submit" name="" value="Login" />
+					</Link>
 					<br />
 				</div>
 				<div className="col-md-9 formulario-proveedor">
