@@ -34,6 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			rate: "",
 			favorite: "",
 			recovery: "",
+			suppURL: "",
 			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
@@ -259,6 +260,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ favorite: data }))
 					.catch(error => console.log("Error get favorite sup", error));
+			},
+			getSupURL: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/supplier", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ suppURL: data }))
+					.catch(error => console.log("Error get sup url", error));
 			}
 		}
 	};
