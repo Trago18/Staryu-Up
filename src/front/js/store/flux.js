@@ -33,6 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			commentaries: [],
 			rate: "",
 			favorite: "",
+			recovery: "",
 			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
@@ -133,7 +134,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
 					.then(response => response.json())
-					//.then(data => console.log(data))
+					.then(data => setStore({ recovery: data }))
 					.catch(error => console.log("Error password recovery", error));
 			},
 			getFavorites: () => {

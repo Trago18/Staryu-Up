@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/passwordRecovery.scss";
 
 export const Password_Recovery = () => {
@@ -24,6 +24,11 @@ export const Password_Recovery = () => {
 		//console.log(data.email);
 		actions.postRecovery(data.email);
 	};
+
+	if (store.recovery.msg == "The email was send") {
+		alert("Su contraseña fue enviada satisfactoriamente a su correo");
+		store.recovery = "";
+	}
 
 	return (
 		<div className="recovery">
