@@ -33,6 +33,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			commentaries: [],
 			rate: "",
 			favorite: "",
+			recovery: "",
+			suppURL: "",
 			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
@@ -133,7 +135,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				fetch(process.env.BACKEND_URL + "/password_recovery", requestOptions)
 					.then(response => response.json())
-					//.then(data => console.log(data))
+					.then(data => setStore({ recovery: data }))
 					.catch(error => console.log("Error password recovery", error));
 			},
 			getFavorites: () => {
@@ -258,6 +260,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => setStore({ favorite: data }))
 					.catch(error => console.log("Error get favorite sup", error));
+			},
+			getSupURL: () => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/supplier", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ suppURL: data }))
+					.catch(error => console.log("Error get sup url", error));
 			}
 		}
 	};

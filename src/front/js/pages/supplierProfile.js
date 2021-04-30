@@ -29,6 +29,7 @@ export const Supplier_Profile = () => {
 		actions.getCommentaries(params.supplierid);
 		actions.getRate(params.supplierid);
 		actions.getFavoriteSup(params.supplierid);
+		store.supplierInfo = "";
 	}, []);
 
 	const addComment = e => {

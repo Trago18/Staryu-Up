@@ -22,11 +22,11 @@ def data_test():
     user=User(first_name='nombre2', last_name='apellido2', phone_number='numero2', email='test2@gmail.com', password='Pass234*', is_active=True)
     db.session.add(user)
 
-    suppiler=Supplier(name='proveedor1', phone_number='11111111', email='test1@gmail.com', category='Mascotas', address='San José', description='test1', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor1', phone_number='11111111', email='test1@gmail.com', category='Mascotas', address='San José', description='test1', rate=5, member_since=datetime.now().strftime("%d/%m/%Y"), is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor2', phone_number='22222222', email='test2@gmail.com', category='Pintor', address='Heredia', description='test2', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=1)
+    suppiler=Supplier(name='proveedor2', phone_number='22222222', email='test2@gmail.com', category='Pintor', address='Heredia', description='test2', rate=5, member_since=datetime.now().strftime("%d/%m/%Y"), is_active=True, user_id=1)
     db.session.add(suppiler)
-    suppiler=Supplier(name='proveedor3', phone_number='33333333', email='test3@gmail.com', category='Transporte', address='Cartago', description='test3', rate=5, member_since=datetime.now().strftime("%x"), is_active=True, user_id=2)
+    suppiler=Supplier(name='proveedor3', phone_number='33333333', email='test3@gmail.com', category='Transporte', address='Cartago', description='test3', rate=5, member_since=datetime.now().strftime("%d/%m/%Y"), is_active=True, user_id=2)
     db.session.add(suppiler)
 
     db.session.commit()
@@ -85,14 +85,14 @@ def get_password():
         return jsonify({"msg": "Email doesn't exist"}), 400
 
     sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
-    from_email = From("franksolorc@hotmail.com", 'Trago')
+    from_email = From("franksolorc@hotmail.com", 'Staryu')
     to_email = To(email)
     subject = Subject("Recuperación de Contraseña")
     content = Content("text/plain", user.password)
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 
-    return jsonify({'msg': 'The email was send.'})
+    return jsonify({'msg': 'The email was send'})
 
     
 @api.route("/user", methods=["GET"])   # Datos del perfil del usuario
@@ -229,7 +229,7 @@ def create_supplier():
     
     supplier.user_id = current_user.id
     supplier.rate = 5
-    supplier.member_since = datetime.now().strftime("%x")
+    supplier.member_since = datetime.now().strftime("%d/%m/%Y")
     supplier.is_active=True
 
     db.session.add(supplier)
@@ -375,3 +375,13 @@ def delete_favorite():
     all_favorites = list(map(lambda x: x.serialize(), favorites))
 
     return jsonify(all_favorites), 200
+
+@api.route("/supplier", methods=["GET"])   # Datos del perfil de proveedor
+@jwt_required()
+def get_suppliers():
+
+    supplier = Supplier.query.filter_by(user_id=current_user.id).first()
+    if supplier:
+        return jsonify(url=supplier.id), 200
+    else:
+        return jsonify(None), 200

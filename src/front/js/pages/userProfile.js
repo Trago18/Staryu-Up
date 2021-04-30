@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/userProfile.scss";
 import { Media, Tab, Tabs, Container, Row, Col } from "react-bootstrap";
 import userImg from "../../img/avatar.jpg";
@@ -10,10 +11,17 @@ export const User_Profile = () => {
 	useEffect(() => {
 		actions.getUser();
 		actions.getFavorites();
+		actions.getSupURL();
 	}, []);
 
 	const removeFavorite = id => {
 		actions.deleteFavorites(id);
+	};
+
+	const test = () => {
+		if (store.suppURL == null) {
+			alert("No tienes cuenta de proveedor. Crea tu perfil de proveedor dando click en Crear Proveedor.");
+		}
 	};
 
 	return (
@@ -34,7 +42,14 @@ export const User_Profile = () => {
 									{store.userData.first_name + " " + store.userData.last_name}
 								</h5>
 								<div className="col mt-4 d-flex justify-content-center">
-									<input type="submit" className="boton15" value="Perfil proveedor" />
+									<Link to={store.suppURL != null ? "/supplier/" + store.suppURL.url : "#"}>
+										<input
+											type="submit"
+											className="boton15"
+											value="Perfil proveedor"
+											onClick={test}
+										/>
+									</Link>
 								</div>
 								<hr />
 							</div>
