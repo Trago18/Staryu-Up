@@ -84,7 +84,7 @@ export const User_Profile = () => {
 											<>
 												<div className="row">
 													<ul className="col-11" key={index}>
-														{value.name}
+														<Link to={"/supplier/" + value.id}>{value.name}</Link>
 													</ul>
 													<div
 														className="col basurero2"
