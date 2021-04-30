@@ -244,6 +244,16 @@ def create_supplier():
 
     return jsonify(response_body), 200
 
+@api.route('/supplier/<int:id>/favorite', methods=['GET'])     # obtener calificacion del proveedor
+@jwt_required()
+def get_favorites(id):
+
+    favorites = Favorites.query.filter_by(user_id=current_user.id, supplier_id=id).first()
+    if favorites:
+        return jsonify(True), 200
+    else:
+        return jsonify(False), 200
+
 
 @api.route('/supplier/<int:id>/rate', methods=['GET'])     # obtener calificacion del proveedor
 @jwt_required()
