@@ -233,7 +233,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				);
 			},
 			getRate: id => {
-				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate")
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ rate: data }))
 					.catch(error => console.log("Error get rate", error));

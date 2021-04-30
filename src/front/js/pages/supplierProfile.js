@@ -15,6 +15,7 @@ export const Supplier_Profile = () => {
 	useEffect(() => {
 		actions.getSupplier(params.supplierid);
 		actions.getCommentaries(params.supplierid);
+		//actions.getRate(params.supplierid);
 	}, []);
 
 	const addComment = e => {
@@ -53,6 +54,7 @@ export const Supplier_Profile = () => {
 
 	return (
 		<Container className="bg-light my-5">
+			{/* {console.log(store.rate.rate)} */}
 			<Row>
 				<Col className="supplierCard py-3 px-4" style={{ width: "100%", height: "180px" }}>
 					<Media>
