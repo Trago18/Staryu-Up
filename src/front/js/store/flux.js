@@ -32,6 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			commentaries: [],
 			rate: "",
+			favorite: "",
 			token: null || sessionStorage.Token || localStorage.Token
 		},
 		actions: {
@@ -233,10 +234,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 				);
 			},
 			getRate: id => {
-				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate")
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/rate", requestOptions)
 					.then(res => res.json())
 					.then(data => setStore({ rate: data }))
 					.catch(error => console.log("Error get rate", error));
+			},
+			getFavoriteSup: id => {
+				const requestOptions = {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: "Bearer " + getStore().token
+					}
+				};
+				fetch(process.env.BACKEND_URL + "/supplier/" + id + "/favorite", requestOptions)
+					.then(res => res.json())
+					.then(data => setStore({ favorite: data }))
+					.catch(error => console.log("Error get favorite sup", error));
 			}
 		}
 	};

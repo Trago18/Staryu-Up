@@ -12,13 +12,26 @@ export const Supplier_Profile = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
+	const [data, setData] = useState({
+		checked5: false,
+		checked4: false,
+		checked3: false,
+		checked2: false,
+		checked1: false
+	});
+
+	const [fav, setFav] = useState({
+		favorite: ""
+	});
+
 	useEffect(() => {
 		actions.getSupplier(params.supplierid);
 		actions.getCommentaries(params.supplierid);
+		actions.getRate(params.supplierid);
+		actions.getFavoriteSup(params.supplierid);
 	}, []);
 
 	const addComment = e => {
-		// e.preventDefault();
 		if (e.key === "Enter") {
 			actions.postCommentaries(params.supplierid, e.target.value);
 			e.target.value = "";
@@ -29,25 +42,94 @@ export const Supplier_Profile = () => {
 		actions.deleteCommentaries(params.supplierid, comment);
 	};
 
-	let i = "0";
-	const handleInputClick = e => {
-		if (i == e.target.value && i != "0") {
-			e.target.checked = false;
-			i = "0";
-			console.log(i);
-			actions.userRate(params.supplierid, i);
-		} else {
-			i = e.target.value;
-			console.log(i);
-			actions.userRate(params.supplierid, i);
-		}
-	};
-
 	const handdleFavorite = e => {
 		if (e.target.checked == true) {
 			actions.postFavorites(params.supplierid);
+			store.favorite = true;
 		} else if (e.target.checked == false) {
 			actions.deleteFavorites(params.supplierid);
+			store.favorite = false;
+		}
+	};
+
+	if (store.rate.rate == 5) {
+		setData({ checked5: true, checked4: false, checked3: false, checked2: false, checked1: false });
+		store.rate.rate = 0;
+	} else if (store.rate.rate == 4) {
+		setData({ checked5: false, checked4: true, checked3: false, checked2: false, checked1: false });
+		store.rate.rate = 0;
+	} else if (store.rate.rate == 3) {
+		setData({ checked5: false, checked4: false, checked3: true, checked2: false, checked1: false });
+		store.rate.rate = 0;
+	} else if (store.rate.rate == 2) {
+		setData({ checked5: false, checked4: false, checked3: false, checked2: true, checked1: false });
+		store.rate.rate = 0;
+	} else if (store.rate.rate == 1) {
+		setData({ checked5: false, checked4: false, checked3: false, checked2: false, checked1: true });
+		store.rate.rate = 0;
+	}
+
+	const handleInputTest = e => {
+		if (data.checked5 == false && e.target.value == "5") {
+			setData({
+				checked5: true,
+				checked4: false,
+				checked3: false,
+				checked2: false,
+				checked1: false
+			});
+			actions.userRate(params.supplierid, e.target.value);
+		} else if (data.checked4 == false && e.target.value == "4") {
+			setData({
+				checked5: false,
+				checked4: true,
+				checked3: false,
+				checked2: false,
+				checked1: false
+			});
+			actions.userRate(params.supplierid, e.target.value);
+		} else if (data.checked3 == false && e.target.value == "3") {
+			setData({
+				checked5: false,
+				checked4: false,
+				checked3: true,
+				checked2: false,
+				checked1: false
+			});
+			actions.userRate(params.supplierid, e.target.value);
+		} else if (data.checked2 == false && e.target.value == "2") {
+			setData({
+				checked5: false,
+				checked4: false,
+				checked3: false,
+				checked2: true,
+				checked1: false
+			});
+			actions.userRate(params.supplierid, e.target.value);
+		} else if (data.checked1 == false && e.target.value == "1") {
+			setData({
+				checked5: false,
+				checked4: false,
+				checked3: false,
+				checked2: false,
+				checked1: true
+			});
+			actions.userRate(params.supplierid, e.target.value);
+		} else if (
+			(data.checked5 == true && e.target.value == "5") ||
+			(data.checked4 == true && e.target.value == "4") ||
+			(data.checked3 == true && e.target.value == "3") ||
+			(data.checked2 == true && e.target.value == "2") ||
+			(data.checked1 == true && e.target.value == "1")
+		) {
+			setData({
+				checked5: false,
+				checked4: false,
+				checked3: false,
+				checked2: false,
+				checked1: false
+			});
+			actions.userRate(params.supplierid, "0");
 		}
 	};
 
@@ -75,7 +157,8 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="5"
-													onClick={handleInputClick}
+													checked={data.checked5}
+													onClick={handleInputTest}
 												/>
 												<label className="label1 my-0" htmlFor="radio1">
 													<i className="fa fa-star"></i>
@@ -86,7 +169,8 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="4"
-													onClick={handleInputClick}
+													checked={data.checked4}
+													onClick={handleInputTest}
 												/>
 												<label className="label1 my-0" htmlFor="radio2">
 													<i className="fa fa-star"></i>
@@ -97,7 +181,8 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="3"
-													onClick={handleInputClick}
+													checked={data.checked3}
+													onClick={handleInputTest}
 												/>
 												<label className="label1 my-0" htmlFor="radio3">
 													<i className="fa fa-star"></i>
@@ -108,7 +193,8 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="2"
-													onClick={handleInputClick}
+													checked={data.checked2}
+													onClick={handleInputTest}
 												/>
 												<label className="label1 my-0" htmlFor="radio4">
 													<i className="fa fa-star"></i>
@@ -119,7 +205,8 @@ export const Supplier_Profile = () => {
 													type="radio"
 													name="star"
 													value="1"
-													onClick={handleInputClick}
+													checked={data.checked1}
+													onClick={handleInputTest}
 												/>
 												<label className="label1 my-0" htmlFor="radio5">
 													<i className="fa fa-star"></i>
@@ -138,6 +225,7 @@ export const Supplier_Profile = () => {
 											id="radios"
 											type="checkbox"
 											name="heart"
+											checked={store.favorite}
 											onClick={handdleFavorite}
 										/>
 										<label className="label2" htmlFor="radios">
