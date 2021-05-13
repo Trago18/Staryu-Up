@@ -196,8 +196,8 @@ export const Home = () => {
 			</section>
 			{/* <!-- Unete a nuestra red--> */}
 			<div className="red-expertos text-center">
-				<div className="container p-5 height d-flex align-items-center flex-column">
-					<h1 className="seccion-expertos mt-5 p-5">ÚNETE A NUESTRA RED DE EXPERTOS</h1>
+				<div className="container height d-flex align-items-center flex-column">
+					<h1 className="seccion-expertos mt-5 pt-5">ÚNETE A NUESTRA RED DE EXPERTOS</h1>
 				</div>
 			</div>
 		</div>
