@@ -85,7 +85,7 @@ def get_password():
         return jsonify({"msg": "Email doesn't exist"}), 400
 
     sg = SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
-    from_email = From("franksolorc@hotmail.com", 'Staryu')
+    from_email = From("franksolorc@hotmail.com", 'Staryu Up')
     to_email = To(email)
     subject = Subject("Recuperación de Contraseña")
     content = Content("text/plain", user.password)
