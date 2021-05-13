@@ -49,9 +49,9 @@ export const Supplier_Register = () => {
 				<div className="usuario">
 					<i className="fa fa-address-card fa-4x mr-5" />
 					<h3>Bienvenido</h3>
-					<Link to="/login">
+					{/* <Link to="/login">
 						<input type="submit" name="" value="Login" />
-					</Link>
+					</Link> */}
 					<br />
 				</div>
 				<div className="col-md-9 formulario-proveedor">
@@ -257,12 +257,12 @@ export const Supplier_Register = () => {
 								<div className="col-12 register-form d-flex justify-content-center mt-3">
 									<input type="submit" className="btnRegistrar" value="Registrarse" />
 								</div>
-								<p className="aviso3 align-self-center">
+								{/* <p className="aviso3 align-self-center">
 									<span className="obligatorio3">
 										<i className="alert fas fa-exclamation-triangle"></i>
 									</span>
 									Inicia sesión antes de crear tu perfil de proveedor.
-								</p>
+								</p> */}
 							</form>
 						</div>
 					</div>

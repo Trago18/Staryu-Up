@@ -28,16 +28,6 @@ export const Navbar_menu = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/supplier-register">
-							<div>Crear Proveedor</div>
-						</Link>
-					</li>
-					<li>
-						<Link to="/user">
-							<div>Perfil</div>
-						</Link>
-					</li>
-					<li>
 						<div className="form-contact">
 							<a className="btnContact" href="#openContact">
 								Contáctenos
@@ -125,6 +115,17 @@ export const Navbar_menu = () => {
 					</li>
 					<li>
 						{store.token == null ? (
+							<Link to="/user-register">
+								<div>Crear Usuario</div>
+							</Link>
+						) : (
+							<Link to="/user">
+								<div>Perfil</div>
+							</Link>
+						)}
+					</li>
+					<li>
+						{store.token == null ? (
 							<Link to="/login">
 								<div>Iniciar Sesión</div>
 							</Link>
@@ -133,9 +134,6 @@ export const Navbar_menu = () => {
 								<div onClick={logout}>Cerrar Sesión</div>
 							</a>
 						)}
-						{/* <Link to="/login">
-							<div>Iniciar Sesión</div>
-						</Link> */}
 					</li>
 				</ul>
 			</div>
