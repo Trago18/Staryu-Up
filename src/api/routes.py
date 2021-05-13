@@ -122,7 +122,7 @@ def supplier_rate(id):
     # print(sum(all_rates)/len(all_rates))
 
     supplier = Supplier.query.filter_by(id=id).first()
-    supplier.rate = (sum(all_rates)+5)/(len(all_rates)+1)
+    supplier.rate = (sum(all_rates))/(len(all_rates))
     db.session.commit()
     
     return jsonify(supplier.rate), 200
